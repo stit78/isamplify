@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_101951) do
+ActiveRecord::Schema.define(version: 2018_12_04_104306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,9 @@ ActiveRecord::Schema.define(version: 2018_12_04_101951) do
     t.string "quality_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "sale_id"
     t.index ["purchase_id"], name: "index_coffee_lots_on_purchase_id"
+    t.index ["sale_id"], name: "index_coffee_lots_on_sale_id"
   end
 
   create_table "potential_clients", force: :cascade do |t|
@@ -123,6 +125,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_101951) do
   add_foreign_key "coffee_certifications", "certifications"
   add_foreign_key "coffee_certifications", "coffee_lots"
   add_foreign_key "coffee_lots", "purchases"
+  add_foreign_key "coffee_lots", "sales"
   add_foreign_key "potential_clients", "coffee_lots"
   add_foreign_key "potential_clients", "users", column: "client_id"
   add_foreign_key "purchases", "users", column: "exporter_id"
