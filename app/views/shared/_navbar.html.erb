@@ -13,16 +13,10 @@
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
-      <%= link_to "Buy", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% if current_user.coffees.count == 0 %>
-        <%= link_to "My purchases", purchases_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Start selling", coffees_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% else %>
-        <%= link_to "Reception", coffees_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Testing", purchases_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Editing", knowledge_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% end %>
+        <%= link_to "Reception", receptions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Testing", receptions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Editing", receptions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

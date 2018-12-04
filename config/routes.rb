@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :samples, only: [:index, :edit, :update]
   devise_for :users
   root to: 'pages#home'
+  resources :samples
+  resources :receptions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
