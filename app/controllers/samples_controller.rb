@@ -17,7 +17,10 @@ class SamplesController < ApplicationController
   def create
     @sample = Sample.find(params[:id])
     @sample.coffee_lot = coffeelot
-    @sample.role = "Trader"
+    @sample.trader = current_user.role
+    @sample.status = "Received"
+    @sample.stage = "Offer Sample"
+
     if @sample.save
       redirect_to sample_path(@sample)
     else
