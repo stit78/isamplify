@@ -1,0 +1,20 @@
+<h1>Samples#new</h1>
+<p>Find me in app/views/samples/new.html.erb</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <%= simple_form_for (@sample) do |s| %>
+        <div class="col-md-6 col-md-offset-3 start-new-coffee-form">
+          <div class="input_element_inline">
+            <div class="input_element">
+              <%= c.input :coffeelot_id, placeholder: 'eg: 1843', label: 'Coffee Lot' %>
+            </div>
+            <div class="input_element_inline">
+              <%= c.input :exporter, placeholder: 'Diego da Silva', label: 'Coffee exporter' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+ </div>
