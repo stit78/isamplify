@@ -11,11 +11,8 @@ SIZE = [8, 10, 12, 14, 16, 18, 20]
 PROFILE = ["good cup", "clean cup", "supremo UGQ", "Agasimbo", "Cherry", "AB"]
 QUALITY = ["a", "b", "c", "d"]
 certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Practice"]
-certifications.each do |certification|
-  certification.create(name: certification)
-end
 STAGE = ["Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Offer Sample", "Sale Sample"]
-CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "Tim Hortons"]
+CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]
 
 
 puts "destroying samples"
@@ -35,11 +32,13 @@ User.destroy_all
 
 puts "DESTRUCTIONS TERMINATED"
 
-
-
+certifications.each do |certification|
+  certif = Certification.new(name: certification)
+  certif.save!
+end
 
 puts "creating user Carlos"
-carlos = User.create(
+carlos = User.new(
   email: "carlos@gmail.com",
   role: "Exporter",
   company_name: "Sogimex",
@@ -48,10 +47,10 @@ carlos = User.create(
   phone_number: "06 11 22 33 44 55",
   password: "123456"
   )
-
+carlos.save
 
 puts "creating user Amandine"
-amandine = User.create(
+amandine = User.new(
   email: "amandine@gmail.com",
   role: "Trader",
   company_name: "LDC",
@@ -60,27 +59,29 @@ amandine = User.create(
   phone_number: "06 66 77 88 99",
   password: "123456"
   )
+amandine.save
 
 puts "creating 5 clients"
 CLIENTS.each do |client|
 
-  User.create(
+  firstuser = User.new(
     email: "#{client}@gmail.com",
     role: "Client",
-    company_name: client,
-    first_name: client[0, 2],
-    last_name: client[3, -1],
+    company_name: client.to_s,
+    first_name: client[0..2].to_s,
+    last_name: client[3..-1].to_s,
     phone_number: "06 44 44 44 44",
     password: "123456"
     )
+  firstuser.save
 end
 
 
-puts "creating 5 coffee lots"
-5.times do
+puts "creating 35 coffee lots"
+35.times do
   puts "creating one coffeelot"
 
-  coffeelot = Coffee.create(
+  coffeelot = CoffeeLot.new(
     provenance: COUNTRY.sample,
     quantity: rand(1..20),
     tree: TREE.sample,
@@ -92,30 +93,36 @@ puts "creating 5 coffee lots"
     )
   puts "creating certifications for this coffeelot"
   rand(1..5).times do
-    coffee_certifications.create(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
+    coffeecertif = CoffeeCertification.new(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
+    coffeecertif.save
   end
 
   puts "creating samples for this coffeelot"
-  rand(6..10).times do
-    sample = Sample.create(
+    sample = Sample.new(
       stage: STAGE.sample,
       exporter: carlos,
       trader: amandine,
       coffee_lot: coffeelot,
       status: "Pending"
       )
-  end
+    sample.save
+
 
   puts "creating potential client list for this coffeelot"
   rand(1..3).times do
-    PotentialClient.create(coffee_lot: coffeelot, client: Certification.all.first(Certification.count).sample)
+    potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+    potclient.save
   end
 
-  Purchase.create(
+  purchase = Purchase.new(
     exporter: carlos,
     trader: amandine,
     price: rand(1000..3000),
-    quantity: rand(10..30)
+    quantity: rand(10..30),
+    owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : amandine)
     )
+  purchase.save
+
+  coffeelot.save
 end
 
