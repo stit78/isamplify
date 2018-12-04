@@ -1,6 +1,23 @@
-class ReceptionsController < ApplicationController
-  def index
-    @samples = Sample.all
+class SamplesController < ApplicationController
+
+  def pending_index
+    @samples = Sample.pending
+  end
+
+  def received_index
+    @samples = Sample.received
+  end
+
+  def tested_index
+    @samples = Sample.tested
+  end
+
+  def labelled_index
+    @samples = Sample.labelled
+  end
+
+  def sent_index
+    @samples = Sample.sent
   end
 
   def show
