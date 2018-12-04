@@ -1,8 +1,10 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
-  <% end %>
+  <div class="avatar">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "ldc.png", height: 50 %>
+    <% end %>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -10,14 +12,20 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Buy", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% if current_user.coffees.count == 0 %>
+        <%= link_to "My purchases", purchases_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Start selling", coffees_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% else %>
+        <%= link_to "Reception", coffees_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Testing", purchases_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Editing", knowledge_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%=  image_tag("amandine.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -55,4 +63,3 @@
     </div>
   </div>
 </div>
-
