@@ -5,7 +5,7 @@ class CoffeeLot < ApplicationRecord
   belongs_to :purchase_id
 
   validates :provenance, presence: true
-  validates :tree, presence: true, inclusion: { in: ["Arabica", "Robusta", "Blend"] }
+  validates :tree, presence: true, inclusion: { in: ["Arabica", "Robusta"] }
   validates :iconumber, presence: true
   validates :screen_size, presence: true
   validates :cup_profile, presence: true
