@@ -1,5 +1,4 @@
 class Sample < ApplicationRecord
-
   belongs_to :coffee_lot
   belongs_to :exporter, class_name: 'User'
   belongs_to :trader, class_name: 'User'
