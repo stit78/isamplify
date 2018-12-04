@@ -1,0 +1,55 @@
+_card_sample.scss
+
+.card-box {
+  border: black solid 1px;
+}
+
+.card-main {
+  border: black solid 1px;
+}
+
+.card-title {
+  p {
+    color: red;
+    text-align: left;
+  }
+}
+
+.card_content {
+  border: black solid 1px;
+  width: auto;
+  display: flex;
+}
+
+.card_todo {
+  border: black solid 1px;
+}
+
+.card_info {
+  border: black solid 1px;
+}
+
+.card_progress_bar {
+  border: black solid 1px;
+}
+
+.card_description {
+  border: black solid 1px;
+}
+
+.card_field {
+  border: black solid 1px;
+  display: flex;
+}
+
+.card_key {
+  border: black solid 1px;
+}
+
+.card_value {
+  border: black solid 1px;
+}
+
+.card_expendable {
+  border: black solid 1px;
+}
