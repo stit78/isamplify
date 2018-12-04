@@ -13,9 +13,9 @@
 
     <% if user_signed_in? %>
 
-        <%= link_to "Reception", receptions_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Testing", receptions_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Editing", receptions_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Reception", pending_index_samples_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Testing", received_index_samples_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Editing", tested_index_samples_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 
       <!-- Avatar with dropdown menu -->
