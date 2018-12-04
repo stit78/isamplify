@@ -14,6 +14,20 @@ certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Pract
 STAGE = ["Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Offer Sample", "Sale Sample"]
 CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]
 
+def creating_sample(coffeelot, stage)
+  sample = Sample.new(
+    stage: stage,
+    exporter: User.where(role: "Exporter").first,
+    trader: User.where(role: "Trader").first,
+    coffee_lot: coffeelot,
+    status: "Sent",
+    acidity: rand(1..10),
+    sweetness: rand(1..10),
+    clean: rand(1..10)
+    )
+  sample.save
+end
+
 
 puts "destroying samples"
 Sample.destroy_all
@@ -107,6 +121,29 @@ puts "creating 35 coffee lots"
       )
     sample.save
 
+  puts "adding historic to sample"
+  if sample.stage == "Loading Sample"
+    creating_sample(coffeelot, "Loading Sample")
+  elsif sample.stage == "Port Sample"
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+  elsif sample.stage == "Warehouse Sample"
+    creating_sample(coffeelot, "Port Sample")
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+  elsif sample.stage == "Offer Sample"
+    creating_sample(coffeelot, "Warehouse Sample")
+    creating_sample(coffeelot, "Port Sample")
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+  elsif sample.stage == "Sale Sample"
+    creating_sample(coffeelot, "Offer Sample")
+    creating_sample(coffeelot, "Warehouse Sample")
+    creating_sample(coffeelot, "Port Sample")
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+  end
+
 
   puts "creating potential client list for this coffeelot"
   rand(1..3).times do
@@ -125,4 +162,7 @@ puts "creating 35 coffee lots"
 
   coffeelot.save
 end
+
+puts "...."
+puts "FINIHSHED"
 
