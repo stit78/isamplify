@@ -1,0 +1,102 @@
+.container{
+  height:100vd;
+}
+
+.card-shop {
+  position: fixed;
+  right: 20px;
+  top: 30px;
+  margin: 80px auto;
+  width: 300px;
+  height: 250px;
+  background: #FFFFFF;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  height: 60px;
+  border-bottom: 1px solid #E1E8EE;
+  padding: 20px 30px;
+  color: #5E6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item {
+  padding: 20px 30px;
+  height: 150px;
+  display: flex;
+  justify-content:space-between;
+}
+
+.information{
+  width: 300px;
+}
+
+.blend_name{
+  padding-left:10px;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+}
+
+.total-price {
+  position: absolute;
+  left: 22px;
+  bottom: 15px;
+  width: 83px;
+  padding-top: 27px;
+  text-align: center;
+  color: #43484D;
+  font-weight: 300;
+  p {
+    font-size: 20px;
+  }
+}
+
+
+.validation{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display:inline-block;
+  padding:0.7em 0.4em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.15em;
+  text-decoration:none;
+  font-weight:400;
+  background-color: $blue;
+  text-align:center;
+  height: 50px;
+  width: 160px;
+  text-decoration: none;
+  a {
+    color: $blue;
+    font-style: bolder;
+    text-decoration: none;
+  }
+}
+
+.validation:hover {
+  background-color: $blue;
+  a {
+    color: $blue;
+  }
+}
+
+.information-on-coffee {
+  text-align: right;
+}
+
+.in-stock {
+  color: green;
+}
+
+.basket-coffee-information {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
