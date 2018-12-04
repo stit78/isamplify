@@ -9,6 +9,9 @@ Rails.application.routes.draw do
       get 'labelled_index', to: 'samples#labelled_index'
       get 'sent_index', to: 'samples#sent_index'
     end
+    member do
+      post 'update_after_test', to: 'samples#update_after_test'
+    end
   end
 
 

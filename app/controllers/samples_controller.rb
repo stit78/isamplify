@@ -30,6 +30,22 @@ class SamplesController < ApplicationController
     # authorize @sample
   end
 
+  def edit
+    @sample = Sample.find(params[:id])
+  end
+
+  def update_after_test
+    @sample = Sample.find(params[:id])
+    @sample.status = "tested"
+    if @sample.update(review_params)
+      flash[:notice]= "the test has been registered"
+      redirect_to received_index_samples_path
+    else
+      flash[:alert]= "sorry, something went wrong"
+      redirect_to received_index_samples_path
+    end
+  end
+
   def create
     @sample = Sample.find(params[:id])
     @sample.trader = current_user.role

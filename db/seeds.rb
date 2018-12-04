@@ -20,7 +20,7 @@ def creating_sample(coffeelot, stage)
     exporter: User.where(role: "Exporter").first,
     trader: User.where(role: "Trader").first,
     coffee_lot: coffeelot,
-    status: "Sent",
+    status: "sent",
     acidity: rand(1..10),
     sweetness: rand(1..10),
     clean: rand(1..10)
@@ -117,9 +117,20 @@ puts "creating 35 coffee lots"
       exporter: carlos,
       trader: amandine,
       coffee_lot: coffeelot,
-      status: "Pending"
+      status: "pending"
       )
     sample.save
+
+
+  puts "creating samples for this coffeelot"
+    example1 = Sample.new(
+      stage: STAGE.sample,
+      exporter: carlos,
+      trader: amandine,
+      coffee_lot: coffeelot,
+      status: "received"
+      )
+    example1.save
 
   puts "adding historic to sample"
   if sample.stage == "Loading Sample"
