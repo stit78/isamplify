@@ -1,10 +1,11 @@
 <div class="wrapper">
   <h1>These following coffees are pending</h1>
   <div class="container">
-    <ul>
+    <ul class= "no-bullet">
       <% @samples.each do |sample| %>
           <li>
             <%= sample.id %>
+            <%= render "shared/card_sample", sample: @sample %>
           </li>
       <% end %>
     </ul>
