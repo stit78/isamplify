@@ -1,15 +1,22 @@
 .card-box {
-  width: 900px;
-  border: black solid 1px;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px;
+  width: 850px;
+  border: solide;
+  border-color: rgb(0, 74, 102);
+  box-shadow: 1px 2px 3px 0px;
+  border-radius: 6px;
+  margin-bottom: 15px;
 }
 
 .card-main {
-  border: black solid 1px;
+
 }
 
 .card-title {
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+  border-bottom: solid;
+  border-color: rgb(193, 193, 193);
   p {
     font-size: larg;
     padding-left: 10px;
@@ -19,66 +26,60 @@
 }
 
 .card_content {
-  border: black solid 1px;
   width: auto;
   display: flex;
 }
 
 .card_todo {
+  margin-top: auto;
+  margin-bottom: auto;
   flex: 0 0 150px;
+}
 
-  button {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 3px;
-    width: 100px;
-  }
+.complete {
+  color: green;
 }
 
 .card_info {
   flex: 1 1 auto;
-  border: black solid 1px;
 }
 
 .card_progress_bar {
 
 }
 
-.card_description {
+.card-description {
   padding-top: 10px;
-
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
 }
 
-.card_field {
-
+.card-field {
   display: flex;
 }
 
-.card_key {
-
+.card-key {
   width: 120px;
   text-align: right;
   margin-right: 5px;
 }
 
-.card_value {
-
+.card-value {
 }
 
 .card_expendable {
-
+  border-top: solid;
+  border-color: rgb(193, 193, 193);
 }
 
-// .container {
-//   width: 600px;
-//   margin: 100px auto;
-// }
+.container-fluid {
+  padding-bottom: 5px;
+}
 
 .progressbar {
   counter-reset: step;
+  padding-bottom: 5px;
 }
 .progressbar li {
   list-style-type: none;

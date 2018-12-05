@@ -28,8 +28,12 @@
         </div>
       </div>
     </div>
+    <% @samples.each do |sample| %>
+      <div class=card_sample>
+        <%= render "/shared/card_sample.html.erb", sample: sample%>
+      </div>
+    <% end %>
 
-    <p><%= render "/shared/dashboard.html.erb" %></p>
-
+    <%= render "/shared/dashboard.html.erb" %>
   </div>
 </div>
