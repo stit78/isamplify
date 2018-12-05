@@ -23,16 +23,15 @@
           </div>
         </div>
       </div>
-
-      <ul>
-        <% @samples.each do |sample| %>
-            <li>
-              <%= sample.id %>
-              <%= link_to "mark as received", update_after_reception_sample_path(sample), class: "btn btn-success" %>
-            </li>
-        <% end %>
-      </ul>
     </div>
+    <ul>
+      <% @samples.each do |sample| %>
+          <li>
+            <%= sample.id %>
+            <%= link_to "mark as received", update_after_reception_sample_path(sample), method: :post, class: "btn btn-success" %>
+          </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 

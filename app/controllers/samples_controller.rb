@@ -47,8 +47,7 @@ class SamplesController < ApplicationController
 
   def update_after_reception
     @sample = Sample.find(params[:id])
-    @sample.status = "received"
-    if @sample.update(review_params)
+    if @sample.received!
       flash[:notice] = "the sample has been received"
       redirect_to pending_index_samples_path
     else
