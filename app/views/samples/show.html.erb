@@ -4,6 +4,9 @@
       <h2>Details of sample #<%= @sample.id %></h2>
       <div class="show-quality-graph">
         <h5>Evolution of quality for previous samples from this coffee lot</h5>
+        <div style="width: 300px;">
+          <canvas id="show-sample-historic-chart"></canvas>
+        </div>
       </div>
 
       <div class="show-historic">
