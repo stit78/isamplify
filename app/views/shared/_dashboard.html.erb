@@ -7,19 +7,35 @@
     <div class="information">
       <div class="basket-coffee-information">
         <div class= "text-left">
-          <p>Data validation:</p>
+          <p>Validation:</p>
         </div>
         <div class= "text-right">
-          <p>number pending</p>
+          <p> <strong> <%= @pending_sample_count %> </strong> remaining</p>
         </div>
       </div>
       <div class="basket-coffee-information">
-        <p>Quality testing:</p>
-        <p class="in-stock"><strong> number </strong></p>
+        <div class= "text-left">
+          <p>Quality Check:</p>
+        </div>
+        <div class= "text-right">
+          <p> <strong><%= @received_sample_count %> </strong>remaining</p>
+        </div>
       </div>
       <div class="basket-coffee-information">
-        <p>Emailing:</p>
-        <p class="in-stock"><strong> number pending </strong></p>
+        <div class= "text-left">
+          <p>Email:</p>
+        </div>
+        <div class= "text-right">
+          <p> <strong><%= @tested_sample_count %> </strong>remaining</p>
+        </div>
+      </div>
+      <div class="basket-coffee-information">
+        <div class= "text-left">
+          <p>Label:</p>
+        </div>
+        <div class= "text-right">
+          <p> <strong><%= @labelled_sample_count %> </strong>remaining</p>
+        </div>
       </div>
     </div>
   </div>

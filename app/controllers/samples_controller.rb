@@ -64,8 +64,8 @@ class SamplesController < ApplicationController
 
     @sample.save
     # redirect_to sample_path(@sample)
-
   end
+
 
   private
 
