@@ -5,5 +5,6 @@ class EtiquettesController < ApplicationController
 
   def index
     @etiquettes = Etiquette.all
+    @samples = Sample.all
   end
 end
