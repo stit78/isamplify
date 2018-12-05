@@ -1,18 +1,48 @@
 <div class="wrapper">
   <div class="container">
-    <h2>Details of sample #<%= @sample.id %></h2>
     <div class="show-container">
-      <div class="show-info">
-        <p>nombre d'exemple <%= @sample.coffee_lot.samples.count %></p>
-        <% @sample.coffee_lot.samples.each do |sample| %>
-          <div class="class-to-be-defined">
-            <%= sample.id %>
-            <p>coucou</p>
-          </div>
-        <% end %>
-        <p>hello</p>
+      <h2>Details of sample #<%= @sample.id %></h2>
 
+      <div class="show-historic">
+        <% @sample.coffee_lot.samples.order(created_at: :desc).each do |sample| %>
+          <% if sample.id != @sample.id %>
+            <div class="sample-show-details">
+              <div class="sample-show-stage text-left">
+                <h6>Detail of <%= sample.stage %></h4>
+              </div>
+
+              <div class="sample-show-card">
+                <div class="sample-show-progress">
+                  <p>progress bar pending</p>
+                </div>
+                <div class="sample-show-main">
+                  <div class="sample-show-status">
+                    <ul>
+                      <li>received</li>
+                      <li>tested</li>
+                      <li>communicated</li>
+                    </ul>
+                  </div>
+                  <div class="sample-show-info">
+                    <p><%= sample.created_at %></p>
+                    <p><%= sample.updated_at %></p>
+                  </div>
+                  <div class="sample-show-quality">
+                    <ul>
+                      <li>Acidity: <%= sample.acidity %></li>
+                      <li>Sweetness: <%= sample.sweetness %></li>
+                      <li>Clean: <%= sample.clean %></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+            </div>
+          <% end %>
+        <% end %>
       </div>
+
       <%= render "/shared/dashboard.html.erb" %>
 
     </div>
