@@ -2,6 +2,8 @@ import Chart from 'chart.js';
 
 const chartQuality = () => {
   var ctx = document.getElementById("show-sample-historic-chart");
+
+
   var myChart = new Chart(ctx, {
       type: 'line',
       data: {
