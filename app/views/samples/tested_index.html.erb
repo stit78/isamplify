@@ -1,32 +1,13 @@
-<ul>
-  <% @samples.each do |sample| %>
-    <li>
-      <%= sample.id %>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sample-<%= sample.id %>">
-        edit
-      </button>
+<div class="wrapper">
+  <div class="container">
 
-      <!-- Modal -->
-      <div class="modal fade" id="sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Cupping Results <%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %></h4>
-            </div>
-            <div class="modal-body">
-              <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :post do |f| %>
-                <%= f.input :acidity %>
-                <%= f.input :sweetness %>
-                <%= f.input :clean %>
-                <%= f.submit "save", class: "btn btn-primary" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
-
+    <ul>
+      <% @samples.each do |sample| %>
+        <li>
+          <%= sample %>
+          <%= link_to "PDF File", samples_path(format:'pdf') %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
