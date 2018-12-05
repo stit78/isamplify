@@ -56,7 +56,7 @@ class SamplesController < ApplicationController
     @sample = Sample.find(params[:id])
     @sample.status = "tested"
     if @sample.update(review_params)
-      flash[:notice] = "The sample #{@sample_id} has been tested"
+      flash[:notice] = "The sample #{@sample.id} has been tested"
       redirect_to received_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
