@@ -1,6 +1,12 @@
 <div class="wrapper">
   <h1>These following coffees are pending</h1>
   <div class="container">
-
+    <ul>
+      <% @samples.each do |sample| %>
+          <li>
+            <%= sample.id %>
+          </li>
+      <% end %>
+    </ul>
   </div>
 </div>
