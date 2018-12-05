@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'sent_index', to: 'samples#sent_index'
     end
     member do
+      post 'update_after_reception', to: 'samples#update_after_reception'
       post 'update_after_test', to: 'samples#update_after_test'
     end
   end

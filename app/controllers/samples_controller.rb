@@ -45,17 +45,26 @@ class SamplesController < ApplicationController
     end
   end
 
-  def create
+  def update_after_reception
     @sample = Sample.find(params[:id])
-    @sample.trader = current_user.role
-    @sample.status = "Received"
+    if @sample.received!
+      flash[:notice] = "the sample has been received"
+      redirect_to pending_index_samples_path
+    else
+      flash[:alert] = "sorry, something went wrong"
+      redirect_to pending_index_samples_path
+    end
+  end
+
+  def create
+    @sample = Sample.new
+    @sample.trader = current_user
+    @sample.status = "received"
     @sample.stage = "Offer Sample"
 
-    if @sample.save
-      redirect_to sample_path(@sample)
-    else
-      render :new
-    end
+    @sample.save
+    # redirect_to sample_path(@sample)
+
   end
 
   private
