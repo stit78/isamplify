@@ -5,7 +5,7 @@
       <% @samples.each do |sample| %>
         <li>
           <%= sample %>
-          <%= link_to "PDF File", samples_path(format:'pdf') %>
+          <%= link_to "PDF File", tested_index_samples_path(format:'pdf') %>
         </li>
       <% end %>
     </ul>

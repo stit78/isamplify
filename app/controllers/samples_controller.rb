@@ -14,7 +14,7 @@ class SamplesController < ApplicationController
       format.pdf do
         pdf = Prawn::Document.new
         pdf.text "Hello"
-        send_data pdf.render, filename: 'label.pdf', type: 'application/pdf', disposition: "inline"
+        send_data pdf.render, filename: 'samples.pdf', type: 'application/pdf', disposition: "inline"
       end
     end
   end
