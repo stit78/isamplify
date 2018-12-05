@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get "/test", to: 'pages#test'
   resources :samples, only: [:show, :new, :create, :edit, :update] do
     collection do
       get 'pending_index', to: 'samples#pending_index'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :receptions
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
