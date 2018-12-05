@@ -41,6 +41,17 @@ class SamplesController < ApplicationController
     @sample = Sample.find(params[:id])
   end
 
+  def update_after_reception
+    @sample = Sample.find(params[:id])
+    if @sample.received!
+      flash[:notice] = "The sample #{@sample_id} has been received"
+      redirect_to pending_index_samples_path
+    else
+      flash[:alert] = "Sorry, something went wrong"
+      redirect_to pending_index_samples_path
+    end
+  end
+
   def update_after_test
     @sample = Sample.find(params[:id])
     @sample.status = "tested"
@@ -53,15 +64,17 @@ class SamplesController < ApplicationController
     end
   end
 
-  def update_after_reception
+  def update_after_labelling
     @sample = Sample.find(params[:id])
-    if @sample.received!
-      flash[:notice] = "The sample #{@sample_id} has been received"
-      redirect_to pending_index_samples_path
-    else
-      flash[:alert] = "Sorry, something went wrong"
-      redirect_to pending_index_samples_path
-    end
+    @sample.status = "labelled"
+    @sample.save
+    flash[:notice] = "The sample #{@sample.id} has been labelled"
+    redirect_to tested_index_samples_path
+
+    # else
+    #   flash[:alert] = "Sorry, something went wrong"
+    #   redirect_to tested_index_samples_path
+    # end
   end
 
   def create

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     member do
       post 'update_after_reception', to: 'samples#update_after_reception'
       post 'update_after_test', to: 'samples#update_after_test'
+      post 'update_after_labelling', to: 'samples#update_after_labelling'
     end
   end
 
