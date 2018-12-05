@@ -1,0 +1,22 @@
+.searchbar {
+  position: absolute;
+  // right: 5%;
+  // top: 25%;
+
+  border-right: 0;
+  box-shadow: 0 0 0;
+  border-color: #ccc;
+  background-color: transparent;
+  width: 50%;
+}
+
+ .text_searchbar {
+    color: #00A0FF;
+    font-size: 13px;
+    font-style: italic;
+    text-align: left
+}
+
+.searchbar_input{
+  padding-bottom: 5px;
+}

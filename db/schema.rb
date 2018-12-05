@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_111119) do
+ActiveRecord::Schema.define(version: 2018_12_04_162118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,11 @@ ActiveRecord::Schema.define(version: 2018_12_04_111119) do
     t.integer "owner_id"
   end
 
+  create_table "receptions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sales", force: :cascade do |t|
     t.integer "price"
     t.integer "quantity"
@@ -89,11 +94,11 @@ ActiveRecord::Schema.define(version: 2018_12_04_111119) do
     t.integer "sweetness"
     t.integer "acidity"
     t.integer "clean"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "exporter_id"
     t.integer "trader_id"
+    t.integer "status"
     t.index ["coffee_lot_id"], name: "index_samples_on_coffee_lot_id"
   end
 

@@ -1,4 +1,4 @@
 class CoffeeCertification < ApplicationRecord
-  belongs_to :coffeelot_id
-  belongs_to :certification_id
+  belongs_to :coffee_lot
+  belongs_to :certification
 end

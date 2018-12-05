@@ -1,0 +1,9 @@
+<div class="searchbar_input">
+  <%= form_tag root_path, id: "testme", method: :get do %>
+    <%= text_field_tag :query,
+                        params[:query],
+                        class: "form-control text_searchbar",
+                        placeholder: "contract ID, sample ID"
+    %>
+  <% end %>
+</div>
