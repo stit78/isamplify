@@ -1,9 +1,40 @@
 <div class="wrapper">
   <h1>These following coffees are pending</h1>
   <div class="container">
-    <div class="button-create">
-      <%= link_to "Add a new sample".html_safe, "new", class: "add_coffee_btn" %>
+    <button type="button" class="add_coffee_btn" data-toggle="modal" data-target="#new_sample_modal">
+      Add a new sample
+    </button>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="new_sample_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Create new sample</h4>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for Sample.new do |f| %>
+              <%= f.input :coffee_lot %>
+              <%= f.input :exporter %>
+              <%= f.submit "save", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <ul>
+        <% @samples.each do |sample| %>
+            <li>
+              <%= sample.id %>
+                <div class="btn btn-primary">
+                  <%= url:update_after_reception_sample_path(sample) %>
+              </div>
+            </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
-+
+
