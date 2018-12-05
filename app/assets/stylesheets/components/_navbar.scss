@@ -41,22 +41,23 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  padding: 16px;
-    background-color: #D6C9BE;
-    border-radius: 32px;
-    color: $main;
-    text-align: center;
-    text-decoration: none;
+  padding: 20px;
+  margin: 20px;
+  background-color: #D6C9BE;
+  border-radius: 32px;
+  color: $main;
+  text-align: center;
+  text-decoration: none;
   // color: #da552f;
 }
 
 .navbar-button-active {
-  padding: 16px;
-    background-color: #D6C9BE;
-    border-radius: 32px;
-    color: $main;
-    text-align: center;
-  }
+  padding: 20px;
+  background-color: #D6C9BE;
+  border-radius: 32px;
+  color: $main;
+  text-align: center;
+}
 
 
 /* Dropdown menu */

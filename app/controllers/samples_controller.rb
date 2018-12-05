@@ -9,6 +9,14 @@ class SamplesController < ApplicationController
 
   def tested_index
     @samples = Sample.tested
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text "Hello"
+        send_data pdf.render, filename: 'samples.pdf', type: 'application/pdf', disposition: "inline"
+      end
+    end
   end
 
   def labelled_index
@@ -33,27 +41,40 @@ class SamplesController < ApplicationController
     @sample = Sample.find(params[:id])
   end
 
+  def update_after_reception
+    @sample = Sample.find(params[:id])
+    if @sample.received!
+      flash[:notice] = "The sample #{@sample_id} has been received"
+      redirect_to pending_index_samples_path
+    else
+      flash[:alert] = "Sorry, something went wrong"
+      redirect_to pending_index_samples_path
+    end
+  end
+
   def update_after_test
     @sample = Sample.find(params[:id])
     @sample.status = "tested"
     if @sample.update(review_params)
-      flash[:notice] = "the test has been registered"
+      flash[:notice] = "The sample #{@sample.id} has been tested"
       redirect_to received_index_samples_path
     else
-      flash[:alert] = "sorry, something went wrong"
+      flash[:alert] = "Sorry, something went wrong"
       redirect_to received_index_samples_path
     end
   end
 
-  def update_after_reception
+  def update_after_labelling
     @sample = Sample.find(params[:id])
-    if @sample.received!
-      flash[:notice] = "the sample has been received"
-      redirect_to pending_index_samples_path
-    else
-      flash[:alert] = "sorry, something went wrong"
-      redirect_to pending_index_samples_path
-    end
+    @sample.status = "labelled"
+    @sample.save
+    flash[:notice] = "The sample #{@sample.id} has been labelled"
+    redirect_to tested_index_samples_path
+
+    # else
+    #   flash[:alert] = "Sorry, something went wrong"
+    #   redirect_to tested_index_samples_path
+    # end
   end
 
   def create
@@ -65,6 +86,7 @@ class SamplesController < ApplicationController
     @sample.save
     # redirect_to sample_path(@sample)
   end
+
 
   private
 

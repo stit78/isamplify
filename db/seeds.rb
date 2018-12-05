@@ -93,9 +93,10 @@ CLIENTS.each do |client|
 end
 
 
-puts "Creating 35 coffee lots"
-35.times do
-  puts "   Creating a coffeelot"
+
+puts "Creating 5 coffee lots"
+5.times do
+  puts "creating one coffeelot"
 
   coffeelot = CoffeeLot.new(
     provenance: COUNTRY.sample,
@@ -123,16 +124,27 @@ puts "Creating 35 coffee lots"
       )
     sample.save
 
+  # puts "creating samples for this coffeelot"
+  #   example1 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: amandine,
+  #     coffee_lot: coffeelot,
+  #     status: "received"
+  #     )
+  #   example1.save
 
-  puts "         Creating samples received for this coffeelot"
-    example1 = Sample.new(
-      stage: STAGE.sample,
-      exporter: carlos,
-      trader: amandine,
-      coffee_lot: coffeelot,
-      status: "received"
-      )
-    example1.save
+  # puts "creating samples for this coffeelot"
+  #   example2 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: amandine,
+  #     coffee_lot: coffeelot,
+  #     status: "tested"
+  #     )
+  #   example2.save
+
+
 
   puts "            Adding historic to sample status:pending"
   if sample.stage == "Loading Sample"
