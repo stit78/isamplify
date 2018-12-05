@@ -132,6 +132,15 @@ puts "creating 35 coffee lots"
       )
     example1.save
 
+  puts "creating samples for this coffeelot"
+    example2 = Sample.new(
+      stage: STAGE.sample,
+      exporter: carlos,
+      trader: amandine,
+      coffee_lot: coffeelot,
+      status: "tested"
+      )
+    example2.save
 
 
 
