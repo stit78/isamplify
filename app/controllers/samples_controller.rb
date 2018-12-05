@@ -37,7 +37,7 @@ class SamplesController < ApplicationController
     @sample = Sample.find(params[:id])
     @sample.status = "tested"
     if @sample.update(review_params)
-      flash[:notice] = "The test has been registered"
+      flash[:notice] = "The sample #{@sample_id} has been tested"
       redirect_to received_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
@@ -48,7 +48,7 @@ class SamplesController < ApplicationController
   def update_after_reception
     @sample = Sample.find(params[:id])
     if @sample.received!
-      flash[:notice] = "The sample has been received"
+      flash[:notice] = "The sample #{@sample_id} has been received"
       redirect_to pending_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
