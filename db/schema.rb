@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_162118) do
+ActiveRecord::Schema.define(version: 2018_12_05_165457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 2018_12_04_162118) do
     t.index ["sale_id"], name: "index_coffee_lots_on_sale_id"
   end
 
+  create_table "etiquettes", force: :cascade do |t|
+    t.bigint "sample_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sample_id"], name: "index_etiquettes_on_sample_id"
+  end
+
   create_table "potential_clients", force: :cascade do |t|
     t.bigint "coffee_lot_id"
     t.datetime "created_at", null: false
@@ -72,11 +79,6 @@ ActiveRecord::Schema.define(version: 2018_12_04_162118) do
     t.integer "exporter_id"
     t.integer "trader_id"
     t.integer "owner_id"
-  end
-
-  create_table "receptions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sales", force: :cascade do |t|
@@ -125,6 +127,7 @@ ActiveRecord::Schema.define(version: 2018_12_04_162118) do
   add_foreign_key "coffee_certifications", "coffee_lots"
   add_foreign_key "coffee_lots", "purchases"
   add_foreign_key "coffee_lots", "sales"
+  add_foreign_key "etiquettes", "samples"
   add_foreign_key "potential_clients", "coffee_lots"
   add_foreign_key "potential_clients", "users", column: "client_id"
   add_foreign_key "purchases", "users", column: "exporter_id"
