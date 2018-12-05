@@ -1,1 +1,11 @@
-tested_index.html.erb
+<div class="wrapper">
+  <h1>These following samples need to the labelled</h1>
+    <ul class= "no-bullet">
+    <% @samples.each do |sample| %>
+      <li>
+        <%= sample.id %>
+        <%= render "shared/card_sample", sample: @sample %>
+      </li>
+    <% end %>
+  </ul>
+</div>
