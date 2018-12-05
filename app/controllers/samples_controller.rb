@@ -66,7 +66,7 @@ class SamplesController < ApplicationController
 
   def update_after_labelling
     @sample = Sample.find(params[:id])
-    @sample.status = "labelled"
+    @sample.status = "received"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been labelled"
     redirect_to tested_index_samples_path
@@ -78,11 +78,12 @@ class SamplesController < ApplicationController
   end
 
   def create
-    @sample = Sample.new
+    @exporter = User.find_by(role: "Exporter")
+    @sample = Sample.new(review_params)
     @sample.trader = current_user
+    @sample.exporter_id = @exporter.id
     @sample.status = "received"
-    @sample.stage = "Offer Sample"
-
+    @sample.coffee_lot = CoffeeLot.last
     @sample.save
     # redirect_to sample_path(@sample)
   end
@@ -91,6 +92,6 @@ class SamplesController < ApplicationController
   private
 
   def review_params
-    params.require(:sample).permit(:stage, :sweetness, :acidity, :clean, :status)
+    params.require(:sample).permit(:stage, :coffee_lot, :sweetness, :acidity, :clean, :status, :trader)
   end
 end

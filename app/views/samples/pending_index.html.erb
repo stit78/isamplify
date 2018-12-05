@@ -16,7 +16,8 @@
           </div>
           <div class="modal-body">
             <%= simple_form_for Sample.new do |f| %>
-              <%= f.input :coffee_lot %>
+              <%#= f.input :coffee_lot, as: :numeric%>
+              <%= f.input :stage %>
               <%= f.submit "save", class: "btn btn-primary" %>
             <% end %>
           </div>
