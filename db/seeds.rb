@@ -5,11 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-COUNTRY = ["Colombia", "Perou", "Ecuador", "Brazil", "Honduras"]
+COUNTRY = ["Colombia", "Peru", "Ecuador", "Brazil", "Honduras", "Burundi", "Kenya"]
 TREE = ["Arabica", "Robusta"]
 SIZE = [8, 10, 12, 14, 16, 18, 20]
-PROFILE = ["good cup", "clean cup", "supremo UGQ", "Agasimbo", "Cherry", "AB"]
-QUALITY = ["a", "b", "c", "d"]
+PROFILE = ["good cup", "clean cup", "Fine Cup", "Specialty", "Stocklot", "Defectuous"]
+QUALITY = ["Supremo UGQ", "NY 2/3 sc18 fc", "Agasimbo", "Cherry AB"]
 certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Practice"]
 STAGE = ["Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Offer Sample", "Sale Sample"]
 CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]

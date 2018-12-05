@@ -32,6 +32,7 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  margin: 20px;
 }
 
 /* Navbar link */
@@ -40,9 +41,23 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  padding: 16px;
+    background-color: #D6C9BE;
+    border-radius: 32px;
+    color: $main;
+    text-align: center;
+    text-decoration: none;
+  // color: #da552f;
 }
+
+.navbar-button-active {
+  padding: 16px;
+    background-color: #D6C9BE;
+    border-radius: 32px;
+    color: $main;
+    text-align: center;
+  }
+
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {

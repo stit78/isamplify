@@ -1,6 +1,6 @@
 class SamplesController < ApplicationController
   def pending_index
-    @samples = Sample.Pending
+    @samples = Sample.pending
   end
 
   def received_index
