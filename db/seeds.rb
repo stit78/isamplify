@@ -132,6 +132,9 @@ puts "creating 35 coffee lots"
       )
     example1.save
 
+
+
+
   puts "adding historic to sample"
   if sample.stage == "Loading Sample"
     creating_sample(coffeelot, "Loading Sample")

@@ -1,11 +1,13 @@
 <div class="wrapper">
-  <h1>These following samples need to the labelled</h1>
+  <div class="container">
+    <h1>These following samples need to the labelled</h1>
     <ul class= "no-bullet">
-    <% @samples.each do |sample| %>
-      <li>
-        <%= sample.id %>
-        <%= render "shared/card_sample", sample: @sample %>
-      </li>
-    <% end %>
-  </ul>
+      <% @samples.each do |sample| %>
+        <li>
+          <%= sample %>
+          <%= link_to "PDF File", samples_path(format:'pdf') %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
