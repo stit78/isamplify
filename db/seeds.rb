@@ -92,7 +92,7 @@ end
 
 
 puts "creating 35 coffee lots"
-35.times do
+5.times do
   puts "creating one coffeelot"
 
   coffeelot = CoffeeLot.new(
@@ -122,16 +122,25 @@ puts "creating 35 coffee lots"
     sample.save
 
 
-  puts "creating samples for this coffeelot"
-    example1 = Sample.new(
-      stage: STAGE.sample,
-      exporter: carlos,
-      trader: amandine,
-      coffee_lot: coffeelot,
-      status: "received"
-      )
-    example1.save
+  # puts "creating samples for this coffeelot"
+  #   example1 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: amandine,
+  #     coffee_lot: coffeelot,
+  #     status: "received"
+  #     )
+  #   example1.save
 
+  # puts "creating samples for this coffeelot"
+  #   example2 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: amandine,
+  #     coffee_lot: coffeelot,
+  #     status: "tested"
+  #     )
+  #   example2.save
 
 
 

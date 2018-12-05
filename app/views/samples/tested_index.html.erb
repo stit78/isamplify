@@ -4,8 +4,10 @@
     <ul class= "no-bullet">
       <% @samples.each do |sample| %>
         <li>
-          <%= sample %>
-          <%= link_to "PDF File", samples_path(format:'pdf') %>
+          <%= sample.id %>
+          <%= render "shared/card_sample", sample: @sample %>
+          <%= link_to "PDF File", tested_index_samples_path(format:'pdf'), class: "btn btn-success" %>
+          <%= link_to "Mark as labelled", update_after_labelling_sample_path(sample), method: :post, class: "btn btn-success" %>
         </li>
       <% end %>
     </ul>
