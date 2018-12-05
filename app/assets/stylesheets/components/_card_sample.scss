@@ -1,7 +1,8 @@
-_card_sample.scss
-
 .card-box {
+  width: 900px;
   border: black solid 1px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px;
 }
 
 .card-main {
@@ -10,7 +11,9 @@ _card_sample.scss
 
 .card-title {
   p {
-    color: red;
+    font-size: larg;
+    padding-left: 10px;
+    padding-top: 5px;
     text-align: left;
   }
 }
@@ -22,48 +25,64 @@ _card_sample.scss
 }
 
 .card_todo {
-  border: black solid 1px;
+  flex: 0 0 150px;
+
+  button {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 3px;
+    width: 100px;
+  }
 }
 
 .card_info {
+  flex: 1 1 auto;
   border: black solid 1px;
 }
 
 .card_progress_bar {
-  border: black solid 1px;
+
 }
 
 .card_description {
-  border: black solid 1px;
+  padding-top: 10px;
+
 }
 
 .card_field {
-  border: black solid 1px;
+
   display: flex;
 }
 
 .card_key {
-  border: black solid 1px;
+
+  width: 120px;
+  text-align: right;
+  margin-right: 5px;
 }
 
 .card_value {
-  border: black solid 1px;
+
 }
 
 .card_expendable {
-  border: black solid 1px;
+
 }
 
-.container {
-  width: 600px;
-  margin: 100px auto;
-}
+// .container {
+//   width: 600px;
+//   margin: 100px auto;
+// }
+
 .progressbar {
   counter-reset: step;
 }
 .progressbar li {
   list-style-type: none;
-  width: 25%;
+  width: 15%;
   float: left;
   font-size: 12px;
   position: relative;
