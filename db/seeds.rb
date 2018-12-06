@@ -125,6 +125,16 @@ puts "Creating 5 coffee lots"
       )
     sample.save
 
+    # puts "Creating samples pending for this coffeelot"
+    # sample = Sample.new(
+    #   stage: STAGE.sample,
+    #   exporter: carlos,
+    #   trader: amandine,
+    #   coffee_lot: coffeelot,
+    #   status: "labelled"
+    #   )
+    # sample.save
+
   puts "Creating 5 etiquettes"
   1.times do
     puts "creating one etiquette"

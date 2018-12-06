@@ -5,6 +5,7 @@
       <li>
         <%= sample.id %>
         <%= render "shared/card_sample", sample: sample %>
+        <%= link_to "Email",  email_sample_path(sample), method: :post, class: "btn btn-success" %>
       </li>
     <% end %>
   </ul>
