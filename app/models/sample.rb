@@ -9,4 +9,9 @@ class Sample < ApplicationRecord
   validates :clean, inclusion: { in: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, allow_blank: true
   validates :status, presence: true, inclusion: { in: ["pending", "received", "tested", "labelled", "sent"] }
   enum status: ["pending", "received", "tested", "labelled", "sent"]
+
+  private
+  def send_reception_confirmation
+    ExporterMailer.reception_confirmation(self).deliver_now
+  end
 end

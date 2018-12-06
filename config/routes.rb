@@ -15,11 +15,13 @@ Rails.application.routes.draw do
       post 'update_after_reception', to: 'samples#update_after_reception'
       post 'update_after_test', to: 'samples#update_after_test'
       post 'update_after_labelling', to: 'samples#update_after_labelling'
+      post 'update_after_emailing', to: 'samples#update_after_emailing'
+      post 'email'
     end
   end
 
   resources :receptions
-  resources :etiquettes, only: [:new, :index]
+  resources :etiquettes, only: [:create, :index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
