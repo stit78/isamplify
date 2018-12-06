@@ -1,13 +1,264 @@
 <div class="card-box">
   <div class="card-main">
 
-    <div class="card-title">
-      <p><strong>SAMPLE N°</strong><%= sample.id %>, <strong>FROM</strong> <%= sample.coffee_lot.provenance %>, <strong>QUALITY</strong> <%= sample.coffee_lot.quality_description %> <strong>SENT BY</strong> <%= sample.exporter.company_name %>Carlos</strong></p>
+    <div class="card-top">
+      <div class="card-title">
+        <div style="display: flex; align-content: center;">
+          <strong style="color: $main">SAMPLE N°</strong><%= sample.id %>, &nbsp;<strong style="color: $main">FROM</strong> &nbsp; <%= sample.coffee_lot.provenance %>, &nbsp;<strong style="color: $main">QUALITY</strong> &nbsp;<%= sample.coffee_lot.quality_description %> &nbsp; <strong style="color: $main">SENT BY</strong>&nbsp; <%= sample.exporter.company_name %></strong>
+        </div>
+      </div>
+      <div class=card-status> <%= sample.status %>&nbsp;</div>
+      <div class="card-score">
+        <% if sample.status != "pending" || "received" %>
+        <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
+        <span style="font-size: 20px;"><%= sum %></span><span>/30</span>
+        <% else %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="card_content">
+    <div class="card-content">
 
-      <div class="card_todo">
+      <div class="card-import">
+
+        <% if sample.stage == "Offer Sample" %>
+          <div class="card-stage active current">
+            Offer
+          </div>
+          <div class="card-stage">
+            Purchase
+          </div>
+          <div class="card-stage">
+            Loading
+          </div>
+          <div class="card-stage">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Client
+          </div>
+
+        <% elsif sample.stage == "Purchase Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active current">
+            Purchase
+          </div>
+          <div class="card-stage">
+            Loading
+          </div>
+          <div class="card-stage">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Client
+          </div>
+
+        <% elsif sample.stage == "Loading Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active current">
+            Loading
+          </div>
+          <div class="card-stage">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Client
+          </div>
+
+        <% elsif sample.stage == "Port Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active">
+            Loading
+          </div>
+          <div class="card-stage active current">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Client
+          </div>
+
+        <% elsif sample.stage == "Warehouse Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active">
+            Loading
+          </div>
+          <div class="card-stage active">
+            Port
+          </div>
+          <div class="card-stage active current">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Client
+          </div>
+
+        <% elsif sample.stage == "Client Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active">
+            Loading
+          </div>
+          <div class="card-stage active">
+            Port
+          </div>
+          <div class="card-stage active">
+            Warehouse
+          </div>
+          <div class="card-stage active current">
+            Client
+          </div>
+
+        <% end %>
+      </div>
+
+
+
+      <div class="card-description-action">
+        <div class="card-description">
+
+          <div class="card-field">
+            <div class="card-key">
+              <p><strong>Quantity:</strong></p>
+            </div>
+            <div class="card-value">
+              <p><%= sample.coffee_lot.quantity %> bags</p>
+            </div>
+          </div>
+
+          <div class="card-field">
+            <div class="card-key">
+              <p><strong>Region:</strong></p>
+            </div>
+            <div class="card-value">
+              <p><%= sample.coffee_lot.region %></p>
+            </div>
+          </div>
+
+          <div class="card-field">
+            <div class="card-key">
+              <p><strong>Potential clients:</strong></p>
+            </div>
+            <div class="card-value">
+              <% count = 1 %>
+              <% sample.coffee_lot.potential_clients.each do |potential_client| %>
+                <% if count == 1 %>
+                  <span><%= potential_client.client.company_name %></span>
+                <% else %>
+                  <span>, <%= potential_client.client.company_name %></span>
+                <% end %>
+                <% count += 1 %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+          <div class="card-action">
+            <div class="show"><i class="far fa-eye"></i></div>
+            <div class="edit"><i class="fas fa-edit"></i></div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card-expendable">
+    <p>More info will be displayed here using AJAX</p>
+  </div>
+
+</div>
+
+
+<!--           <% if sample.stage == "Offer Sample" %>
+            <li class="active current">Offer</li>
+            <li>Purchase</li>
+            <li>Loading</li>
+            <li>Port</li>
+            <li>Wharehouse</li>
+            <li>Client</li>
+          <% elsif sample.stage == "Purchase Sample" %>
+            <li class="active">Offer</li>
+            <li class="active current">Purchase</li>
+            <li>Loading</li>
+            <li>Port</li>
+            <li>Wharehouse</li>
+            <li>Client</li>
+          <% elsif sample.stage == "Loading Sample" %>
+            <li class="active">Offer</li>
+            <li class="active">Purchase</li>
+            <li class="active current"> Loading</li>
+            <li>Port</li>
+            <li>Wharehouse</li>
+            <li>Client</li>
+          <% elsif sample.stage == "Port Sample" %>
+            <li class="active">Offer</li>
+            <li class="active">Purchase</li>
+            <li class="active">Loading</li>
+            <li class="active">Port</li>
+            <li>Wharehouse</li>
+            <li>Client</li>
+          <% elsif sample.stage == "Warehouse Sample" %>
+            <li class="active">Offer</li>
+            <li class="active">Purchase</li>
+            <li class="active">Loading</li>
+            <li class="active">Port</li>
+            <li class="active">Wharehouse</li>
+            <li>Client</li>
+          <% elsif sample.stage == "Sale Sample" %>
+            <li class="active">Offer</li>
+            <li class="active">Purchase</li>
+            <li class="active">Loading</li>
+            <li class="active">Port</li>
+            <li class="active">Wharehouse</li>
+            <li class="active">Client</li>
+          <% else %>
+            <li>Offer</li>
+            <li>Purchase</li>
+            <li>Loading</li>
+            <li>Port</li>
+            <li>Wharehouse</li>
+            <li>Client</li>
+          <% end %>
+        </ul> -->
+<!--
         <% if sample.status == "pending" %>
           <p> <i class="fas fa-inbox uncomplete"> Pending</i></p>
           <p> <i class="fas fa-coffee uncomplete"> </i></p>
@@ -35,120 +286,3 @@
           <p> <i class="fas fa-share-square complete"> Sent</i></p>
         <% end %>
       </div>
-
-      <div class="card_info">
-
-        <div class="card_progress_bar">
-          <div class="container-fluid">
-             <ul class="progressbar">
-              <% if sample.stage == "Offer Sample" %>
-                <li class="active current">Offer</li>
-                <li>Purchase</li>
-                <li>Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Purchase Sample" %>
-                <li class="active">Offer</li>
-                <li class="active current">Purchase</li>
-                <li>Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Loading Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active current"> Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Port Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active">Loading</li>
-                <li class="active">Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Warehouse Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active">Loading</li>
-                <li class="active">Port</li>
-                <li class="active">Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Sale Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active">Loading</li>
-                <li class="active">Port</li>
-                <li class="active">Wharehouse</li>
-                <li class="active">Client</li>
-              <% else %>
-                <li>Offer</li>
-                <li>Purchase</li>
-                <li>Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card-description-action">
-          <div class="card-description">
-            <div class="card-field">
-              <div class="card-key">
-                <p><strong>Quantity:</strong></p>
-              </div>
-              <div class="card-value">
-                <p><%= sample.coffee_lot.quantity %> bags</p>
-              </div>
-            </div>
-
-            <div class="card-field">
-              <div class="card-key">
-                <p><strong>Region:</strong></p>
-              </div>
-              <div class="card-value">
-                <p><%= sample.coffee_lot.region %></p>
-              </div>
-            </div>
-
-            <div class="card-field">
-              <div class="card-key">
-                <p><strong>Potential clients:</strong></p>
-              </div>
-              <div class="card-value">
-                <% count = 1 %>
-                <% sample.coffee_lot.potential_clients.each do |potential_client| %>
-                  <% if count == 1 %>
-                    <span><%= potential_client.client.company_name %></span>
-                  <% else %>
-                    <span>, <%= potential_client.client.company_name %></span>
-                  <% end %>
-                  <% count += 1 %>
-                <% end %>
-              </div>
-            </div>
-            <div class="card-action">
-              <i class="far fa-eye"></i>
-              <i class="fas fa-edit"></i>
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="card_expendable">
-    <p>More info will be displayed here using AJAX</p>
-  </div>
-
-</div>
