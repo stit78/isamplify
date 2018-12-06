@@ -2,6 +2,9 @@
   <div class="container">
     <div class="show-container">
       <h2>Details of sample #<%= @sample.id %></h2>
+      <div class="show-all-information">
+
+      </div>
       <div class="show-quality-graph">
         <h4 class="sample-show-historic-title text-left">
           Previous quality for coffee lot #<%= @sample.coffee_lot.iconumber %>
@@ -20,7 +23,7 @@
             <% if sample.id != @sample.id %>
               <div class="sample-show-details">
                 <div class="sample-show-stage text-left">
-                  <h6>Detail of <%= sample.stage %></h4>
+                  <h6>Detail of <%= sample.stage %> #<%= sample.id %></h4>
                 </div>
 
                 <div class="sample-show-card">

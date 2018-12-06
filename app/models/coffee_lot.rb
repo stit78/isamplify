@@ -6,7 +6,7 @@ class CoffeeLot < ApplicationRecord
 
   validates :provenance, presence: true
   validates :tree, presence: true, inclusion: { in: ["Arabica", "Robusta"] }
-  validates :iconumber, presence: true
+  validates :iconumber, presence: true, uniqueness: true
   validates :screen_size, presence: true
   validates :cup_profile, presence: true
   validates :region, presence: true
