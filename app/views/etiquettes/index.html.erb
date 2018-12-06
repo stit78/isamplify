@@ -1,16 +1,22 @@
 <div class="wrapper">
   <div class="container">
-    <div class="etiquette-inline-top">
-      <div class="etiquette-box">
-        <% @etiquettes.each do |etiquette| %>
-          <%= @etiquette.sample %>
+    <div class="grid-general">
+        <div class="grid-container">
+           <% @etiquettes.each do |etiquette| %>
+          <div class="grid-element">
+            <p> <%= etiquette.sample.coffee_lot.provenance %> </p>
+            <p> <%= etiquette.sample.coffee_lot.quantity %> bags</p>
+            <p> <%= etiquette.sample.coffee_lot.quality_description %></p>
+          </div>
           <% end %>
-      </div>
-      <div class="etiquette-box"></div>
-    </div>
-    <div class="etiquette-inline-bottom">
-      <div class="etiquette-box"></div>
-      <div class="etiquette-box"></div>
+        </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
