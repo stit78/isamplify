@@ -29,6 +29,26 @@ class SamplesController < ApplicationController
 
   def show
     @sample = Sample.find(params[:id])
+    @acidity = ""
+    @clean = ""
+    @sweetness = ""
+    @labels = ""
+
+    @sample.coffee_lot.samples.order(created_at: :desc).each do |sample|
+      if sample.id != @sample.id
+        if @acidity == "" && @clean == "" && @sweetness == ""
+          @acidity = sample.acidity.to_s
+          @clean = sample.clean.to_s
+          @sweetness = sample.sweetness.to_s
+          @labels = sample.stage.to_s
+        else
+          @acidity.insert(-1, ",#{sample.acidity.to_s}")
+          @clean.insert(-1, ",#{sample.clean.to_s}")
+          @sweetness.insert(-1, ",#{sample.sweetness.to_s}")
+          @labels.insert(-1, ",#{sample.stage.to_s}")
+        end
+      end
+    end
   end
 
   def new

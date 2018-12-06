@@ -3,16 +3,19 @@
     <div class="show-container">
       <h2>Details of sample #<%= @sample.id %></h2>
       <div class="show-quality-graph">
-        <h5>Evolution of quality for previous samples from this coffee lot</h5>
-        <div style="width: 300px;">
-
-          <canvas id="show-sample-historic-chart"</canvas>
+        <h4 class="sample-show-historic-title text-left">
+          Previous quality for coffee lot #<%= @sample.coffee_lot.iconumber %>
+        </h4>
+        <div style="width: 500px;">
+          <canvas id="show-sample-historic-chart" data-acidity="<%= @acidity %>" data-clean="<%= @clean %>" data-sweetness="<%= @sweetness %>" data-labels="<%= @labels %>"></canvas>
         </div>
       </div>
 
       <div class="show-historic">
         <% if @sample.coffee_lot.samples.count > 1 %>
-          <h5 class="sample-show-historic-title text-left">Samples associated with sample #<%= @sample.id %></h5>
+          <h4 class="sample-show-historic-title text-left">
+            Samples associated with sample #<%= @sample.id %>
+          </h4>
           <% @sample.coffee_lot.samples.order(created_at: :desc).each do |sample| %>
             <% if sample.id != @sample.id %>
               <div class="sample-show-details">
