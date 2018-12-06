@@ -2,7 +2,7 @@
   width: 850px;
   border: solide;
   border-color: rgb(0, 74, 102);
-  box-shadow: 1px 2px 3px 0px;
+  box-shadow: 1px 2px 3px 1px;
   border-radius: 6px;
   margin-bottom: 15px;
 }
@@ -13,15 +13,15 @@
 
 .card-title {
   background-color: white;
-  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
   border-radius: 6px;
-  border-bottom: solid;
   border-color: rgb(193, 193, 193);
   p {
     font-size: larg;
     padding-left: 10px;
     padding-top: 5px;
+    padding-bottom: 5px;
     text-align: left;
+    justify-content: center;
   }
 }
 
@@ -31,6 +31,8 @@
 }
 
 .card_todo {
+  padding-left: 20px;
+  text-align: left;
   margin-top: auto;
   margin-bottom: auto;
   flex: 0 0 150px;
@@ -48,11 +50,21 @@
 
 }
 
+.card-description-action {
+  display: flex;
+  width: auto;
+}
+
+.card-action {
+  font-size: 20px;
+}
+
 .card-description {
   padding-top: 10px;
   background-color: white;
   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
   border-radius: 6px;
+  font-size: 12px;
 }
 
 .card-field {
@@ -61,8 +73,8 @@
 
 .card-key {
   width: 120px;
-  text-align: right;
-  margin-right: 5px;
+  text-align: left;
+  margin-left: 7px;
 }
 
 .card-value {
@@ -85,16 +97,17 @@
   list-style-type: none;
   width: 15%;
   float: left;
-  font-size: 12px;
+  font-size: 10px;
   position: relative;
   text-align: center;
   text-transform: uppercase;
   color: #7d7d7d;
 }
 .progressbar li:before {
+  font-family: "Font Awesome 5 Free";
   width: 30px;
   height: 30px;
-  content: counter(step);
+  content: "\f21a";
   counter-increment: step;
   line-height: 30px;
   border: 2px solid #7d7d7d;
@@ -123,6 +136,15 @@
 .progressbar li.active:before {
   border-color: #55b776;
 }
+
 .progressbar li.active + li:after {
   background-color: #55b776;
+}
+
+.progressbar li.current:before {
+  border-color: #55b776;
+  background-color: green;
+}
+.progressbar li.current {
+  color: green;
 }
