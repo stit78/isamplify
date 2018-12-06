@@ -96,6 +96,17 @@ class SamplesController < ApplicationController
     # redirect_to sample_path(@sample)
   end
 
+  def email
+    @sample = current_user.sample.build(re_params)
+
+    if @restaurant.save
+      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
+  end
+
   private
 
   def review_params
