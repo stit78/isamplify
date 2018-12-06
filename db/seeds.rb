@@ -114,13 +114,23 @@ puts "Creating 5 coffee lots"
     coffeecertif.save
   end
 
-  puts "         Creating samples pending for this coffeelot"
+  puts "Creating samples pending for this coffeelot"
     sample = Sample.new(
       stage: STAGE.sample,
       exporter: carlos,
       trader: amandine,
       coffee_lot: coffeelot,
       status: "pending"
+      )
+    sample.save
+
+    puts "Creating samples pending for this coffeelot"
+    sample = Sample.new(
+      stage: STAGE.sample,
+      exporter: carlos,
+      trader: amandine,
+      coffee_lot: coffeelot,
+      status: "labelled"
       )
     sample.save
 
