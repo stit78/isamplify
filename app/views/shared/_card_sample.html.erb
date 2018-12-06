@@ -2,62 +2,138 @@
   <div class="card-main">
 
     <div class="card-title">
-      <p><strong>Sample #1234, Supremio Coffee from Mexico, good stuff sent by Carlos</strong></p>
+      <p><strong>SAMPLE N°<%= sample.id %>, FROM <%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %> SENT BY <%= sample.exporter.company_name %>Carlos</strong></p>
     </div>
 
     <div class="card_content">
 
       <div class="card_todo">
-        <p><strong>Sample tasks</strong></p>
-        <p>Received <%= Time.now %></p>
-        <p>Testing pending </p>
-        <p>Label pending</p>
-        <p>Send pending</p>
+        <p><strong>Sample</strong></p>
+
+        <% if sample.status == "pending" %>
+          <p> <i class="fas fa-inbox uncomplete">  Pending</i></p>
+          <p> <i class="fas fa-coffee uncomplete">  Pending</i></p>
+          <p> <i class="fas fa-tags uncomplete">  Pending</i></p>
+          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
+          <% elsif sample.status == "received" %>
+          <p> <i class="fas fa-inbox complete">  Received</i> </p>
+          <p> <i class="fas fa-coffee uncomplete">  Pending</i></p>
+          <p> <i class="fas fa-tags uncomplete">  Pending</i></p>
+          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
+          <% elsif sample.status == "tested" %>
+          <p> <i class="fas fa-inbox complete">  Received</i> </p>
+          <p> <i class="fas fa-coffee complete">  Tested</i> </p>
+          <p> <i class="fas fa-tags uncomplete">  Pending</i></p>
+          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
+          <% elsif sample.status == "labelled" %>
+          <p> <i class="fas fa-inbox complete">  Received</i> </p>
+          <p> <i class="fas fa-coffee complete">  Tested</i> </p>
+          <p> <i class="fas fa-tags complete">  Labelled</i></p>
+          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
+          <% else %>
+          <p> <i class="fas fa-inbox complete">  Received</i> </p>
+          <p> <i class="fas fa-coffee complete">  Tested</i> </p>
+          <p> <i class="fas fa-tags complete">  Labelled</i></p>
+          <p> <i class="fas fa-share-square complete">  Sent</i></p>
+        <% end %>
       </div>
 
       <div class="card_info">
 
         <div class="card_progress_bar">
-          <p><strong>Coffee lot import stage</strong></p>
+          <p><strong>Coffee lot</strong></p>
           <div class="container-fluid">
-            <ul class="progressbar">
-              <li class="active">Offer</li>
-              <li>Purchase</li>
-              <li>Loading</li>
-              <li>Port</li>
-              <li>Wharehouse</li>
-              <li>Client</li>
+             <ul class="progressbar">
+              <% if sample.stage == "Offer Sample" %>
+                <li class="active">Offer</li>
+                <li>Purchase</li>
+                <li>Loading</li>
+                <li>Port</li>
+                <li>Wharehouse</li>
+                <li>Client</li>
+              <% elsif sample.stage == "Purchase Sample" %>
+                <li class="active">Offer</li>
+                <li class="active">Purchase</li>
+                <li>Loading</li>
+                <li>Port</li>
+                <li>Wharehouse</li>
+                <li>Client</li>
+              <% elsif sample.stage == "Loading Sample" %>
+                <li class="active">Offer</li>
+                <li class="active">Purchase</li>
+                <li class="active"> Loading</li>
+                <li>Port</li>
+                <li>Wharehouse</li>
+                <li>Client</li>
+              <% elsif sample.stage == "Port Sample" %>
+                <li class="active">Offer</li>
+                <li class="active">Purchase</li>
+                <li class="active">Loading</li>
+                <li class="active">Port</li>
+                <li>Wharehouse</li>
+                <li>Client</li>
+              <% elsif sample.stage == "Warehouse Sample" %>
+                <li class="active">Offer</li>
+                <li class="active">Purchase</li>
+                <li class="active">Loading</li>
+                <li class="active">Port</li>
+                <li class="active">Wharehouse</li>
+                <li>Client</li>
+              <% elsif sample.stage == "Sale Sample" %>
+                <li class="active">Offer</li>
+                <li class="active">Purchase</li>
+                <li class="active">Loading</li>
+                <li class="active">Port</li>
+                <li class="active">Wharehouse</li>
+                <li class="active">Client</li>
+              <% else %>
+                <li>Offer</li>
+                <li>Purchase</li>
+                <li>Loading</li>
+                <li>Port</li>
+                <li>Wharehouse</li>
+                <li>Client</li>
+              <% end %>
             </ul>
           </div>
         </div>
 
-        <div class="card_description">
+        <div class="card-description">
 
-          <div class="card_field">
-            <div class="card_key">
-              <p><strong>Quantity</strong></p>
+          <div class="card-field">
+            <div class="card-key">
+              <p><strong>Quantity:</strong></p>
             </div>
-            <div class="card_value">
-              <p>134 sacs</p>
+            <div class="card-value">
+              <p><%= sample.coffee_lot.quantity %> bags</p>
             </div>
           </div>
 
-          <div class="card_field">
-            <div class="card_key">
-              <p><strong>Provenance</strong></p>
+          <div class="card-field">
+            <div class="card-key">
+              <p><strong>Region:</strong></p>
             </div>
-            <div class="card_value">
-              <p>haut plateau de la codilière</p>
+            <div class="card-value">
+              <p><%= sample.coffee_lot.region %></p>
             </div>
           </div>
 
-          <div class="card_field">
-            <div class="card_key">
-              <p><strong>Potential clients</strong></p>
+          <div class="card-field">
+            <div class="card-key">
+              <p><strong>Potential clients:</strong></p>
             </div>
-            <div class="card_value">
-              <p>starbucks, nestlé, brulerie de belleville</p>
+            <div class="card-value">
+              <% count = 1 %>
+              <% sample.coffee_lot.potential_clients.each do |potential_client| %>
+                <% if count == 1 %>
+                  <span><%= potential_client.client.company_name %></span>
+                <% else %>
+                  <span>, <%= potential_client.client.company_name %></span>
+                <% end %>
+                <% count += 1 %>
+              <% end %>
             </div>
+
           </div>
 
         </div>
