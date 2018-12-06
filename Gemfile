@@ -16,7 +16,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'prawn', '~>2.2.0'
+gem 'wicked_pdf'
 gem "letter_opener", group: :development
 
 group :development do

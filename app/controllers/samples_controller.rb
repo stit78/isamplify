@@ -29,6 +29,26 @@ class SamplesController < ApplicationController
 
   def show
     @sample = Sample.find(params[:id])
+    @acidity = ""
+    @clean = ""
+    @sweetness = ""
+    @labels = ""
+
+    @sample.coffee_lot.samples.order(created_at: :desc).each do |sample|
+      if sample.id != @sample.id
+        if @acidity == "" && @clean == "" && @sweetness == ""
+          @acidity = sample.acidity.to_s
+          @clean = sample.clean.to_s
+          @sweetness = sample.sweetness.to_s
+          @labels = sample.stage.to_s
+        else
+          @acidity.insert(-1, ",#{sample.acidity.to_s}")
+          @clean.insert(-1, ",#{sample.clean.to_s}")
+          @sweetness.insert(-1, ",#{sample.sweetness.to_s}")
+          @labels.insert(-1, ",#{sample.stage.to_s}")
+        end
+      end
+    end
   end
 
   def new
@@ -44,7 +64,7 @@ class SamplesController < ApplicationController
   def update_after_reception
     @sample = Sample.find(params[:id])
     if @sample.received!
-      flash[:notice] = "The sample #{@sample_id} has been received"
+      flash[:notice] = "The sample #{@sample.id} has been received"
       redirect_to pending_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
@@ -77,6 +97,14 @@ class SamplesController < ApplicationController
     # end
   end
 
+  def update_after_emailing
+    @sample = Sample.find(params[:id])
+    @sample.status = "labelled"
+    @sample.save
+    flash[:notice] = "The sample #{@sample.id} has been sent"
+    redirect_to sent_index_samples_path
+  end
+
   def create
     @exporter = User.find_by(role: "Exporter")
     @sample = Sample.new(review_params)
@@ -88,6 +116,14 @@ class SamplesController < ApplicationController
     # redirect_to sample_path(@sample)
   end
 
+  def email
+    @sample = Sample.find(params[:id])
+    ExporterMailer.reception_confirmation(@sample).deliver_now
+    redirect_to labelled_index_samples_path
+    @sample.status = "sent"
+    @sample.save
+    flash[:notice] = "The sample #{@sample.id} has been sent"
+  end
 
   private
 
