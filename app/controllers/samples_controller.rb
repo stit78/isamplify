@@ -97,14 +97,12 @@ class SamplesController < ApplicationController
   end
 
   def email
-    @sample = current_user.sample.build(re_params)
-
-    if @restaurant.save
-      RestaurantMailer.creation_confirmation(@restaurant).deliver_now
-      redirect_to restaurant_path(@restaurant)
-    else
-      render :new
-    end
+    @sample = Sample.find(params[:id])
+    ExporterMailer.reception_confirmation(@sample).deliver_now
+    redirect_to labelled_index_samples_path
+    @sample.status = "sent"
+    @sample.save
+    flash[:notice] = "The sample #{@sample.id} has been sent"
   end
 
   private
