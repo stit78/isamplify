@@ -44,14 +44,16 @@ Purchase.destroy_all
 puts "destroying users"
 User.destroy_all
 
+puts "..."
 puts "DESTRUCTIONS TERMINATED"
+puts "..."
 
 certifications.each do |certification|
   certif = Certification.new(name: certification)
   certif.save!
 end
 
-puts "creating user Carlos"
+puts "Creating user Carlos"
 carlos = User.new(
   email: "carlos@gmail.com",
   role: "Exporter",
@@ -63,7 +65,7 @@ carlos = User.new(
   )
 carlos.save
 
-puts "creating user Amandine"
+puts "Creating user Amandine"
 amandine = User.new(
   email: "amandine@gmail.com",
   role: "Trader",
@@ -75,7 +77,7 @@ amandine = User.new(
   )
 amandine.save
 
-puts "creating 5 clients"
+puts "Creating 5 clients"
 CLIENTS.each do |client|
 
   firstuser = User.new(
@@ -91,8 +93,9 @@ CLIENTS.each do |client|
 end
 
 
-puts "creating 35 coffee lots"
-35.times do
+
+puts "Creating 5 coffee lots"
+5.times do
   puts "creating one coffeelot"
 
   coffeelot = CoffeeLot.new(
@@ -105,13 +108,13 @@ puts "creating 35 coffee lots"
     region: "South America",
     quality_description: QUALITY.sample
     )
-  puts "creating certifications for this coffeelot"
+  puts "      Creating certifications for this coffeelot"
   rand(1..5).times do
     coffeecertif = CoffeeCertification.new(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
     coffeecertif.save
   end
 
-  puts "creating samples for this coffeelot"
+  puts "         Creating samples pending for this coffeelot"
     sample = Sample.new(
       stage: STAGE.sample,
       exporter: carlos,
@@ -121,18 +124,29 @@ puts "creating 35 coffee lots"
       )
     sample.save
 
+  # puts "creating samples for this coffeelot"
+  #   example1 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: amandine,
+  #     coffee_lot: coffeelot,
+  #     status: "received"
+  #     )
+  #   example1.save
 
-  puts "creating samples for this coffeelot"
-    example1 = Sample.new(
-      stage: STAGE.sample,
-      exporter: carlos,
-      trader: amandine,
-      coffee_lot: coffeelot,
-      status: "received"
-      )
-    example1.save
+  # puts "creating samples for this coffeelot"
+  #   example2 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: amandine,
+  #     coffee_lot: coffeelot,
+  #     status: "tested"
+  #     )
+  #   example2.save
 
-  puts "adding historic to sample"
+
+
+  puts "            Adding historic to sample status:pending"
   if sample.stage == "Loading Sample"
     creating_sample(coffeelot, "Loading Sample")
   elsif sample.stage == "Port Sample"
@@ -156,7 +170,7 @@ puts "creating 35 coffee lots"
   end
 
 
-  puts "creating potential client list for this coffeelot"
+  puts "                Creating potential client list for this coffeelot"
   rand(1..3).times do
     potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
     potclient.save
