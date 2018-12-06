@@ -5,7 +5,7 @@
       <% @samples.each do |sample| %>
         <li>
           <%= sample.id %>
-          <%= render "shared/card_sample", sample: @sample %>
+          <%= render "shared/card_sample", sample: sample %>
           <%= link_to "PDF File", tested_index_samples_path(format:'pdf'), class: "btn btn-success" %>
           <%= link_to "Add to Printer", etiquettes_path, method: :get, class: "btn btn-success" %>
         </li>
