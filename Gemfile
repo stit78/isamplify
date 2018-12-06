@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 gem "letter_opener", group: :development
 
 group :development do

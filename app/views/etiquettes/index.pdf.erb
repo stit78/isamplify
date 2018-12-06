@@ -1,0 +1,13 @@
+<% etiquettes.each do |etiquette| %>
+  <div style="border: 1px dotted black;
+      height: 49%;
+      width: 49%;
+      display: inline-block;
+      font-size: 80px;
+      padding-left: 30px">
+    <p> <%= etiquette.sample.coffee_lot.provenance %> </p>
+    <p> <%= etiquette.sample.coffee_lot.quantity %> bags</p>
+    <p> <%= etiquette.sample.coffee_lot.quality_description %></p>
+  </div>
+<% end %>
+

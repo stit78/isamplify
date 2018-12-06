@@ -6,6 +6,15 @@ class EtiquettesController < ApplicationController
   def index
     @etiquettes = Etiquette.all
     @samples = Sample.all
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "etiquette",
+               orientation: 'Landscape',
+               template: "etiquettes/index.pdf.erb",
+               locals: { :etiquettes => @etiquettes }
+      end
+    end
   end
 
   def create
@@ -15,8 +24,4 @@ class EtiquettesController < ApplicationController
     @etiquette.save
     redirect_to etiquette_path
   end
-
-  # def show_etiquette
-  #   @etiquette = Etiquette.find(params[:id])
-#   # end
 end

@@ -9,14 +9,6 @@ class SamplesController < ApplicationController
 
   def tested_index
     @samples = Sample.tested
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = Prawn::Document.new
-        pdf.text "Hello"
-        send_data pdf.render, filename: 'samples.pdf', type: 'application/pdf', disposition: "inline"
-      end
-    end
   end
 
   def labelled_index
