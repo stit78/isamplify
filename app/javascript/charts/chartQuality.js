@@ -30,6 +30,7 @@ const chartQuality = (acidity, clean, sweetness, myLabels) => {
           ]
       },
       options: {
+          legend: { position: 'right' },
           scales: {
               yAxes: [{
                   ticks: {
