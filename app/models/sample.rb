@@ -10,6 +10,8 @@ class Sample < ApplicationRecord
   validates :status, presence: true, inclusion: { in: ["pending", "received", "tested", "labelled", "sent"] }
   enum status: ["pending", "received", "tested", "labelled", "sent"]
 
+  scope :count_with_status, ->(status) { where(status: status).count }
+
   private
   def send_reception_confirmation
     ExporterMailer.reception_confirmation(self).deliver_now
