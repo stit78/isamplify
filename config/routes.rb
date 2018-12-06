@@ -18,11 +18,14 @@ Rails.application.routes.draw do
       post 'update_after_emailing', to: 'samples#update_after_emailing'
       post 'email'
     end
+
+    resources :etiquettes, only: [:create]
+
   end
   resources :coffeelots, only: [:show]
 
   resources :receptions
-  resources :etiquettes, only: [:create, :index]
+  resources :etiquettes, only: [:index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
