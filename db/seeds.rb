@@ -28,7 +28,8 @@ def creating_sample(coffeelot, stage)
   sample.save
 end
 
-
+puts "destroying etiquettes"
+Etiquette.destroy_all
 puts "destroying samples"
 Sample.destroy_all
 puts "destroying coffee certification"
@@ -100,7 +101,7 @@ puts "Creating 5 coffee lots"
 
   coffeelot = CoffeeLot.new(
     provenance: COUNTRY.sample,
-    quantity: rand(1..20),
+    quantity: [320, 640, 960, 1280, 1600].sample,
     tree: TREE.sample,
     iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
     screen_size: SIZE.sample,
@@ -108,7 +109,7 @@ puts "Creating 5 coffee lots"
     region: "South America",
     quality_description: QUALITY.sample
     )
-  puts "      Creating certifications for this coffeelot"
+  puts "Creating certifications for this coffeelot"
   rand(1..5).times do
     coffeecertif = CoffeeCertification.new(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
     coffeecertif.save
@@ -124,16 +125,23 @@ puts "Creating 5 coffee lots"
       )
     sample.save
 
-    puts "Creating samples pending for this coffeelot"
-    sample = Sample.new(
-      stage: STAGE.sample,
-      exporter: carlos,
-      trader: amandine,
-      coffee_lot: coffeelot,
-      status: "labelled"
-      )
-    sample.save
+    # puts "Creating samples pending for this coffeelot"
+    # sample = Sample.new(
+    #   stage: STAGE.sample,
+    #   exporter: carlos,
+    #   trader: amandine,
+    #   coffee_lot: coffeelot,
+    #   status: "labelled"
+    #   )
+    # sample.save
 
+  puts "Creating 5 etiquettes"
+  1.times do
+    puts "creating one etiquette"
+
+    etiquette = Etiquette.new(sample: sample)
+    etiquette.save
+  end
   # puts "creating samples for this coffeelot"
   #   example1 = Sample.new(
   #     stage: STAGE.sample,
