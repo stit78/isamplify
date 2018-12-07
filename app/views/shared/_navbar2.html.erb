@@ -4,38 +4,38 @@
       <% if Sample.count_with_status("pending") != 0 %>
         <li class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Received",pending_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Tested", received_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "emailed_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("pending") == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Received",pending_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Tested", received_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "emailed_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("received") == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Received",pending_index_samples_path%></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Tested", received_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "emailed_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("tested") == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Received",pending_index_samples_path%></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Tested", received_index_samples_path%></li>
-        <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
-        <li class="<%= "bottom_border" if action_name == "emailed_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("labelled") == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Received",pending_index_samples_path%></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Tested", received_index_samples_path%></li>
-        <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
-        <li class="active" class="<%= "bottom_border" if action_name == "emailed_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%></li>
       <% else %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Received",pending_index_samples_path%></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Tested", received_index_samples_path%></li>
-        <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
-        <li class="active" class="<%= "bottom_border" if action_name == "emailed_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailed", labelled_index_samples_path%></li>
         <li class="active" class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%></li>
       <% end %>
     </ul>
