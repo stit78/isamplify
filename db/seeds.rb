@@ -97,7 +97,7 @@ end
 
 
 puts "Creating 5 coffee lots"
-5.times do
+3.times do
   puts "creating one coffeelot"
 
   coffeelot = CoffeeLot.new(
@@ -136,13 +136,13 @@ puts "Creating 5 coffee lots"
     #   )
     # sample.save
 
-  puts "Creating 5 etiquettes"
-  1.times do
-    puts "creating one etiquette"
+  # puts "Creating 5 etiquettes"
+  # 1.times do
+  #   puts "creating one etiquette"
 
-    etiquette = Etiquette.new(sample: sample)
-    etiquette.save
-  end
+  #   etiquette = Etiquette.new(sample: sample)
+  #   etiquette.save
+  # end
   # puts "creating samples for this coffeelot"
   #   example1 = Sample.new(
   #     stage: STAGE.sample,
