@@ -7,7 +7,8 @@
           <strong style="color: $main">SAMPLE N°</strong><%= sample.id %>, &nbsp;<strong style="color: $main">FROM</strong> &nbsp; <%= sample.coffee_lot.provenance %>, &nbsp;<strong style="color: $main">QUALITY</strong> &nbsp;<%= sample.coffee_lot.quality_description %> &nbsp; <strong style="color: $main">SENT BY</strong>&nbsp; <%= sample.exporter.company_name %></strong>
         </div>
       </div>
-      <div class=card-status> <%= sample.status %>&nbsp;</div>
+      <div class=card-status> <%= sample.status %>&nbsp;
+      </div>
       <div class="card-score">
         <% if sample.status != "pending" || "received" %>
         <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
@@ -20,7 +21,6 @@
     <div class="card-content">
 
       <div class="card-import">
-
         <% if sample.stage == "Offer Sample" %>
           <div class="card-stage active current">
             Offer
@@ -38,7 +38,7 @@
             Warehouse
           </div>
           <div class="card-stage">
-            Client
+            Sale
           </div>
 
         <% elsif sample.stage == "Purchase Sample" %>
@@ -58,7 +58,7 @@
             Warehouse
           </div>
           <div class="card-stage">
-            Client
+            Sale
           </div>
 
         <% elsif sample.stage == "Loading Sample" %>
@@ -78,7 +78,7 @@
             Warehouse
           </div>
           <div class="card-stage">
-            Client
+            Sale
           </div>
 
         <% elsif sample.stage == "Port Sample" %>
@@ -98,7 +98,7 @@
             Warehouse
           </div>
           <div class="card-stage">
-            Client
+            Sale
           </div>
 
         <% elsif sample.stage == "Warehouse Sample" %>
@@ -118,10 +118,10 @@
             Warehouse
           </div>
           <div class="card-stage">
-            Client
+            Sale
           </div>
 
-        <% elsif sample.stage == "Client Sample" %>
+        <% elsif sample.stage == "Sale Sample" %>
           <div class="card-stage active">
             Offer
           </div>
@@ -138,17 +138,15 @@
             Warehouse
           </div>
           <div class="card-stage active current">
-            Client
+            Sale
           </div>
 
         <% end %>
       </div>
 
-
-
       <div class="card-description-action">
-        <div class="card-description">
 
+        <div class="card-description">
           <div class="card-field">
             <div class="card-key">
               <p><strong>Quantity:</strong></p>
@@ -183,106 +181,19 @@
               <% end %>
             </div>
           </div>
-
         </div>
+
           <div class="card-action">
             <div class="show"><i class="far fa-eye"></i></div>
             <div class="edit"><i class="fas fa-edit"></i></div>
           </div>
-
-
-        </div>
-
       </div>
-
     </div>
 
   </div>
-
 
   <div class="card-expendable">
     <p>More info will be displayed here using AJAX</p>
   </div>
 
 </div>
-
-
-<!--           <% if sample.stage == "Offer Sample" %>
-            <li class="active current">Offer</li>
-            <li>Purchase</li>
-            <li>Loading</li>
-            <li>Port</li>
-            <li>Wharehouse</li>
-            <li>Client</li>
-          <% elsif sample.stage == "Purchase Sample" %>
-            <li class="active">Offer</li>
-            <li class="active current">Purchase</li>
-            <li>Loading</li>
-            <li>Port</li>
-            <li>Wharehouse</li>
-            <li>Client</li>
-          <% elsif sample.stage == "Loading Sample" %>
-            <li class="active">Offer</li>
-            <li class="active">Purchase</li>
-            <li class="active current"> Loading</li>
-            <li>Port</li>
-            <li>Wharehouse</li>
-            <li>Client</li>
-          <% elsif sample.stage == "Port Sample" %>
-            <li class="active">Offer</li>
-            <li class="active">Purchase</li>
-            <li class="active">Loading</li>
-            <li class="active">Port</li>
-            <li>Wharehouse</li>
-            <li>Client</li>
-          <% elsif sample.stage == "Warehouse Sample" %>
-            <li class="active">Offer</li>
-            <li class="active">Purchase</li>
-            <li class="active">Loading</li>
-            <li class="active">Port</li>
-            <li class="active">Wharehouse</li>
-            <li>Client</li>
-          <% elsif sample.stage == "Sale Sample" %>
-            <li class="active">Offer</li>
-            <li class="active">Purchase</li>
-            <li class="active">Loading</li>
-            <li class="active">Port</li>
-            <li class="active">Wharehouse</li>
-            <li class="active">Client</li>
-          <% else %>
-            <li>Offer</li>
-            <li>Purchase</li>
-            <li>Loading</li>
-            <li>Port</li>
-            <li>Wharehouse</li>
-            <li>Client</li>
-          <% end %>
-        </ul> -->
-<!--
-        <% if sample.status == "pending" %>
-          <p> <i class="fas fa-inbox uncomplete"> Pending</i></p>
-          <p> <i class="fas fa-coffee uncomplete"> </i></p>
-          <p> <i class="fas fa-tags uncomplete"> </i></p>
-          <p> <i class="fas fa-share-square uncomplete"></i></p>
-          <% elsif sample.status == "received" %>
-          <p> <i class="fas fa-inbox complete"> Received</i> </p>
-          <p> <i class="fas fa-coffee uncomplete"> Pending</i></p>
-          <p> <i class="fas fa-tags uncomplete"> </i></p>
-          <p> <i class="fas fa-share-square uncomplete"> </i></p>
-          <% elsif sample.status == "tested" %>
-          <p> <i class="fas fa-inbox complete"> Received</i> </p>
-          <p> <i class="fas fa-coffee complete"> Tested</i> </p>
-          <p> <i class="fas fa-tags uncomplete"> Pending</i></p>
-          <p> <i class="fas fa-share-square uncomplete"> </i></p>
-          <% elsif sample.status == "labelled" %>
-          <p> <i class="fas fa-inbox complete"> Received</i> </p>
-          <p> <i class="fas fa-coffee complete"> Tested</i> </p>
-          <p> <i class="fas fa-tags complete"> Labelled</i></p>
-          <p> <i class="fas fa-share-square uncomplete"> Pending</i></p>
-          <% else %>
-          <p> <i class="fas fa-inbox complete"> Received</i> </p>
-          <p> <i class="fas fa-coffee complete"> Tested</i> </p>
-          <p> <i class="fas fa-tags complete"> Labelled</i></p>
-          <p> <i class="fas fa-share-square complete"> Sent</i></p>
-        <% end %>
-      </div>
