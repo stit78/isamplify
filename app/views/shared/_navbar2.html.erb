@@ -1,46 +1,43 @@
 <div class="navbar2-wagon">
   <div class="container">
     <ul class="progressbar">
-      <ul class="progressbar">
-        <% if Sample.count_with_status("pending") != 0 %>
-          <li >Received</li>
-          <li>Tested</li>
-          <li>Labelled</li>
-          <li>Emailed</li>
-          <li>Sent</li>
-        <% elsif Sample.count_with_status("pending") == 0 %>
-          <li class="active", link_to pending_index_samples_path >Received</li>
-<!--           <li> link_to "Reception", pending_index_samples_path, class:"active"</li>
- -->          <li>Tested</li>
-          <li>Labelled</li>
-          <li>Emailed</li>
-          <li>Sent</li>
-        <% elsif Sample.count_with_status("received") == 0 %>
-          <li class="active">Received</li>
-          <li class="active">Tested</li>
-          <li>Labelled</li>
-          <li>Emailed</li>
-          <li>Sent</li>
-        <% elsif Sample.count_with_status("tested") == 0 %>
-          <li class="active">Received</li>
-          <li class="active">Tested</li>
-          <li class="active">Labelled</li>
-          <li>Emailed</li>
-          <li>Sent</li>
-        <% elsif Sample.count_with_status("labelled") == 0 %>
-          <li class="active">Received</li>
-          <li class="active">Tested</li>
-          <li class="active">Labelled</li>
-          <li class="active">Emailed</li>
-          <li>Sent</li>
-        <% else %>
-          <li class="active">Received</li>
-          <li class="active">Tested</li>
-          <li class="active">Labelled</li>
-          <li class="active">Emailed</li>
-          <li class="active">Sent</li>
-        <% end %>
-      </ul>
+      <% if Sample.count_with_status("pending") != 0 %>
+        <li >Received</li>
+        <li>Tested</li>
+        <li>Labelled</li>
+        <li>Emailed</li>
+        <li>Sent</li>
+      <% elsif Sample.count_with_status("pending") == 0 %>
+        <li class="active", link_to pending_index_samples_path >Received</li>
+        <li>Tested</li>
+        <li>Labelled</li>
+        <li>Emailed</li>
+        <li>Sent</li>
+      <% elsif Sample.count_with_status("received") == 0 %>
+        <li class="active">Received</li>
+        <li class="active">Tested</li>
+        <li>Labelled</li>
+        <li>Emailed</li>
+        <li>Sent</li>
+      <% elsif Sample.count_with_status("tested") == 0 %>
+        <li class="active">Received</li>
+        <li class="active">Tested</li>
+        <li class="active">Labelled</li>
+        <li>Emailed</li>
+        <li>Sent</li>
+      <% elsif Sample.count_with_status("labelled") == 0 %>
+        <li class="active">Received</li>
+        <li class="active">Tested</li>
+        <li class="active">Labelled</li>
+        <li class="active">Emailed</li>
+        <li>Sent</li>
+      <% else %>
+        <li class="active">Received</li>
+        <li class="active">Tested</li>
+        <li class="active">Labelled</li>
+        <li class="active">Emailed</li>
+        <li class="active">Sent</li>
+      <% end %>
     </ul>
   </div>
 </div>
