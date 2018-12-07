@@ -1,6 +1,6 @@
 .add_coffee_btn {
   padding: 16px;
-  background-color: #D6C9BE;
+  // background-color: #D6C9BE;
   border-radius: 32px;
   color: $main;
   text-align: center;
@@ -17,4 +17,14 @@
   padding: 10px;
   border-radius: 25px;
   box-shadow: 2px 2px 3px #33333340;
+}
+
+.square-15{
+  height: 15px;
+  width: 15px;
+}
+.flex-centerer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
