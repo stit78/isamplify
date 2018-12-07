@@ -185,27 +185,27 @@
         </div>
 
           <div class="card-action">
-            <div class="card-action-show">
+            <div class="card-action-show text-center">
               <%= link_to "<i class='fas fa-eye'></i>".html_safe, coffeelot_path(sample.coffee_lot) %>
             </div>
             <% if sample.status == "pending" %>
-              <div class="card-action-edit">
+              <div class="card-action-edit text-center">
                 <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post %>
               </div>
             <% elsif sample.status == "received" %>
-              <button type="button" data-toggle="modal" data-target="#sample-<%= sample.id %>">
+              <button class="card-action-edit text-center" type="button" data-toggle="modal" data-target="#sample-<%= sample.id %>">
                 <i class='fas fa-coffee'></i>
             </button>
             <% elsif sample.status == "tested" %>
-              <div class="card-action-edit">
+              <div class="card-action-edit text-center">
                 <%= link_to "<i class='fas fa-tags'></i>".html_safe, update_after_labelling_sample_path(sample), method: :post %>
               </div>
             <% elsif sample.status == "labelled" %>
-              <div class="card-action-edit">
+              <div class="card-action-edit text-center">
                 <%= link_to "<i class='fas fa-share-square'></i>".html_safe, update_after_emailing_sample_path(sample), method: :post %>
               </div>
             <% else %>
-              <div class="card-action-edit">
+              <div class="card-action-edit text-center">
                 <%= link_to "<i class='fas fa-check-circle'></i>".html_safe, edit_sample_path(sample), method: :post %>
               </div>
             <% end %>
@@ -215,8 +215,8 @@
 
   </div>
 
-  <div class="card-expendable">
+<!--   <div class="card-expendable">
     <p>More info will be displayed here using AJAX</p>
-  </div>
+  </div> -->
 
 </div>
