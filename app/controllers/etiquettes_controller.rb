@@ -9,10 +9,11 @@ class EtiquettesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "etiquette",
-               orientation: 'Landscape',
-               template: "etiquettes/index.pdf.erb",
-               locals: { :etiquettes => @etiquettes }
+        # render pdf: "etiquette",
+        #        # orientation: 'Landscape',
+        #        template: "etiquettes/index.pdf.erb",
+        #        locals: { :etiquettes => @etiquettes }
+        WickedPdf.new.pdf_from_url(etiquettes_url)
       end
     end
   end
