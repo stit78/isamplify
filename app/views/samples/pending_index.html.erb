@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-      <h1>These following samples need checking from the DB</h1>
+      <h2 class="text-center">Samples reception</h2>
     <button type="button" class="add_coffee_btn button-create" data-toggle="modal" data-target="#new_sample_modal">
       Add a new sample
     </button>
@@ -27,9 +27,7 @@
     <ul class= "no-bullet">
       <% @samples.each do |sample| %>
           <li>
-            <%= sample.id %>
             <%= render "shared/card_sample", sample: sample %>
-            <%= link_to "Mark as received", update_after_reception_sample_path(sample), method: :post, class: "btn btn-success" %>
           </li>
       <% end %>
     </ul>
