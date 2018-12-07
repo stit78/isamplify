@@ -193,9 +193,9 @@
                 <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post %>
               </div>
             <% elsif sample.status == "received" %>
-              <div class="card-action-edit">
-                <%= link_to "<i class='fas fa-coffee'></i>".html_safe, update_after_test_sample_path(sample), method: :post %>
-              </div>
+              <button type="button" data-toggle="modal" data-target="#sample-<%= sample.id %>">
+                <i class='fas fa-coffee'></i>
+            </button>
             <% elsif sample.status == "tested" %>
               <div class="card-action-edit">
                 <%= link_to "<i class='fas fa-tags'></i>".html_safe, update_after_labelling_sample_path(sample), method: :post %>
