@@ -58,6 +58,10 @@
       background-color: #55b776;
   }
 
-  ul li a {
+ul.TabNav li a {
   display: block;
+}
+
+li {
+  list-style-type: none;
 }

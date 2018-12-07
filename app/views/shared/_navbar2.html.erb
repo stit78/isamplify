@@ -2,41 +2,41 @@
   <div class="container">
     <ul class="progressbar">
       <% if Sample.count_with_status("pending") != 0 %>
-        <li>Received</li>
-        <li>Tested</li>
-        <li>Labelled</li>
-        <li>Emailed</li>
-        <li>Sent</li>
+        <li><%= link_to "Received",pending_index_samples_path%></li>
+        <li><%= link_to "Tested", received_index_samples_path%></li>
+        <li><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("pending") == 0 %>
         <li class="active"><%= link_to "Received",pending_index_samples_path%></li>
-        <li>Tested</li>
-        <li>Labelled</li>
-        <li>Emailed</li>
-        <li>Sent</li>
+        <li><%= link_to "Tested", received_index_samples_path%></li>
+        <li><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("received") == 0 %>
-        <li class="active">Received</li>
-        <li class="active">Tested</li>
-        <li>Labelled</li>
-        <li>Emailed</li>
-        <li>Sent</li>
+        <li class="active"><%= link_to "Received",pending_index_samples_path%></li>
+        <li class="active"><%= link_to "Tested", received_index_samples_path%></li>
+        <li><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("tested") == 0 %>
-        <li class="active">Received</li>
-        <li class="active">Tested</li>
-        <li class="active">Labelled</li>
-        <li>Emailed</li>
-        <li>Sent</li>
+        <li class="active"><%= link_to "Received",pending_index_samples_path%></li>
+        <li class="active"><%= link_to "Tested", received_index_samples_path%></li>
+        <li class="active"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li><%= link_to "Sent", sent_index_samples_path%></li>
       <% elsif Sample.count_with_status("labelled") == 0 %>
-        <li class="active">Received</li>
-        <li class="active">Tested</li>
-        <li class="active">Labelled</li>
-        <li class="active">Emailed</li>
-        <li>Sent</li>
+        <li class="active"><%= link_to "Received",pending_index_samples_path%></li>
+        <li class="active"><%= link_to "Tested", received_index_samples_path%></li>
+        <li class="active"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="active"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li><%= link_to "Sent", sent_index_samples_path%></li>
       <% else %>
-        <li class="active">Received</li>
-        <li class="active">Tested</li>
-        <li class="active">Labelled</li>
-        <li class="active">Emailed</li>
-        <li class="active">Sent</li>
+        <li class="active"><%= link_to "Received",pending_index_samples_path%></li>
+        <li class="active"><%= link_to "Tested", received_index_samples_path%></li>
+        <li class="active"><%= link_to "Labelled", tested_index_samples_path%></li>
+        <li class="active"><%= link_to "Emailed", labelled_index_samples_path%></li>
+        <li class="active"><%= link_to "Sent", sent_index_samples_path%></li>
       <% end %>
     </ul>
   </div>
