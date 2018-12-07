@@ -70,7 +70,7 @@ class SamplesController < ApplicationController
 
   def update_after_emailing
     @sample = Sample.find(params[:id])
-    ExporterMailer.reception_confirmation(@sample).deliver_now
+    # ExporterMailer.reception_confirmation(@sample).deliver_now
     @sample.status = "sent"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been sent"
