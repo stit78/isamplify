@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <h1>Pages#home</h1>
+    <h1 class="text-center">Hello Amandine, ready to samplify?</h1>
 
     <div class="card-shop">
       <div class="title">
@@ -28,12 +28,45 @@
         </div>
       </div>
     </div>
-    <% @samples.each do |sample| %>
-      <div class=card_sample>
-        <%= render "/shared/card_sample.html.erb", sample: sample %>
-      </div>
-    <% end %>
 
+    <div>
+      <h3>Locate your coffee lots provenance</h3>
+    </div>
+
+    <div class="world-map">
+      <img style="width: 1000px;" src="https://upload.wikimedia.org/wikipedia/commons/5/56/Newworldmap_grayscale.svg" alt="locate your coffee lots provenance">
+    </div>
+
+    <div>
+      <h3>Monitor your activity</h3>
+    </div>
+
+    <div>
+      <ul>
+        <li><strong>Number of samples under management:</strong> <%= Sample.all.count %></li>
+        <li><strong>Number of coffee lots under management:</strong> <%= CoffeeLot.all.count %></li>
+        <li><strong>Number of coffee lots under management:</strong> <%= CoffeeLot.all.count %></li>
+        <li><strong>Quantity of coffee under management:</strong>
+          <% q = 0 %>
+          <% s = CoffeeLot.all %>
+          <% s.each do |lot| %>
+          <% q += lot.quantity %>
+          <% end %>
+          <%= q %> bags</li>
+      </ul>
+      <div>
+        <h3>Coffee news</h3>
+      </div
+
+
+      <div class="coffee-news">
+         <%= image_tag "coffee.news.png" %>
+      </div>
+    </div>
+
+
+    <div>
     <%= render "/shared/dashboard.html.erb" %>
+    </div>
   </div>
 </div>
