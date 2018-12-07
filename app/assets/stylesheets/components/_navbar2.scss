@@ -58,7 +58,15 @@
       background-color: #55b776;
   }
 
-ul.TabNav li a {
+  .progressbar li.bottom_border {
+    border-bottom: 5px solid;
+  }
+
+a:hover {
+  list-style-type: none;
+}
+
+ul li a {
   display: block;
 }
 
