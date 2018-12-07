@@ -2,13 +2,13 @@
   <div class="container">
     <ul class="progressbar">
       <% if Sample.count_with_status("pending") != 0 %>
-        <li >Received</li>
+        <li>Received</li>
         <li>Tested</li>
         <li>Labelled</li>
         <li>Emailed</li>
         <li>Sent</li>
       <% elsif Sample.count_with_status("pending") == 0 %>
-        <li class="active">Received</li>
+        <li class="active"><%= link_to "Received",pending_index_samples_path%></li>
         <li>Tested</li>
         <li>Labelled</li>
         <li>Emailed</li>
