@@ -9,14 +9,12 @@
   justify-content: space-between;
 }
 
-.progress-meter {
-  margin: 20px auto 40px;
-  padding: 40px;
-}
-
+  .progressbar {
+      counter-reset: step;
+  }
   .progressbar li {
       list-style-type: none;
-      width: 25%;
+      width: 20%;
       float: left;
       font-size: 12px;
       position: relative;
