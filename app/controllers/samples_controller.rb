@@ -54,8 +54,11 @@ class SamplesController < ApplicationController
 
   def update_after_labelling
     @sample = Sample.find(params[:id])
-    @sample.status = "received"
+    @sample.status = "labelled"
     @sample.save
+    @etiquette = Etiquette.new
+    @etiquette.sample = @sample
+    @etiquette.save
     flash[:notice] = "The sample #{@sample.id} has been labelled"
     redirect_to tested_index_samples_path
 
@@ -67,10 +70,11 @@ class SamplesController < ApplicationController
 
   def update_after_emailing
     @sample = Sample.find(params[:id])
-    @sample.status = "labelled"
+    ExporterMailer.reception_confirmation(@sample).deliver_now
+    @sample.status = "sent"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been sent"
-    redirect_to sent_index_samples_path
+    redirect_to labelled_index_samples_path
   end
 
   def create
