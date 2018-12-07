@@ -1,16 +1,17 @@
 <div class="wrapper">
   <div class="container">
-
+    <div class="header-email">
       <h1>These following samples need to the emailed</h1>
-        <ul class= "no-bullet">
-        <% @samples.each do |sample| %>
-          <li>
-            <%= sample.id %>
-            <%= render "shared/card_sample", sample: sample %>
+    </div>
+      <ul class= "no-bullet">
+      <% @samples.each do |sample| %>
+        <li>
+          <%= sample.id %>
+          <%= render "shared/card_sample", sample: sample %>
 
-            <%= link_to "Email",  email_sample_path(sample), method: :post, class: "btn btn-success" %>
-          </li>
-        <% end %>
-      </ul>
+          <%= link_to "Email",  email_sample_path(sample), method: :post, class: "btn btn-success" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
