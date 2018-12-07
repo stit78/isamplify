@@ -1,17 +1,28 @@
+.address-element {
+  border: solid 1px;
+}
 
-    .grid-container {
-      // grid-row-gap: 1%;
-      // display: grid;
-      // grid-template-columns: 1fr 1fr;
-      margin: 20px 90px;
+.grid-container {
+  // grid-row-gap: 1%;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  margin: 20px 90px;
 
-    }
-    .grid-element {
-      border: 1px dotted black;
-      height: 394px;
-      width: 556px;
-      background-color: white;
-    }
+}
+.grid-element {
+  border: 1px dotted black;
+  height: 394px;
+  width: 556px;
+  background-color: white;
+}
+
+.etiquette-element {
+
+}
+
+.etiquette-logo {
+  margin-top: 15px;
+}
 
 
 // .etiquette-box { grid-area: 2 etiquette-box;
