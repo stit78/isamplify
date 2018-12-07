@@ -21,6 +21,7 @@
       text-align: center;
       text-transform: uppercase;
       color: #7d7d7d;
+      display: block;
   }
   .progressbar li:before {
       width: 30px;
@@ -72,10 +73,15 @@ a:hover {
   color: $main;
 }
 
-ul li a {
+.progressbar li a {
   display: block;
+  /* padding and border HERE! */
 }
 
-li {
-  list-style-type: none;
-}
+// .block{
+//   display: block;
+// }
+
+// li {
+//   list-style-type: none;
+// }

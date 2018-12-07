@@ -195,7 +195,7 @@
             <% elsif sample.status == "received" %>
               <button type="button" data-toggle="modal" data-target="#sample-<%= sample.id %>">
                 <i class='fas fa-coffee'></i>
-              </button>
+            </button>
             <% elsif sample.status == "tested" %>
               <div class="card-action-edit">
                 <%= link_to "<i class='fas fa-tags'></i>".html_safe, update_after_labelling_sample_path(sample), method: :post %>

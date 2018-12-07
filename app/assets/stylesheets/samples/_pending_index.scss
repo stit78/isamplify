@@ -1,3 +1,16 @@
 .button-create{
     margin: 30px;
 }
+
+.header-pending-show {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.text-header-pending{
+  flex: 1;
+}
+.text-center {
+  padding-bottom: 10px;
+}
