@@ -18,10 +18,17 @@ class EtiquettesController < ApplicationController
   end
 
   def create
-    @sample = Sample.find(params[:id])
-    @etiquette = Etiquette.new(@sample)
-    @etiquette.sample.coffee_lot.provenance = @sample.coffee_lot.provenance
+    @sample = Sample.find(params[:sample_id])
+    @etiquette = Etiquette.new
+    @etiquette.sample = @sample
+    # @etiquette.sample.coffee_lot.provenance = @sample.coffee_lot.provenance
     @etiquette.save
-    redirect_to etiquette_path
+    redirect_to etiquettes_path
+  end
+
+  private
+
+  def etiquette_params
+    params.require(:sample).permit(:sample)
   end
 end
