@@ -4,7 +4,7 @@
   border-color: rgb(0, 74, 102);
   box-shadow: 1px 2px 3px 1px;
   border-radius: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 
@@ -12,10 +12,11 @@
   display: flex;
   border-radius: 6px;
   .card-title {
-    border-radius: 6px;
+    padding-top: 3px;
+    border-radius: 6px 6px 0px 0px;
     flex-grow: 1;
     background-color: white;
-    border-color: rgb(193, 193, 193);
+    border-color: $grey;
     font-size: 16px;
     padding-left: 10px;
     text-align: left;
@@ -28,7 +29,7 @@
     font-size: 11px;
     font-style: italic;
     background-color: white;
-    width: 70px;
+    width: 90px;
   }
   .card-score {
     font-size: 11px;
@@ -36,7 +37,7 @@
     position: left;
     background-color: $main;
     color: white;
-    border-radius: 6px;
+    border-radius: 0px 6px 0px 0px;
   }
 }
 
@@ -47,12 +48,13 @@
 }
 
 .card-import {
-  border-radius: 6px;
+  border-radius: 0px 0px 0px 6px;
   background-color: white;
   text-align: left;
   margin-top: auto;
   margin-bottom: auto;
   flex: 0 0 130px;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
 }
 
 .card-stage {
@@ -60,7 +62,7 @@
   text-align: center;
   font-size: 11px;
   font-style: italic;
-  color: $light-gray;
+  color: $grey;
 }
 
 .card-stage.active {
@@ -85,7 +87,7 @@
   padding-top: 10px;
   background-color: white;
   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
-  border-radius: 6px;
+  border-radius: 0px 0px 6px 0px;
   font-size: 12px;
 }
 
@@ -109,10 +111,18 @@
   font-size: 20px;
   justify-content: space-around;
   .show {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    color: $main;
+    .show:hover {
+      color: red;
+      background-color: $main;
+    }
   }
   .edit {
-    padding-top: 15px;
+    padding-top: 10px;
+        .edit:hover {
+       color: $main;
+    }
   }
 }
 

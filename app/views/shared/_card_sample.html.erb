@@ -7,13 +7,14 @@
           <strong style="color: $main">SAMPLE N°</strong><%= sample.id %>, &nbsp;<strong style="color: $main">FROM</strong> &nbsp; <%= sample.coffee_lot.provenance %>, &nbsp;<strong style="color: $main">QUALITY</strong> &nbsp;<%= sample.coffee_lot.quality_description %> &nbsp; <strong style="color: $main">SENT BY</strong>&nbsp; <%= sample.exporter.company_name %></strong>
         </div>
       </div>
-      <div class=card-status> <%= sample.status %>&nbsp;
+      <div class=card-status> Status:&nbsp;<%= sample.status %>&nbsp;
       </div>
       <div class="card-score">
-        <% if sample.status != "pending" || "received" %>
-        <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
-        <span style="font-size: 20px;"><%= sum %></span><span>/30</span>
+        <% if sample.status == ("tested" || "labelled" || "sent") %>
+          <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
+          <span style="font-size: 20px;"><%= sum %></span><span>/30</span>
         <% else %>
+          <span> &nbsp; </span>
         <% end %>
       </div>
     </div>
@@ -184,8 +185,44 @@
         </div>
 
           <div class="card-action">
-            <div class="show"><i class="far fa-eye"></i></div>
-            <div class="edit"><i class="fas fa-edit"></i></div>
+            <% if sample.status == "pending" %>
+              <a href="">
+                <div class="show"><i class="fas fa-eye"></i></div>
+              </a>
+              <a href="">
+                <div class="edit"><i class="fas fa-inbox"></i></div>
+              </a>
+            <% elsif sample.status == "received" %>
+              <a href="">
+                <div class="show"><i class="fas fa-eye"></i></div>
+              </a>
+              <a href="">
+                <div class="edit"><i class="fas fa-coffee"></i></div>
+              </a>
+            <% elsif sample.status == "tested" %>
+              <a href="">
+                <div class="show"><i class="fas fa-eye"></i></div>
+              </a>
+              <a href="">
+                <div class="edit"><i class="fas fa-tags"></i></div>
+              </a>
+              <a href="">
+            <% elsif sample.status == "labelled" %>
+              </a>
+              <a href="">
+                <div class="show"><i class="fas fa-eye"></i></div>
+              </a>
+              <a href="">
+                <div class="edit"><i class="fas fa-share-square"></i></div>
+              </a>
+            <% else %>
+              <a href="">
+                <div class="show"><i class="fas fa-eye"></i></div>
+              </a>
+              <a href="">
+                <div class="edit"><i class="fas fa-check-circle"></i></div>
+              </a>
+            <% end %>
           </div>
       </div>
     </div>
