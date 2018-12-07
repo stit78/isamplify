@@ -1,5 +1,4 @@
 import "bootstrap";
-import "./progress_bar";
 
 import { chartQuality } from 'charts/chartQuality';
 

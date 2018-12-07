@@ -1,12 +1,15 @@
 <div class="wrapper">
   <div class="container">
-    <h1>These following samples need to the labelled</h1>
+    <div class="header-tested">
+        <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn button-create slick_btn" %>
+      <div class="top-title">
+        <h2>Samples labelling</h2>
+      </div>
+    </div>
     <ul class= "no-bullet">
       <% @samples.each do |sample| %>
         <li>
-          <%= sample.id %>
           <%= render "shared/card_sample", sample: sample %>
-          <%= link_to "Add to Printer", sample_etiquettes_path(sample), method: :post, class: "btn btn-success" %>
         </li>
       <% end %>
     </ul>

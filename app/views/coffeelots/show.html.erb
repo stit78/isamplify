@@ -107,11 +107,14 @@
             <h4 class="sample-show-historic-title text-left">
               Samples received
             </h4>
+            <ul>
+
             <% @coffee_lot.samples.each do |sample| %>
-              <div class=card_sample>
+              <li>
                 <%= render "/shared/card_sample.html.erb", sample: sample %>
-              </div>
+              <li>
             <% end %>
+            </ul>
         </div>
       <% end %>
 

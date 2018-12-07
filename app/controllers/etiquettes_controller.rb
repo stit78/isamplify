@@ -13,7 +13,6 @@ class EtiquettesController < ApplicationController
                # orientation: 'Landscape',
                template: "etiquettes/index.pdf.erb",
                locals: { :etiquettes => @etiquettes }
-
       end
     end
   end
