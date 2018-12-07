@@ -1,5 +1,9 @@
 <div class="grid-container">
   <div class="row">
+    <div class="header-labelling">
+      <%= link_to "Get PDF", etiquettes_path(format: :pdf), class: "add_coffee_btn button-create slick_btn" %>
+      <%= link_to "Back", tested_index_samples_path, class: "add_coffee_btn button-create slick_btn" %>
+    </div>
     <% @etiquettes.each do |etiquette| %>
       <% etiquette.sample.coffee_lot.potential_clients.each do |potential_client|%>
       <div class="grid-element col-xs-12 col-sm-6">
@@ -19,7 +23,7 @@
     <% end %>
     <% end %>
     </div>
-    <%= link_to "Get PDF", etiquettes_path(format: :pdf) %>
+
 </div>
   <!-- </div> -->
 
