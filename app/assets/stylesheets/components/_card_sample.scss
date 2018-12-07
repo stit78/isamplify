@@ -4,7 +4,7 @@
   border-color: rgb(0, 74, 102);
   box-shadow: 1px 2px 3px 1px;
   border-radius: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 
@@ -110,17 +110,17 @@
   width: 50px;
   font-size: 20px;
   justify-content: space-around;
-  .show {
+  .card-action-show {
     padding-bottom: 10px;
     color: $main;
-    .show:hover {
+    .card-action-show:hover {
       color: red;
       background-color: $main;
     }
   }
-  .edit {
+  .card-action-edit {
     padding-top: 10px;
-        .edit:hover {
+        .card-action-edit:hover {
        color: $main;
     }
   }
@@ -129,6 +129,10 @@
 .card-expendable {
   border-radius: 6px;
   border-color: rgb(193, 193, 193);
+}
+
+i {
+  font-size: 20px;
 }
 
 // .container-fluid {
