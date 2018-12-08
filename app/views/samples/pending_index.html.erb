@@ -1,3 +1,4 @@
+<%= render 'shared/navbar2' %>
 <div class="wrapper">
   <div class="container">
     <div class="header-pending-show">
@@ -10,7 +11,20 @@
         <h2 class="text-center">Samples reception</h2>
       </div>
     </div>
-    <!-- Modal -->
+
+    <% if @samples.count == 0 %>
+      <p>No pending samples for the moment</p>
+    <% else %>
+      <ul class= "no-bullet">
+        <% @samples.each do |sample| %>
+            <li>
+              <%= render "shared/card_sample", sample: sample %>
+            </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <!-- Modal New Sample -->
 
     <div class="modal fade" id="new_sample_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -29,12 +43,6 @@
         </div>
       </div>
     </div>
-    <ul class= "no-bullet">
-      <% @samples.each do |sample| %>
-          <li>
-            <%= render "shared/card_sample", sample: sample %>
-          </li>
-      <% end %>
-    </ul>
+
   </div>
 </div>
