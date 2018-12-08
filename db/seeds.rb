@@ -13,6 +13,7 @@ QUALITY = ["Supremo UGQ", "NY 2/3 sc18 fc", "Agasimbo", "Cherry AB"]
 certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Practice"]
 STAGE = ["Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Offer Sample", "Sale Sample"]
 CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]
+PHONE = ["1 rue de la Centrale, Villeneuve d'Ascq, France", "1 place de Seattle, Lausanne, Suisse", "131 rue du café, 75011 Paris", "1145 5th Avenue, New York, USA"]
 
 def creating_sample(coffeelot, stage)
   sample = Sample.new(
@@ -61,7 +62,7 @@ carlos = User.new(
   company_name: "Sogimex",
   first_name: "Carlos",
   last_name: "Ghosn",
-  phone_number: "06 11 22 33 44 55",
+  phone_number: PHONE.sample,
   password: "123456"
   )
 carlos.save
@@ -73,7 +74,7 @@ amandine = User.new(
   company_name: "LDC",
   first_name: "Amandine",
   last_name: "Dubois",
-  phone_number: "06 66 77 88 99",
+  phone_number: PHONE.sample,
   password: "123456"
   )
 amandine.save
@@ -87,7 +88,7 @@ CLIENTS.each do |client|
     company_name: client.to_s,
     first_name: client[0..2].to_s,
     last_name: client[3..-1].to_s,
-    phone_number: "06 44 44 44 44",
+    phone_number: PHONE.sample,
     password: "123456"
     )
   firstuser.save
@@ -96,7 +97,7 @@ end
 
 
 puts "Creating 5 coffee lots"
-5.times do
+3.times do
   puts "creating one coffeelot"
 
   coffeelot = CoffeeLot.new(
@@ -135,13 +136,13 @@ puts "Creating 5 coffee lots"
     #   )
     # sample.save
 
-  puts "Creating 5 etiquettes"
-  1.times do
-    puts "creating one etiquette"
+  # puts "Creating 5 etiquettes"
+  # 1.times do
+  #   puts "creating one etiquette"
 
-    etiquette = Etiquette.new(sample: sample)
-    etiquette.save
-  end
+  #   etiquette = Etiquette.new(sample: sample)
+  #   etiquette.save
+  # end
   # puts "creating samples for this coffeelot"
   #   example1 = Sample.new(
   #     stage: STAGE.sample,

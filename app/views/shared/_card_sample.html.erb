@@ -1,105 +1,153 @@
 <div class="card-box">
   <div class="card-main">
 
-    <div class="card-title">
-      <p><strong>SAMPLE N°<%= sample.id %>, FROM <%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %> SENT BY <%= sample.exporter.company_name %>Carlos</strong></p>
+    <div class="card-top">
+      <div class="card-title">
+        <div style="display: flex; align-content: center;">
+          <strong style="color: $main">SAMPLE N°</strong><%= sample.id %>, &nbsp;<strong style="color: $main">FROM</strong> &nbsp; <%= sample.coffee_lot.provenance %>, &nbsp;<strong style="color: $main">QUALITY</strong> &nbsp;<%= sample.coffee_lot.quality_description %> &nbsp; <strong style="color: $main">SENT BY</strong>&nbsp; <%= sample.exporter.company_name %></strong>
+        </div>
+      </div>
+      <div class=card-status> Status:&nbsp;<%= sample.status %>&nbsp;
+      </div>
+      <div class="card-score">
+        <% if sample.status == ("tested" || "labelled" || "sent") %>
+          <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
+          <span style="font-size: 20px;"><%= sum %></span><span>/30</span>
+        <% else %>
+          <span> &nbsp; </span>
+        <% end %>
+      </div>
     </div>
 
-    <div class="card_content">
+    <div class="card-content">
 
-      <div class="card_todo">
-        <p><strong>Sample</strong></p>
+      <div class="card-import">
+        <% if sample.stage == "Offer Sample" %>
+          <div class="card-stage active current">
+            Offer
+          </div>
+          <div class="card-stage">
+            Purchase
+          </div>
+          <div class="card-stage">
+            Loading
+          </div>
+          <div class="card-stage">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Sale
+          </div>
 
-        <% if sample.status == "pending" %>
-          <p> <i class="fas fa-inbox uncomplete">  Pending</i></p>
-          <p> <i class="fas fa-coffee uncomplete">  Pending</i></p>
-          <p> <i class="fas fa-tags uncomplete">  Pending</i></p>
-          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
-          <% elsif sample.status == "received" %>
-          <p> <i class="fas fa-inbox complete">  Received</i> </p>
-          <p> <i class="fas fa-coffee uncomplete">  Pending</i></p>
-          <p> <i class="fas fa-tags uncomplete">  Pending</i></p>
-          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
-          <% elsif sample.status == "tested" %>
-          <p> <i class="fas fa-inbox complete">  Received</i> </p>
-          <p> <i class="fas fa-coffee complete">  Tested</i> </p>
-          <p> <i class="fas fa-tags uncomplete">  Pending</i></p>
-          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
-          <% elsif sample.status == "labelled" %>
-          <p> <i class="fas fa-inbox complete">  Received</i> </p>
-          <p> <i class="fas fa-coffee complete">  Tested</i> </p>
-          <p> <i class="fas fa-tags complete">  Labelled</i></p>
-          <p> <i class="fas fa-share-square uncomplete">  Pending</i></p>
-          <% else %>
-          <p> <i class="fas fa-inbox complete">  Received</i> </p>
-          <p> <i class="fas fa-coffee complete">  Tested</i> </p>
-          <p> <i class="fas fa-tags complete">  Labelled</i></p>
-          <p> <i class="fas fa-share-square complete">  Sent</i></p>
+        <% elsif sample.stage == "Purchase Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active current">
+            Purchase
+          </div>
+          <div class="card-stage">
+            Loading
+          </div>
+          <div class="card-stage">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Sale
+          </div>
+
+        <% elsif sample.stage == "Loading Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active current">
+            Loading
+          </div>
+          <div class="card-stage">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Sale
+          </div>
+
+        <% elsif sample.stage == "Port Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active">
+            Loading
+          </div>
+          <div class="card-stage active current">
+            Port
+          </div>
+          <div class="card-stage">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Sale
+          </div>
+
+        <% elsif sample.stage == "Warehouse Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active">
+            Loading
+          </div>
+          <div class="card-stage active">
+            Port
+          </div>
+          <div class="card-stage active current">
+            Warehouse
+          </div>
+          <div class="card-stage">
+            Sale
+          </div>
+
+        <% elsif sample.stage == "Sale Sample" %>
+          <div class="card-stage active">
+            Offer
+          </div>
+          <div class="card-stage active">
+            Purchase
+          </div>
+          <div class="card-stage active">
+            Loading
+          </div>
+          <div class="card-stage active">
+            Port
+          </div>
+          <div class="card-stage active">
+            Warehouse
+          </div>
+          <div class="card-stage active current">
+            Sale
+          </div>
+
         <% end %>
       </div>
 
-      <div class="card_info">
-
-        <div class="card_progress_bar">
-          <p><strong>Coffee lot</strong></p>
-          <div class="container-fluid">
-             <ul class="progressbar">
-              <% if sample.stage == "Offer Sample" %>
-                <li class="active">Offer</li>
-                <li>Purchase</li>
-                <li>Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Purchase Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li>Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Loading Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active"> Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Port Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active">Loading</li>
-                <li class="active">Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Warehouse Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active">Loading</li>
-                <li class="active">Port</li>
-                <li class="active">Wharehouse</li>
-                <li>Client</li>
-              <% elsif sample.stage == "Sale Sample" %>
-                <li class="active">Offer</li>
-                <li class="active">Purchase</li>
-                <li class="active">Loading</li>
-                <li class="active">Port</li>
-                <li class="active">Wharehouse</li>
-                <li class="active">Client</li>
-              <% else %>
-                <li>Offer</li>
-                <li>Purchase</li>
-                <li>Loading</li>
-                <li>Port</li>
-                <li>Wharehouse</li>
-                <li>Client</li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+      <div class="card-description-action">
 
         <div class="card-description">
-
           <div class="card-field">
             <div class="card-key">
               <p><strong>Quantity:</strong></p>
@@ -133,19 +181,42 @@
                 <% count += 1 %>
               <% end %>
             </div>
-
           </div>
-
         </div>
 
+          <div class="card-action">
+            <div class="card-action-show text-center">
+              <%= link_to "<i class='fas fa-eye'></i>".html_safe, coffeelot_path(sample.coffee_lot) %>
+            </div>
+            <% if sample.status == "pending" %>
+              <div class="card-action-edit text-center">
+                <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post %>
+              </div>
+            <% elsif sample.status == "received" %>
+              <button class="card-action-edit text-center" type="button" data-toggle="modal" data-target="#sample-<%= sample.id %>">
+                <i class='fas fa-coffee'></i>
+            </button>
+            <% elsif sample.status == "tested" %>
+              <div class="card-action-edit text-center">
+                <%= link_to "<i class='fas fa-tags'></i>".html_safe, update_after_labelling_sample_path(sample), method: :post %>
+              </div>
+            <% elsif sample.status == "labelled" %>
+              <div class="card-action-edit text-center">
+                <%= link_to "<i class='fas fa-share-square'></i>".html_safe, update_after_emailing_sample_path(sample), method: :post %>
+              </div>
+            <% else %>
+              <div class="card-action-edit text-center">
+                <%= link_to "<i class='fas fa-check-circle'></i>".html_safe, edit_sample_path(sample), method: :post %>
+              </div>
+            <% end %>
+          </div>
       </div>
-
     </div>
 
   </div>
 
-  <div class="card_expendable">
+<!--   <div class="card-expendable">
     <p>More info will be displayed here using AJAX</p>
-  </div>
+  </div> -->
 
 </div>

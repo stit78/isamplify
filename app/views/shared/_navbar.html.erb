@@ -2,7 +2,7 @@
   <!-- Logo -->
   <div class="avatar">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "ldc.png", height: 50 %>
+      <%= image_tag "ecom.png", height: 50, class: "ecom-logo" %>
     <% end %>
   </div>
 
@@ -13,11 +13,6 @@
 
     <% if user_signed_in? %>
 
-        <%= link_to "Reception", pending_index_samples_path, class: "navbar-wagon-item navbar-wagon-link #{"navbar-button-active" if params[:action] == "pending_index"}" %>
-        <%= link_to "Testing", received_index_samples_path, class: "navbar-wagon-item navbar-wagon-link #{"navbar-button-active" if params[:action] == "received_index"}" %>
-        <%= link_to "Labelling", tested_index_samples_path, class: "navbar-wagon-item navbar-wagon-link #{"navbar-button-active" if params[:action] == "tested_index"}" %>
-        <%= link_to "Emailing", labelled_index_samples_path, class: "navbar-wagon-item navbar-wagon-link #{"navbar-button-active" if params[:action] == "labelled_index"}" %>
-        <%= link_to "Sent", sent_index_samples_path, class: "navbar-wagon-item navbar-wagon-link #{"navbar-button-active" if params[:action] == "sent_index"}" %>
 
 
       <!-- Avatar with dropdown menu -->

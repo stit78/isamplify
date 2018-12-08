@@ -1,12 +1,19 @@
 <div class="wrapper">
-  <h1>These following samples need to be send to the clients</h1>
   <div class="container">
-    <ul class= "no-bullet">
-      <% @samples.each do |sample| %>
-          <li>
-            <%= render "shared/card_sample", sample: sample %>
-          </li>
-      <% end %>
-    </ul>
+
+    <div class="header-pending-show">
+      <div class="text-header-pending">
+        <h2 class="text-center">Samples managed today</h2>
+      </div>
+    </div>
+    <div class="container">
+      <ul class= "no-bullet">
+        <% @samples.each do |sample| %>
+            <li>
+              <%= render "shared/card_sample", sample: sample %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

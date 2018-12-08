@@ -9,14 +9,6 @@ class SamplesController < ApplicationController
 
   def tested_index
     @samples = Sample.tested
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = Prawn::Document.new
-        pdf.text "Hello"
-        send_data pdf.render, filename: 'samples.pdf', type: 'application/pdf', disposition: "inline"
-      end
-    end
   end
 
   def labelled_index
@@ -25,30 +17,6 @@ class SamplesController < ApplicationController
 
   def sent_index
     @samples = Sample.sent
-  end
-
-  def show
-    @sample = Sample.find(params[:id])
-    @acidity = ""
-    @clean = ""
-    @sweetness = ""
-    @labels = ""
-
-    @sample.coffee_lot.samples.order(created_at: :desc).each do |sample|
-      if sample.id != @sample.id
-        if @acidity == "" && @clean == "" && @sweetness == ""
-          @acidity = sample.acidity.to_s
-          @clean = sample.clean.to_s
-          @sweetness = sample.sweetness.to_s
-          @labels = sample.stage.to_s
-        else
-          @acidity.insert(-1, ",#{sample.acidity.to_s}")
-          @clean.insert(-1, ",#{sample.clean.to_s}")
-          @sweetness.insert(-1, ",#{sample.sweetness.to_s}")
-          @labels.insert(-1, ",#{sample.stage.to_s}")
-        end
-      end
-    end
   end
 
   def new
@@ -86,8 +54,11 @@ class SamplesController < ApplicationController
 
   def update_after_labelling
     @sample = Sample.find(params[:id])
-    @sample.status = "received"
+    @sample.status = "labelled"
     @sample.save
+    @etiquette = Etiquette.new
+    @etiquette.sample = @sample
+    @etiquette.save
     flash[:notice] = "The sample #{@sample.id} has been labelled"
     redirect_to tested_index_samples_path
 
@@ -99,10 +70,11 @@ class SamplesController < ApplicationController
 
   def update_after_emailing
     @sample = Sample.find(params[:id])
-    @sample.status = "labelled"
+    # ExporterMailer.reception_confirmation(@sample).deliver_now
+    @sample.status = "sent"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been sent"
-    redirect_to sent_index_samples_path
+    redirect_to labelled_index_samples_path
   end
 
   def create

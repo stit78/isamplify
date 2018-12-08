@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get "/test", to: 'pages#test'
-  resources :samples, only: [:show, :new, :create, :edit, :update] do
+  resources :samples, only: [:new, :create, :edit, :update] do
     collection do
       get 'pending_index', to: 'samples#pending_index'
       get 'received_index', to: 'samples#received_index'
@@ -18,10 +18,14 @@ Rails.application.routes.draw do
       post 'update_after_emailing', to: 'samples#update_after_emailing'
       post 'email'
     end
+
+    resources :etiquettes, only: [:create]
+
   end
+  resources :coffeelots, only: [:show]
 
   resources :receptions
-  resources :etiquettes, only: [:create, :index]
+  resources :etiquettes, only: [:index]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

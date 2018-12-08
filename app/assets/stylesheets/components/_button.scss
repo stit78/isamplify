@@ -1,20 +1,55 @@
+.slick_btn {
+ border: 1px solid #0a49682e;
+ font-size: 18px;
+ color: $main;
+ background-color: white;
+ opacity: 0.7;
+}
+
+.slick_btn:hover {
+  text-decoration: none;
+  // color: #D6C9BE;
+  // background-color: $main;
+  opacity: 1;
+}
+
 .add_coffee_btn {
   padding: 16px;
-  background-color: #D6C9BE;
+  // background-color: #D6C9BE;
   border-radius: 32px;
   color: $main;
   text-align: center;
+  opacity: 0.7;
 }
 
 .add_coffee_btn:hover {
   text-decoration: none;
-  color: #D6C9BE;
-  background-color: $main;
+  // color: #D6C9BE;
+  // background-color: $main;
+  opacity: 1;
 }
+
 .photo_btn {
   background-color: #d5c9bd;
   border: 1px solid #0a49682e;
   padding: 10px;
   border-radius: 25px;
   box-shadow: 2px 2px 3px #33333340;
+}
+
+.square-15{
+  height: 15px;
+  width: 15px;
+}
+
+.square-25{
+  height: 25px;
+  width: 25px;
+}
+
+
+.flex-centerer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,0 +1,126 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="show-container">
+
+      <h3>Details of coffee lot #<%= @coffee_lot.iconumber %></h3>
+
+
+      <div class="show-all-information">
+        <h4 class="sample-show-historic-title text-left">
+          General information
+        </h4>
+        <div class="show-all-information-container">
+
+          <div class="show-all-left">
+            <div class="show-all-title">
+              <p>Exporter information:</p>
+            </div>
+            <div class="show-all-middle text-left">
+              <ul>
+                <li><strong>Name:</strong></li>
+                <li><strong>Company:</strong></li>
+                <li><strong>Mail:</strong></li>
+                <li><strong>Phone:</strong></li>
+              </ul>
+            </div>
+            <div class="show-all-right text-left">
+              <ul>
+                <li><%= @exporter.first_name.capitalize %> <%= @exporter.last_name.capitalize %></li>
+                <li><%= @exporter.company_name.capitalize %></li>
+                <li><%= @exporter.email %></li>
+                <li><%= @exporter.phone_number %></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="show-all-left">
+            <div class="show-all-title">
+              <p>Coffee information:</p>
+            </div>
+            <div class="show-all-middle text-left">
+              <ul>
+                <li><strong>ICO number:</strong></li>
+                <li><strong>Region:</strong></li>
+                <li><strong>Country:</strong></li>
+                <li><strong>Quantity:</strong></li>
+              </ul>
+            </div>
+            <div class="show-all-coffee-right text-left">
+              <ul>
+                <li><%= @coffee_lot.iconumber %></li>
+                <li><%= @coffee_lot.region %></li>
+                <li><%= @coffee_lot.provenance %></li>
+                <li><%= @coffee_lot.quantity %></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="show-all-left">
+            <div class="show-all-title">
+              <p>Coffee details:</p>
+            </div>
+            <div class="show-all-middle text-left">
+              <ul>
+                <li><strong>Tree:</strong></li>
+                <li><strong>Certifications:</strong></li>
+                <li><strong>Screen size:</strong></li>
+                <li><strong>Cup profile:</strong></li>
+                <li><strong>Quality description:</strong></li>
+              </ul>
+            </div>
+            <div class="show-all-right text-left">
+              <ul>
+                <li><%= @coffee_lot.tree %></li>
+                <li>
+                  <% count = 0 %>
+                  <% @coffee_lot.coffee_certifications.each do |coffee_certification| %>
+                    <% if count = 0 %>
+                      <span><%= coffee_certification.certification.name.capitalize %></span>
+                    <% else %>
+                      <span>, <%= coffee_certification.certification.name.capitalize %></span>
+                    <% end %>
+                    <% count += 1 %>
+                  <% end %>
+                </li>
+                <li><%= @coffee_lot.screen_size %></li>
+                <li><%= @coffee_lot.cup_profile %></li>
+                <li><%= @coffee_lot.quality_description %></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <% if @coffee_lot.samples.count > 1 %>
+        <div class="show-quality-graph">
+          <h4 class="sample-show-historic-title text-left">
+            Samples quality evolution
+          </h4>
+          <div class="show-quality-canvas" style="width: 650px;">
+            <canvas id="show-sample-historic-chart" data-acidity="<%= @acidity %>" data-clean="<%= @clean %>" data-sweetness="<%= @sweetness %>" data-labels="<%= @labels %>"></canvas>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @coffee_lot.samples.count >= 1 %>
+        <div class="show-historic">
+            <h4 class="sample-show-historic-title text-left">
+              Samples received
+            </h4>
+            <ul class= "no-bullet">
+
+            <% @coffee_lot.samples.each do |sample| %>
+              <li>
+                <%= render "/shared/card_sample.html.erb", sample: sample %>
+              <li>
+            <% end %>
+            </ul>
+        </div>
+      <% end %>
+
+      <%#= render "/shared/dashboard.html.erb" %>
+
+    </div>
+  </div>
+</div>

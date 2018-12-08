@@ -1,5 +1,17 @@
 .button-create{
     margin: 30px;
-    position: relative;
-    right: 400px;
+}
+
+.header-pending-show {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.text-header-pending{
+  flex: 1;
+  padding-right: 40px;
+}
+.text-center {
+  padding-bottom: 10px;
 }
