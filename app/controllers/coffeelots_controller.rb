@@ -29,4 +29,8 @@ class CoffeelotsController < ApplicationController
       end
     end
   end
+
+  def update
+    raise
+  end
 end

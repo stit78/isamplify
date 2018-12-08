@@ -7,9 +7,14 @@
 
       <!-- showing general information for the coffeelot -->
         <div class="show-all-information">
-          <h4 class="sample-show-historic-title text-left">
-            General information
-          </h4>
+          <div class="show-all-information-title">
+            <h4 class="sample-show-historic-title text-left">
+              General information
+            </h4>
+              <button type="button" data-toggle="modal" data-target="#coffee_lot-<%= @coffee_lot.id %>">
+                <i class='fas fa-edit'></i>
+              </button>
+          </div>
 
           <div class="show-all-information-container">
             <div class="show-all-left">
@@ -122,6 +127,24 @@
             </ul>
         </div>
       <% end %>
+
+      <!-- Modal -->
+      <div class="modal fade" id="coffee_lot-<%= @coffee_lot.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Coffee lot #<%= @coffee_lot.iconumber %></h4>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for @coffee_lot, url: coffeelot_path(@coffee_lot), method: :patch do |f| %>
+                <%= f.input :provenance %>
+                <%= f.submit "save", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
   </div>
 </div>

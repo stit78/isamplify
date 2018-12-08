@@ -10,9 +10,9 @@
       <div class=card-status> Status:&nbsp;<%= sample.status %>&nbsp;
       </div>
       <div class="card-score">
-        <% if sample.status == ("tested" || "labelled" || "sent") %>
+        <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" %>
           <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
-          <span style="font-size: 20px;"><%= sum %></span><span>/30</span>
+          <span style="font-size: 20px;"><%= sum %></span><span> /30</span>
         <% else %>
           <span> &nbsp; </span>
         <% end %>

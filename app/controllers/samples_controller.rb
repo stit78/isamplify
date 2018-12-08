@@ -1,6 +1,10 @@
 class SamplesController < ApplicationController
+  before_action :set_samples_count, only: [:pending_index, :received_index, :tested_index, :labelled_index, :sent_index]
+
   def pending_index
     @samples = Sample.pending
+    @new_sample = Sample.new
+    @new_coffee_lot = CoffeeLot.new
   end
 
   def received_index
@@ -47,7 +51,7 @@ class SamplesController < ApplicationController
       flash[:notice] = "The sample #{@sample.id} has been tested"
       redirect_to received_index_samples_path
     else
-      flash[:alert] = "Sorry, something went wrong"
+      flash[:alert] = "Sorry, something went wrong. Please ensure numbers are between 1 and 10."
       redirect_to received_index_samples_path
     end
   end
@@ -70,7 +74,7 @@ class SamplesController < ApplicationController
 
   def update_after_emailing
     @sample = Sample.find(params[:id])
-    # ExporterMailer.reception_confirmation(@sample).deliver_now
+    ExporterMailer.reception_confirmation(@sample).deliver_now
     @sample.status = "sent"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been sent"
@@ -101,5 +105,13 @@ class SamplesController < ApplicationController
 
   def review_params
     params.require(:sample).permit(:stage, :coffee_lot, :sweetness, :acidity, :clean, :status, :trader)
+  end
+
+  def set_samples_count
+    @samples_count = []
+    @samples_count << Sample.count_with_status("pending")
+    @samples_count << Sample.count_with_status("received")
+    @samples_count << Sample.count_with_status("tested")
+    @samples_count << Sample.count_with_status("labelled")
   end
 end
