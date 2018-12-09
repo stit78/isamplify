@@ -31,6 +31,24 @@ class CoffeelotsController < ApplicationController
   end
 
   def update
-    raise
+    @coffee_lot = CoffeeLot.find(params[:id])
+    if @coffee_lot.update(coffee_lot_params)
+      redirect_to coffeelot_path(@coffee_lot)
+    else
+      flash[:alert] = "Sorry, something went wrong"
+      redirect_to coffee_lot_path(@coffee_lot)
+    end
+  end
+
+  private
+
+  def coffee_lot_params
+    params.require(:coffee_lot).permit(:provenance,
+                                       :region,
+                                       :quantity,
+                                       :tree,
+                                       :screen_size,
+                                       :cup_profile,
+                                       :quality_description)
   end
 end

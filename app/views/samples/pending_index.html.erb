@@ -20,6 +20,28 @@
             <li>
               <%= render "shared/card_sample", sample: sample %>
             </li>
+
+          <!-- Modal Edit Sample -->
+
+          <div class="modal fade" id="#edit-pending-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Edit sample</h4>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :patch do |f| %>
+                    <%= f.input :stage %>
+                    <br>
+                    <%= f.submit "Edit", class: "btn btn-primary" %>
+                    <p>Click on the <i class='fas fa-eye'></i> icon to edit coffee lot information.</p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <% end %>
       </ul>
     <% end %>
@@ -34,15 +56,18 @@
             <h4 class="modal-title" id="myModalLabel">Create new sample</h4>
           </div>
           <div class="modal-body">
-            <%= simple_form_for [@new_coffee_lot, @new_sample] do |f| %>
-              <%#= f.input :coffee_lot, as: :numeric%>
-              <%= f.input :stage %>
-              <%= f.submit "Save", class: "btn btn-success" %>
+            <%= simple_form_for [@new_coffee_lot, @new_sample], url: samples_path, method: :post do |f| %>
+              <%= f.association :coffee_lot, collection: @coffee_lots, label_method: :iconumber, value_method: :id %>
+              <br>
+              <%= f.input :stage, collection: ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"] %>
+              <br>
+              <%= f.submit "Create", class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
+
 
   </div>
 </div>

@@ -1,7 +1,10 @@
 <div class="wrapper">
   <div class="container">
+      <div class="show-general-header">
 
-      <h3 class="text-center">Details of coffee lot #<%= @coffee_lot.iconumber %></h3>
+        <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe, sent_index_samples_path, class: 'add_coffee_btn slick_btn'  %>
+        <h3>Details of coffee lot #<%= @coffee_lot.iconumber %></h3>
+      </div>
 
       <div class="show-general-info-quality-graph">
 
@@ -99,7 +102,7 @@
         </div>
 
         <!-- showing history of samples quality if more than 2 samples for the coffelot -->
-        <% if @coffee_lot.samples.count > 1 %>
+        <% if @coffee_lot.samples.select{|sample| sample.acidity if !sample.acidity.nil? }.count > 1 %>
           <div class="show-quality-graph">
             <h4 class="sample-show-historic-title text-left">
               Samples quality evolution
@@ -139,7 +142,14 @@
             <div class="modal-body">
               <%= simple_form_for @coffee_lot, url: coffeelot_path(@coffee_lot), method: :patch do |f| %>
                 <%= f.input :provenance %>
-                <%= f.submit "save", class: "btn btn-primary" %>
+                <%= f.input :region %>
+                <%= f.input :quantity %>
+                <%= f.input :tree, collection: ["Arabica", "Robusta"] %>
+                <%= f.input :screen_size, collection: [8, 10, 12, 14, 16, 18, 20] %>
+                <%= f.input :cup_profile %>
+                <%= f.input :quality_description %>
+                <br>
+                <%= f.submit "Edit", class: "btn btn-primary" %>
               <% end %>
             </div>
           </div>

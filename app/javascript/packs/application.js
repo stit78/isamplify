@@ -1,6 +1,7 @@
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
+// import { sampleCreateForm } from 'components/samplecreate.js'
 
 if (document.getElementById("show-sample-historic-chart")) {
   const myId = document.getElementById("show-sample-historic-chart");
@@ -10,3 +11,10 @@ if (document.getElementById("show-sample-historic-chart")) {
   const labels = myId.dataset.labels.split(',');
   chartQuality(acidity, clean, sweetness, labels);
 };
+
+// if (document.getElementById("pending-create")) {
+//   document.getElementById("pending-create").addEventListener('click', (event) => {
+//     event.preventDefault();
+//     sampleCreateForm(event);
+//   });
+// }

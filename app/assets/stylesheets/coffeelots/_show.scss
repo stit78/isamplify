@@ -1,3 +1,14 @@
+.show-general-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
+  h3 {
+    flex: 1;
+    text-align: center;
+  }
+}
+
 .show-general-info-quality-graph {
   display: flex;
   justify-content: space-evenly;
