@@ -1,0 +1,197 @@
+ <ul class="nav nav-pills nav-fill">
+  <% if @samples_count[0] != 0 %>
+    <li class="nav-item">
+      <a class="nav-link active" href="pending_index_samples_path">Reception</a>
+      <i class="fas fa-inbox" ></i>
+      <%= link_to "Reception",pending_index_samples_path%>
+      <p class= "samples-left-status"><%= @samples_count[0] %></p>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fas fa-coffee"></i>
+        <%= link_to "Test", received_index_samples_path%>
+        <%= @samples_count[1] %>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <i class="fas fa-coffee"></i>
+      <%= link_to "Test", received_index_samples_path%>
+      <%= @samples_count[1] %>
+    </li>
+
+    <li class="nav-item">
+      <i class="fas fa-tags"></i>
+      <%= link_to "Labelling", tested_index_samples_path%>
+      <%= @samples_count[2] %>
+    </li>
+
+     <li class="nav-item">
+       <i class="fas fa-share-square"></i>
+       <%= link_to "Emailing", labelled_index_samples_path%>
+       <%= @samples_count[3] %>
+     </li>
+
+     <li class="nav-item">
+       <i class="fas fa-check-circle"></i>
+       <%= link_to "Sent", sent_index_samples_path%>
+       <%= @samples_count[4] %>
+     </li>
+
+
+   <% elsif @samples_count[0] == 0 %>
+     <li class="nav-item">
+       <i class="fas fa-inbox"></i>
+       <%= link_to "Reception",pending_index_samples_path%>
+       <%= @samples_count[0] %>
+     </li>
+
+      <li class="nav-item">
+       <i class="fas fa-coffee"></i>
+       <%= link_to "Test", received_index_samples_path%>
+       <%= @samples_count[1] %>
+     </li>
+
+     <li class="nav-item">
+       <i class="fas fa-tags"></i>
+       <%= link_to "Labelling", tested_index_samples_path%>
+       <%= @samples_count[2] %>
+     </li>
+
+     <li class="nav-item">
+       <i class="fas fa-share-square"></i>
+       <%= link_to "Emailing", labelled_index_samples_path%>
+       <%= @samples_count[3] %>
+     </li>
+
+     <li class="nav-item">
+       <i class="fas fa-check-circle"></i>
+       <%= link_to "Sent", sent_index_samples_path%>
+       <%= @samples_count[4] %>
+     </li>
+
+
+   <% elsif @samples_count[1] == 0 %>
+     <li class="nav-item">
+       <i class="fas fa-inbox"></i>
+       <%= link_to "Reception",pending_index_samples_path%>
+       <%= @samples_count[0] %>
+     </li>
+     <li class="active" class="nav-item">
+       <i class="fas fa-coffee"></i>
+       <%= link_to "Test", received_index_samples_path%>
+       <%= @samples_count[1] %>
+     </li>
+     <li class="nav-item">
+       <i class="fas fa-tags"></i>
+       <%= link_to "Labelling", tested_index_samples_path%>
+       <%= @samples_count[2] %>
+     </li>
+     <li class="nav-item">
+       <i class="fas fa-share-square"></i>
+       <%= link_to "Emailing", labelled_index_samples_path%>
+       <%= @samples_count[3] %>
+     </li>
+     <li class="nav-item">
+       <i class="fas fa-check-circle"></i>
+       <%= link_to "Sent", sent_index_samples_path%>
+       <%= @samples_count[4] %>
+     </li>
+
+
+   <% elsif @samples_count[2] == 0 %>
+     <li class="nav-item">
+       <i class="fas fa-inbox"></i>
+       <%= link_to "Reception",pending_index_samples_path%><%= @samples_count[0] %>
+       <%= @samples_count[0] %>
+     </li>
+     <li class="active" class="nav-item">
+       <i class="fas fa-coffee"></i>
+       <%= link_to "Test", received_index_samples_path%>
+       <%= @samples_count[1] %>
+     </li>
+     <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>">
+       <i class="fas fa-tags"></i>
+       <%= link_to "Labelling", tested_index_samples_path%>
+       <%= @samples_count[2] %>
+     </li>
+     <li class="nav-item">
+       <i class="fas fa-share-square"></i>
+       <%= link_to "Emailing", labelled_index_samples_path%>
+       <%= @samples_count[3] %>
+     </li>
+     <li class="nav-item">
+       <i class="fas fa-check-circle"></i>
+       <%= link_to "Sent", sent_index_samples_path%>
+       <%= @samples_count[4] %>
+     </li>
+
+
+   <% elsif @samples_count[3] == 0 %>
+     <li class="nav-item">
+       <i class="fas fa-inbox"></i>
+       <%= link_to "Reception",pending_index_samples_path%>
+       <%= @samples_count[0] %>
+     </li>
+
+     <li class="active" class="nav-item">
+       <i class="fas fa-coffee"></i>
+       <%= link_to "Test", received_index_samples_path%>
+       <%= @samples_count[1] %>
+     </li>
+
+     <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>">
+       <%= link_to "Labelling", tested_index_samples_path%>
+       <i class="fas fa-tags"></i>
+       <%= @samples_count[2] %>
+     </li>
+
+     <li class= "active" class="<%= "bottom_border" if action_name == "labelled_index"%>">
+       <i class="fas fa-share-square"></i>
+       <%= link_to "Emailing", labelled_index_samples_path%>
+       <%= @samples_count[3] %>
+     </li>
+
+     <li class="nav-item">
+       <i class="fas fa-check-circle"></i>
+       <%= link_to "Sent", sent_index_samples_path%>
+       <%= @samples_count[4] %>
+     </li>
+
+
+   <% else %>
+     <li class="nav-item">
+       <i class="fas fa-inbox"></i>
+       <%= link_to "Reception",pending_index_samples_path%><%= @samples_count[0] %>
+       <%= @samples_count[0] %>
+     </li>
+
+     <li class="active" class="nav-item">
+       <i class="fas fa-coffee"></i>
+       <%= link_to "Test", received_index_samples_path%>
+       <%= @samples_count[1] %>
+     </li>
+
+
+     <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>">
+       <i class="fas fa-tags"></i>
+       <%= link_to "Labelling", tested_index_samples_path%>
+       <%= @samples_count[2] %>
+     </li>
+
+     <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>">
+       <i class="fas fa-share-square"></i>
+       <%= link_to "Emailing", labelled_index_samples_path%>
+       <%= @samples_count[3] %>
+     </li>
+
+     <li class="active" class="<%= "bottom_border" if action_name == "sent_index"%>">
+       <i class="fas fa-check-circle"></i>
+       <%= link_to "Sent", sent_index_samples_path%>
+       <%= @samples_count[4] %>
+     </li>
+   <% end %>
+ </ul>
+
+
