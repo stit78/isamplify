@@ -1,31 +1,31 @@
 <div class="navbar2-wagon">
   <div class="container">
     <ul class="progressbar">
-      <% if Sample.count_with_status("pending") != 0 %>
+      <% if @samples_count[0] != 0 %>
         <li class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Reception",pending_index_samples_path%><i class="fas fa-inbox"></i></li>
         <li class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Test", received_index_samples_path%><i class="fas fa-coffee"></i></li>
         <li class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelling", tested_index_samples_path%><i class="fas fa-tags"></i></li>
         <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailing", labelled_index_samples_path%><i class="fas fa-share-square"></i></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%><i class="fas fa-check-circle"></i></li>
-      <% elsif Sample.count_with_status("pending") == 0 %>
+      <% elsif @samples_count[0] == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Reception",pending_index_samples_path%><i class="fas fa-inbox"></i></li>
         <li class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Test", received_index_samples_path%><i class="fas fa-coffee"></i></li>
         <li class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelling", tested_index_samples_path%><i class="fas fa-tags"></i></li>
         <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailing", labelled_index_samples_path%><i class="fas fa-share-square"></i></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%><i class="fas fa-check-circle"></i></li>
-      <% elsif Sample.count_with_status("received") == 0 %>
+      <% elsif @samples_count[1] == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Reception",pending_index_samples_path%><i class="fas fa-inbox"></i></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Test", received_index_samples_path%><i class="fas fa-coffee"></i></li>
         <li class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelling", tested_index_samples_path%><i class="fas fa-tags"></i></li>
         <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailing", labelled_index_samples_path%><i class="fas fa-share-square"></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%><i class="fas fa-check-circle"></i></li>
-      <% elsif Sample.count_with_status("tested") == 0 %>
+      <% elsif @samples_count[2] == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Reception",pending_index_samples_path%><i class="fas fa-inbox"></i></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Test", received_index_samples_path%><i class="fas fa-coffee"></i></li>
         <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelling", tested_index_samples_path%><i class="fas fa-tags"></i></li>
         <li class="<%= "bottom_border" if action_name == "labelled_index"%>"><%= link_to "Emailing", labelled_index_samples_path%><i class="fas fa-share-square"></i></li>
         <li class="<%= "bottom_border" if action_name == "sent_index"%>"><%= link_to "Sent", sent_index_samples_path%><i class="fas fa-check-circle"></i></li>
-      <% elsif Sample.count_with_status("labelled") == 0 %>
+      <% elsif @samples_count[3] == 0 %>
         <li class="active" class="<%= "bottom_border" if action_name == "pending_index"%>"><%= link_to "Reception",pending_index_samples_path%><i class="fas fa-inbox"></i></li>
         <li class="active" class="<%= "bottom_border" if action_name == "received_index"%>"><%= link_to "Test", received_index_samples_path%><i class="fas fa-coffee"></i></li>
         <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>"><%= link_to "Labelling", tested_index_samples_path%><i class="fas fa-tags"></i></li>

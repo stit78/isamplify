@@ -1,6 +1,11 @@
 class SamplesController < ApplicationController
+  before_action :set_samples_count, only: [:pending_index, :received_index, :tested_index, :labelled_index, :sent_index]
+
   def pending_index
     @samples = Sample.pending
+    @coffee_lots = CoffeeLot.all
+    @new_sample = Sample.new
+    @new_coffee_lot = CoffeeLot.new
   end
 
   def received_index
@@ -29,6 +34,21 @@ class SamplesController < ApplicationController
     @sample = Sample.find(params[:id])
   end
 
+  def create
+    exporter = User.find_by(role: "Exporter")
+    @sample = Sample.new(review_params)
+    @sample.trader = current_user
+    @sample.exporter = exporter
+    @sample.status = "pending"
+    if @sample.save
+      flash[:notice] = "The sample #{@sample.id} from coffee lot ##{@sample.coffee_lot.iconumber} has been created"
+      redirect_to pending_index_samples_path
+    else
+      flash[:alert] = "Sorry, something went wrong"
+      redirect_to pending_index_samples_path
+    end
+  end
+
   def update_after_reception
     @sample = Sample.find(params[:id])
     if @sample.received!
@@ -47,7 +67,7 @@ class SamplesController < ApplicationController
       flash[:notice] = "The sample #{@sample.id} has been tested"
       redirect_to received_index_samples_path
     else
-      flash[:alert] = "Sorry, something went wrong"
+      flash[:alert] = "Sorry, something went wrong. Please ensure numbers are between 1 and 10."
       redirect_to received_index_samples_path
     end
   end
@@ -70,23 +90,13 @@ class SamplesController < ApplicationController
 
   def update_after_emailing
     @sample = Sample.find(params[:id])
-    # ExporterMailer.reception_confirmation(@sample).deliver_now
+    ExporterMailer.reception_confirmation(@sample).deliver_now
     @sample.status = "sent"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been sent"
     redirect_to labelled_index_samples_path
   end
 
-  def create
-    @exporter = User.find_by(role: "Exporter")
-    @sample = Sample.new(review_params)
-    @sample.trader = current_user
-    @sample.exporter_id = @exporter.id
-    @sample.status = "received"
-    @sample.coffee_lot = CoffeeLot.last
-    @sample.save
-    # redirect_to sample_path(@sample)
-  end
 
   def email
     @sample = Sample.find(params[:id])
@@ -100,6 +110,14 @@ class SamplesController < ApplicationController
   private
 
   def review_params
-    params.require(:sample).permit(:stage, :coffee_lot, :sweetness, :acidity, :clean, :status, :trader)
+    params.require(:sample).permit(:stage, :coffee_lot_id, :sweetness, :acidity, :clean, :status, :trader)
+  end
+
+  def set_samples_count
+    @samples_count = []
+    @samples_count << Sample.count_with_status("pending")
+    @samples_count << Sample.count_with_status("received")
+    @samples_count << Sample.count_with_status("tested")
+    @samples_count << Sample.count_with_status("labelled")
   end
 end

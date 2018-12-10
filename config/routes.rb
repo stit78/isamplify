@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get "/test", to: 'pages#test'
   resources :samples, only: [:new, :create, :edit, :update] do
     collection do
       get 'pending_index', to: 'samples#pending_index'
@@ -22,7 +21,7 @@ Rails.application.routes.draw do
     resources :etiquettes, only: [:create]
 
   end
-  resources :coffeelots, only: [:show]
+  resources :coffeelots, only: [:show, :update]
 
   resources :receptions
   resources :etiquettes, only: [:index]
