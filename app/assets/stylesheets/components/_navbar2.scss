@@ -9,16 +9,12 @@
   justify-content: space-between;
 }
 
-  .nav {
-      counter-reset: step;
-  }
 
   .nav li {
       list-style-type: none;
       width: 19%;
       float: left;
       font-size: 12px;
-      position: relative;
       text-align: center;
       text-transform: uppercase;
       color: #7d7d7d;
@@ -46,6 +42,7 @@
       top: 15px;
       left: -50%;
       z-index: -1;
+
   }
   .nav li:first-child:after {
       content: none;
@@ -75,7 +72,6 @@ a:hover {
 }
 
 
-
 .icon-navbar {
   font-size: 30px;
 }
@@ -93,6 +89,19 @@ a:hover {
   font-weight: bold;
   height: 30px;
   width: 30px;
+}
+
+
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0.5;
 }
 // .border-navbar {
 //   border: 1px solid blue;

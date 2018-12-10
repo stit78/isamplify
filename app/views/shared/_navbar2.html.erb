@@ -6,6 +6,7 @@
           <i class="fas fa-inbox"></i>
           <%= link_to "Reception",pending_index_samples_path%>
           <p class= "samples-left-status"><%= @samples_count[0] %></p>
+          <a class="card-link" href="pending_index_samples_path" >Reception</a>
         </li>
 
         <li class="nav-item">
@@ -35,10 +36,11 @@
 
        <% elsif @samples_count[0] == 0 %>
          <li class="nav-item" class="active">
-           <i class="fas fa-inbox"></i>
-           <%= link_to "Reception",pending_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[0] %></p>
-         </li>
+          <i class="fas fa-inbox"></i>
+          <p>Reception</p>
+          <p class= "samples-left-status"><%= @samples_count[0] %></p>
+          <a class="card-link" href="#">Reception</a>
+        </li>
 
           <li class="nav-item">
            <i class="fas fa-coffee"></i>
