@@ -95,7 +95,6 @@ class SamplesController < ApplicationController
     redirect_to labelled_index_samples_path
   end
 
-
   def email
     @sample = Sample.find(params[:id])
     ExporterMailer.reception_confirmation(@sample).deliver_now
