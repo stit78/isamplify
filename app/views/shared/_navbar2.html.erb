@@ -10,9 +10,11 @@
         </li>
 
         <li class="nav-item">
-            <i class="fas fa-coffee"></i>
-            <%= link_to "Test", received_index_samples_path%>
-            <p class= "samples-left-status"><%= @samples_count[1] %></p>
+          <i class="fas fa-coffee"></i>
+          <%= link_to "Test", received_index_samples_path%>
+          <div class="button">
+            <span class="button__badge"><%= @samples_count[1] %></span>
+          </div>
         </li>
 
         <li class="nav-item">
@@ -43,10 +45,10 @@
           </div>
         </li>
 
-          <li class="nav-item">
-           <i class="fas fa-coffee"></i>
-           <%= link_to "Test", received_index_samples_path%>
-           <div class="button">
+        <li class="nav-item">
+          <i class="fas fa-coffee"></i>
+          <%= link_to "Test", received_index_samples_path%>
+          <div class="button">
             <span class="button__badge"><%= @samples_count[1] %></span>
           </div>
          </li>
@@ -78,27 +80,37 @@
          <li class="nav-item">
            <i class="fas fa-inbox"></i>
            <%= link_to "Reception",pending_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[0] %></p>
-         </li>
+           <div class="button">
+             <span class="button__badge_active"><%= @samples_count[0] %></span>
+           </div>
+          </li>
          <li class="active" class="nav-item">
            <i class="fas fa-coffee"></i>
            <%= link_to "Test", received_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[1] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[1] %></span>
+          </div>
          </li>
          <li class="nav-item">
            <i class="fas fa-tags"></i>
            <%= link_to "Labelling", tested_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[2] %></p>
+           <div class="button">
+            <span class="button__badge"><%= @samples_count[2] %></span>
+          </div>
          </li>
          <li class="nav-item">
            <i class="fas fa-share-square"></i>
            <%= link_to "Emailing", labelled_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[3] %></p>
+           <div class="button">
+            <span class="button__badge"><%= @samples_count[3] %></span>
+          </div>
          </li>
          <li class="nav-item">
            <i class="fas fa-check-circle"></i>
            <%= link_to "Sent", sent_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[4] %></p>
+           <div class="button">
+            <span class="button__badge"><%= @samples_count[4] %></span>
+          </div>
          </li>
 
 
@@ -106,12 +118,16 @@
          <li class="nav-item">
            <i class="fas fa-inbox"></i>
            <%= link_to "Reception",pending_index_samples_path%><p class= "samples-left-status">
-           <p class= "samples-left-status"><%= @samples_count[0] %></p>
+           <div class="button">
+             <span class="button__badge_active"><%= @samples_count[0] %></span>
+           </div>
          </li>
          <li class="active" class="nav-item">
            <i class="fas fa-coffee"></i>
            <%= link_to "Test", received_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[1] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[1] %></span>
+          </div>
          </li>
          <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>">
            <i class="fas fa-tags"></i>
@@ -134,31 +150,41 @@
          <li class="nav-item">
            <i class="fas fa-inbox"></i>
            <%= link_to "Reception",pending_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[0] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[0] %></span>
+          </div>
          </li>
 
          <li class="active" class="nav-item">
            <i class="fas fa-coffee"></i>
            <%= link_to "Test", received_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[1] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[1] %></span>
+          </div>
          </li>
 
          <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>">
            <%= link_to "Labelling", tested_index_samples_path%>
            <i class="fas fa-tags"></i>
-           <p class= "samples-left-status"><%= @samples_count[2] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[2] %></span>
+          </div>
          </li>
 
          <li class= "active" class="<%= "bottom_border" if action_name == "labelled_index"%>">
            <i class="fas fa-share-square"></i>
            <%= link_to "Emailing", labelled_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[3] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[3] %></span>
+          </div>
          </li>
 
          <li class="nav-item">
            <i class="fas fa-check-circle"></i>
            <%= link_to "Sent", sent_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[4] %></p>
+           <div class="button">
+            <span class="button__badge"><%= @samples_count[4] %></span>
+          </div>
          </li>
 
 
@@ -166,32 +192,42 @@
          <li class="nav-item">
            <i class="fas fa-inbox"></i>
            <%= link_to "Reception",pending_index_samples_path%><p class= "samples-left-status">
-           <p class= "samples-left-status"><%= @samples_count[0] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[0] %></span>
+          </div>
          </li>
 
          <li class="active" class="nav-item">
            <i class="fas fa-coffee"></i>
            <%= link_to "Test", received_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[1] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[1] %></span>
+          </div>
          </li>
 
 
          <li class="active" class="<%= "bottom_border" if action_name == "tested_index"%>">
            <i class="fas fa-tags"></i>
            <%= link_to "Labelling", tested_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[2] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[2] %></span>
+          </div>
          </li>
 
          <li class="active" class="<%= "bottom_border" if action_name == "labelled_index"%>">
            <i class="fas fa-share-square"></i>
            <%= link_to "Emailing", labelled_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[3] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[3] %></span>
+          </div>
          </li>
 
          <li class="active" class="<%= "bottom_border" if action_name == "sent_index"%>">
            <i class="fas fa-check-circle"></i>
            <%= link_to "Sent", sent_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[4] %></p>
+           <div class="button">
+            <span class="button__badge_active"><%= @samples_count[4] %></span>
+          </div>
          </li>
        <% end %>
      </ul>
