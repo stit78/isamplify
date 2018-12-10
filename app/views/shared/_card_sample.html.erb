@@ -121,13 +121,7 @@
                 <button type="button" data-toggle="modal" data-target="#edit-pending-sample-<%= sample.id %>">
                   <i class='fas fa-edit'></i>
                 </button>
-<<<<<<< HEAD
                 <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post, remote: true %>
-=======
-              </div>
-              <div class="card-action-edit text-center">
-                  <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post %>
->>>>>>> master
               </div>
             <% elsif sample.status == "received" %>
               <div class="card-action-edit text-center">
