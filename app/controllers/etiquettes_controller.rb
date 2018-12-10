@@ -11,6 +11,7 @@ class EtiquettesController < ApplicationController
       format.pdf do
         render pdf: "etiquette",
                # orientation: 'Landscape',
+               layout: 'pdf',
                template: "etiquettes/index.pdf.erb",
                locals: { :etiquettes => @etiquettes }
       end

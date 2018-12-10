@@ -9,21 +9,18 @@
   justify-content: space-between;
 }
 
-  .progressbar {
-      counter-reset: step;
-  }
-  .progressbar li {
+
+  .nav li {
       list-style-type: none;
-      width: 20%;
+      width: 19%;
       float: left;
       font-size: 12px;
-      position: relative;
       text-align: center;
       text-transform: uppercase;
       color: #7d7d7d;
       display: block;
   }
-  .progressbar li:before {
+  .nav li:before {
       width: 30px;
       height: 30px;
       // content: counter(step);
@@ -36,7 +33,7 @@
       border-radius: 50%;
       background-color: white;
   }
-  .progressbar li:after {
+  .nav li:after {
       width: 100%;
       height: 2px;
       content: '';
@@ -45,27 +42,28 @@
       top: 15px;
       left: -50%;
       z-index: -1;
+
   }
-  .progressbar li:first-child:after {
+  .nav li:first-child:after {
       content: none;
   }
-  .progressbar li.active {
-      color: green;
+  .active {
+      // background-color: red;
   }
-  .progressbar li.active:before {
+  .nav li.active:before {
       border-color: #55b776;
   }
-  .progressbar li.active + li:after {
+  .nav li.active + li:after {
       background-color: #55b776;
   }
 
-  .progressbar li.bottom_border {
+  .nav li.bottom_border {
     border-bottom: 5px solid;
   }
 
 a{
   color:$main;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 a:hover {
@@ -73,10 +71,82 @@ a:hover {
   color: $main;
 }
 
-.progressbar li a {
-  display: block;
-  /* padding and border HERE! */
+
+.icon-navbar {
+  font-size: 30px;
 }
+
+
+.samples-left-status {
+  position: absolute;
+  top: 1px;
+  right: 2px;
+  border-radius: 50px;
+  border: 4px solid;
+  font-weight: bold;
+  height: 30px;
+  width: 30px;
+}
+
+
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0.5;
+}
+
+
+.button {
+  color: white;
+  display: inline-block; /* Inline elements with width and height. TL;DR they make the icon buttons stack from left-to-right instead of top-to-bottom */
+  position: relative; /* All 'absolute'ly positioned elements are relative to this one */
+  padding: 2px 5px;
+  position: absolute;
+  top: 1px;
+  right: 2px;
+ /* Add some padding so it looks nice */
+}
+
+/* Make the badge float in the top right corner of the button */
+.button__badge {
+  background-color: #fa3e3e;
+  border-radius: 50px;
+  color: white;
+  padding: 1px 3px;
+  font-size: 10px;
+  position: absolute;
+  top: -7px;
+  right: 88px;
+  height: 18px;
+  width: 18px;
+}
+
+
+.button__badge_active {
+  background-color: green;
+  border-radius: 50px;
+  color: white;
+  padding: 1px 3px;
+  font-size: 10px;
+  position: absolute;
+  top: -7px;
+  right: 88px;
+  height: 18px;
+  width: 18px;
+}
+
+// .border-navbar {
+//   border: 1px solid blue;
+//   margin: 5px;
+// }
+
+
 
 // .block{
 //   display: block;
