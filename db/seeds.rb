@@ -188,23 +188,25 @@ puts "Creating 5 coffee lots"
     creating_sample(coffeelot, "Offer Sample")
   end
 
+  if sample.stage == "Purchase Sample"|| sample.stage = "Loading Sample" || sample.stage == "Port Sample" || sample.stage == "Warehouse Sample" || sample.stage == "Sale Sample"
+    puts "                Creating potential client list for this coffeelot"
+    rand(1..3).times do
+      potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+      potclient.save
+    end
 
-  puts "                Creating potential client list for this coffeelot"
-  rand(1..3).times do
-    potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
-    potclient.save
+    purchase = Purchase.new(
+      exporter: carlos,
+      trader: amandine,
+      price: rand(1000..3000),
+      quantity: rand(10..30),
+      owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : amandine)
+      )
+    purchase.save
+
+    coffeelot.save
   end
 
-  purchase = Purchase.new(
-    exporter: carlos,
-    trader: amandine,
-    price: rand(1000..3000),
-    quantity: rand(10..30),
-    owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : amandine)
-    )
-  purchase.save
-
-  coffeelot.save
 end
 
 puts "...."
