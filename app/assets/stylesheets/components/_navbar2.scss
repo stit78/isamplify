@@ -119,25 +119,29 @@ a:hover {
 /* Make the badge float in the top right corner of the button */
 .button__badge {
   background-color: #fa3e3e;
-  border-radius: 2px;
+  border-radius: 50px;
   color: white;
   padding: 1px 3px;
   font-size: 10px;
   position: absolute;
-  top: 0;
-  right: 50px;
+  top: -7px;
+  right: 88px;
+  height: 18px;
+  width: 18px;
 }
 
 
 .button__badge_active {
   background-color: green;
-  border-radius: 2px;
+  border-radius: 50px;
   color: white;
   padding: 1px 3px;
   font-size: 10px;
   position: absolute;
-  top: 0;
-  right: 50px;
+  top: -7px;
+  right: 88px;
+  height: 18px;
+  width: 18px;
 }
 
 // .border-navbar {
