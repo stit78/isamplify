@@ -19,6 +19,8 @@ gem 'webpacker'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem "letter_opener", group: :development
+gem 'postmark-rails'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
