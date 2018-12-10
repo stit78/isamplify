@@ -2,11 +2,11 @@
   <div class="container">
     <ul class="nav nav-pills nav-fill">
       <% if @samples_count[0] != 0 %>
+
         <li class="nav-item" class="bottom_border if action_name == pending_index">
           <i class="fas fa-inbox"></i>
           <%= link_to "Reception",pending_index_samples_path%>
           <p class= "samples-left-status"><%= @samples_count[0] %></p>
-          <a class="card-link" href="pending_index_samples_path" >Reception</a>
         </li>
 
         <li class="nav-item">
@@ -35,36 +35,43 @@
 
 
        <% elsif @samples_count[0] == 0 %>
-         <li class="nav-item" class="active">
+         <li class="nav-item">
           <i class="fas fa-inbox"></i>
-          <p>Reception</p>
-          <p class= "samples-left-status"><%= @samples_count[0] %></p>
-          <a class="card-link" href="#">Reception</a>
+          <%= link_to "Reception",pending_index_samples_path%>
+          <div class="button">
+            <span class="button__badge_active"><%= @samples_count[0] %></span>
+          </div>
         </li>
 
           <li class="nav-item">
            <i class="fas fa-coffee"></i>
            <%= link_to "Test", received_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[1] %></p>
+           <div class="button">
+            <span class="button__badge"><%= @samples_count[1] %></span>
+          </div>
          </li>
 
          <li class="nav-item">
            <i class="fas fa-tags"></i>
            <%= link_to "Labelling", tested_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[2] %></p>
-         </li>
+            <div class="button">
+             <span class="button__badge"><%= @samples_count[2] %></span>
+           </div>         </li>
 
          <li class="nav-item">
            <i class="fas fa-share-square"></i>
            <%= link_to "Emailing", labelled_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[3] %></p>
-         </li>
+            <div class="button">
+             <span class="button__badge"><%= @samples_count[3] %></span>
+           </div>         </li>
 
          <li class="nav-item">
            <i class="fas fa-check-circle"></i>
            <%= link_to "Sent", sent_index_samples_path%>
-           <p class= "samples-left-status"><%= @samples_count[4] %></p>
-         </li>
+            <div class="button">
+             <span class="button__badge"><%= @samples_count[4] %></span>
+           </div>
+        </li>
 
 
        <% elsif @samples_count[1] == 0 %>
