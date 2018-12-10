@@ -51,20 +51,57 @@ class SamplesController < ApplicationController
 
   def update_after_reception
     if @sample.received!
-      flash[:notice] = "The sample #{@sample.id} has been received"
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "The sample #{@sample.id} has been received"
+        end
+
+        format.js do
+          set_samples_count
+          render :update_navbar
+        end
+      end
     else
-      flash[:alert] = "Sorry, something went wrong"
+      respond_to do |format|
+        format.html do
+          flash[:alert] = "Sorry, something went wrong."
+        end
+
+        format.js do
+          set_samples_count
+          render :update_navbar
+        end
+      end
     end
   end
 
   def update_after_test
     @sample.status = "tested"
+
     if @sample.update(review_params)
-      flash[:notice] = "The sample #{@sample.id} has been tested"
-      redirect_to received_index_samples_path
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "The sample #{@sample.id} has been tested"
+          redirect_to received_index_samples_path
+        end
+
+        format.js do
+          set_samples_count
+          render :update_navbar
+        end
+      end
     else
-      flash[:alert] = "Sorry, something went wrong. Please ensure numbers are between 1 and 10."
-      redirect_to received_index_samples_path
+      respond_to do |format|
+        format.html do
+          flash[:alert] = "Sorry, something went wrong. Please ensure numbers are between 1 and 10."
+          redirect_to received_index_samples_path
+        end
+
+        format.js do
+          set_samples_count
+          render :update_navbar
+        end
+      end
     end
   end
 
@@ -74,8 +111,18 @@ class SamplesController < ApplicationController
     @etiquette = Etiquette.new
     @etiquette.sample = @sample
     @etiquette.save
-    flash[:notice] = "The sample #{@sample.id} has been labelled"
-    redirect_to tested_index_samples_path
+
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "The sample #{@sample.id} has been labelled"
+        redirect_to tested_index_samples_path
+      end
+
+      format.js do
+        set_samples_count
+        render :update_navbar
+      end
+    end
 
     # else
     #   flash[:alert] = "Sorry, something went wrong"
@@ -110,9 +157,6 @@ class SamplesController < ApplicationController
     flash[:notice] = "The sample #{@sample.id} has been sent"
   end
 
-  def status_count
-
-  end
 
   private
 
@@ -127,13 +171,6 @@ class SamplesController < ApplicationController
     @samples_count << Sample.count_with_status("tested")
     @samples_count << Sample.count_with_status("labelled")
     @samples_count << Sample.count_with_status("sent")
-  end
-
-
-  def samples_count_nil
-    if @samples_count == 0
-
-    end
   end
 
   def set_find_sample
