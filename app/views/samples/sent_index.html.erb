@@ -1,3 +1,4 @@
+<%= render 'shared/navbar2' %>
 <div class="wrapper">
   <div class="container">
 
@@ -6,7 +7,10 @@
         <h2 class="text-center">Samples managed today</h2>
       </div>
     </div>
-    <div class="container">
+
+    <% if @samples.count == 0 %>
+      <p>No sent samples</p>
+    <% else %>
       <ul class= "no-bullet">
         <% @samples.each do |sample| %>
             <li>
@@ -14,6 +18,7 @@
             </li>
         <% end %>
       </ul>
-    </div>
+    <% end %>
+
   </div>
 </div>

@@ -11,7 +11,7 @@ SIZE = [8, 10, 12, 14, 16, 18, 20]
 PROFILE = ["good cup", "clean cup", "Fine Cup", "Specialty", "Stocklot", "Defectuous"]
 QUALITY = ["Supremo UGQ", "NY 2/3 sc18 fc", "Agasimbo", "Cherry AB"]
 certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Practice"]
-STAGE = ["Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Offer Sample", "Sale Sample"]
+STAGE = ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"]
 CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]
 PHONE = ["1 rue de la Centrale, Villeneuve d'Ascq, France", "1 place de Seattle, Lausanne, Suisse", "131 rue du café, 75011 Paris", "1145 5th Avenue, New York, USA"]
 
@@ -98,7 +98,7 @@ end
 
 puts "Creating 5 coffee lots"
 3.times do
-  puts "creating one coffeelot"
+  puts "   creating one coffeelot"
 
   coffeelot = CoffeeLot.new(
     provenance: COUNTRY.sample,
@@ -110,13 +110,13 @@ puts "Creating 5 coffee lots"
     region: "South America",
     quality_description: QUALITY.sample
     )
-  puts "Creating certifications for this coffeelot"
+  puts "      Creating certifications for this coffeelot"
   rand(1..5).times do
     coffeecertif = CoffeeCertification.new(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
     coffeecertif.save
   end
 
-  puts "Creating samples pending for this coffeelot"
+  puts "         Creating samples pending for this coffeelot"
     sample = Sample.new(
       stage: STAGE.sample,
       exporter: carlos,
@@ -166,26 +166,26 @@ puts "Creating 5 coffee lots"
 
 
   puts "            Adding historic to sample status:pending"
-  if sample.stage == "Loading Sample"
+  if sample.stage == "Purchase Sample"
+    creating_sample(coffeelot, "Offer Sample")
+  elsif sample.stage == "Loading Sample"
     creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Offer Sample")
   elsif sample.stage == "Port Sample"
     creating_sample(coffeelot, "Loading Sample")
     creating_sample(coffeelot, "Purchase Sample")
+    creating_sample(coffeelot, "Offer Sample")
   elsif sample.stage == "Warehouse Sample"
     creating_sample(coffeelot, "Port Sample")
     creating_sample(coffeelot, "Loading Sample")
     creating_sample(coffeelot, "Purchase Sample")
-  elsif sample.stage == "Offer Sample"
-    creating_sample(coffeelot, "Warehouse Sample")
-    creating_sample(coffeelot, "Port Sample")
-    creating_sample(coffeelot, "Loading Sample")
-    creating_sample(coffeelot, "Purchase Sample")
-  elsif sample.stage == "Sale Sample"
     creating_sample(coffeelot, "Offer Sample")
+  elsif sample.stage == "Sale Sample"
     creating_sample(coffeelot, "Warehouse Sample")
     creating_sample(coffeelot, "Port Sample")
     creating_sample(coffeelot, "Loading Sample")
     creating_sample(coffeelot, "Purchase Sample")
+    creating_sample(coffeelot, "Offer Sample")
   end
 
 

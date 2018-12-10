@@ -26,7 +26,7 @@
   .progressbar li:before {
       width: 30px;
       height: 30px;
-      content: counter(step);
+      // content: counter(step);
       counter-increment: step;
       line-height: 30px;
       border: 2px solid #7d7d7d;
