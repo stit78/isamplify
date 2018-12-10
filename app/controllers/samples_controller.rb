@@ -53,10 +53,8 @@ class SamplesController < ApplicationController
     @sample = Sample.find(params[:id])
     if @sample.received!
       flash[:notice] = "The sample #{@sample.id} has been received"
-      redirect_to pending_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
-      redirect_to pending_index_samples_path
     end
   end
 

@@ -2,44 +2,19 @@
   <div class="row">
     <% @etiquettes.each do |etiquette| %>
       <% etiquette.sample.coffee_lot.potential_clients.each do |potential_client|%>
-      <div class="grid-element">
-        <br>
-        <br>
-        <br>
-        <%= wicked_pdf_image_tag "ecom.png", height: 50, class: "etiquette-logo" %>
-        <h1>Sample from ECOM Trading</h1>
-        <div class="address-element">
-        <p><em> To the attention of John, at </em> <span><%= etiquette.sample.coffee_lot.potential_clients.first.client.company_name %></span></p>
-        <p><%= etiquette.sample.coffee_lot.potential_clients.first.client.phone_number %></p>
+        <div class="grid-element">
+          <br>
+          <%= wicked_pdf_image_tag "ecom.png", height: 50, class: "etiquette-logo" %>
+          <h1>Sample from ECOM Trading</h1>
+          <div class="address-element">
+          <p><em> To the attention of John, at </em> <span><%= etiquette.sample.coffee_lot.potential_clients.first.client.company_name %></span></p>
+          <p><%= etiquette.sample.coffee_lot.potential_clients.first.client.phone_number %></p>
+          </div>
+          <p><strong>Country of Origin: </strong> <%= etiquette.sample.coffee_lot.provenance %> </p>
+          <p><strong>Quantity: </strong> <%= etiquette.sample.coffee_lot.quantity %> bags</p>
+          <p><strong>Quality: </strong> <%= etiquette.sample.coffee_lot.quality_description %></p>
         </div>
-        <p><strong>Country of Origin: </strong> <%= etiquette.sample.coffee_lot.provenance %> </p>
-        <p><strong>Quantity: </strong> <%= etiquette.sample.coffee_lot.quantity %> bags</p>
-        <p><strong>Quality: </strong> <%= etiquette.sample.coffee_lot.quality_description %></p>
-
-      </div>
+      <% end %>
     <% end %>
-    <% end %>
-    </div>
-    <%= link_to "Get PDF", etiquettes_path(format: :pdf) %>
+  </div>
 </div>
-  <!-- </div> -->
-
-
-
-<style>
-  h1 {
-    font-size: 130px;
-  }
-  span {
-    font-size: 80px;
-    font-weight: bold;
-  }
-  p {
-    font-size: 70px;
-  }
-  .etiquette-logo {
-    width: 180px;
-    height: 180px;
-  }
-</style>
-
