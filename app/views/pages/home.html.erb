@@ -10,24 +10,31 @@
           <div class='sample-count-status'> samples pending</div>
           <div class='sample-action'>
             <p>Go to reception</p>
-            <p><%= link_to "<i class='fas fa-inbox'></i>".html_safe, pending_index_samples_path, method: :post %></p>
+            <p><%= link_to "<i class='fas fa-inbox'></i>".html_safe, pending_index_samples_path, method: :get %></p>
           </div>
         </div>
         <div class='sample-status'>
           <div class='sample-count'><%= Sample.received.count %></div>
           <div class='sample-count-status'> samples received</div>
-          <div class='sample-action'> Go to testing <%= link_to "<i class='fas fa-coffee'></i>".html_safe, received_index_samples_path, method: :post %></div>
+          <div class='sample-action'>
+            <p>Go to testing </p>
+            <p><%= link_to "<i class='fas fa-coffee'></i>".html_safe, received_index_samples_path, method: :get %></p>
+          </div>
         </div>
         <div class='sample-status'>
             <div class='sample-count'><%= Sample.tested.count %></div>
             <div class='sample-count-status'> samples tested</div>
-          <div class='sample-action'>Go to labelling <%= link_to "<i class='fas fa-tags'></i>".html_safe, tested_index_samples_path, method: :post %></div>
+          <div class='sample-action'>
+            <p> Go to labelling</p>
+            <p><%= link_to "<i class='fas fa-tags'></i>".html_safe, tested_index_samples_path, method: :get %></p></div>
         </div>
         <div class='sample-status'>
           <div class='sample-count'><%= Sample.labelled.count %></div>
             <div class='sample-count-status'> samples labelled</div>
-          <div class='sample-action'>Go to sending <%= link_to "<i class='fas fa-share-square'></i>".html_safe, labelled_index_samples_path, method: :post %></div>
-          </%>
+          <div class='sample-action'>
+            <p>Go to sending</p>
+            <p><%= link_to "<i class='fas fa-share-square'></i>".html_safe, labelled_index_samples_path, method: :get %></p>
+          </div>
         </div>
       </div>
 
@@ -66,32 +73,28 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "home-login" %>
   </div>
 
+  <div class="home-presentation-element"">
+    <br>
+    <h3>Samplify your coffee-lots monitoring</h3>
+    <br>
+    <p>You get notifications from all the stakeholders of the import chain and always know where your goods are.</p>
+  </div>
+
   <div class="home-presentation">
     <div class="home-presentation-element"">
+
       <br>
-      <i class="fas fa-coffee"></i>
+      <h3>Samplify your samples management</h3>
       <br>
-      <h4>Samplify your daily samples management</h4>
-      <br>
-      <p>With ISamplify you erase the pain of individual sample follow-up: reception, testing, labelling and  </p>
+      <p>Erase the pain of individual in-house samples follow-up: validate reception, test your sample and send it seamlessly.</p>
     </div>
 
-    <div class="home-presentation-element"">
-      <br>
-      <i class="fas fa-coffee"></i>
-      <br>
-      <h4>Lorem Ipsum dolor sit</h4>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium deleniti labore nemo adipisci, omnis ducimus harum aperiam, natus quas temporibus rerum</p>
-    </div>
 
     <div class="home-presentation-element">
       <br>
-      <i class="fas fa-coffee"></i>
+      <h3>Samplify your relatons with customers</h3>
       <br>
-      <h4>Lorem Ipsum dolor sit</h4>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium deleniti labore nemo adipisci, omnis ducimus harum aperiam, natus quas temporibus rerum</p>
+      <p>Assign your best coffees to your best customers according to your test to never miss a deal</p>
     </div>
   </div>
 <% end %>
