@@ -1,19 +1,38 @@
-.show-container {
-  width: 850px;
-  margin-bottom: 30px;
+.show-general-header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
   h3 {
-    font-style:italic;
-    margin-top: 20px;
+    flex: 1;
+    text-align: center;
   }
-  p {
-    font-size: 16px;
-  }
+}
+
+.show-general-info-quality-graph {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .show-all-information {
   margin-top: 20px;
   ul {
     list-style-type: none;
+    padding-left: 20px;
+  }
+}
+
+.show-all-information-title {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+  background-color: $body-bg;
+  border: none;
+  }
+  i {
+    color: $main;
   }
 }
 
@@ -22,16 +41,24 @@
   padding: 10px;
   max-width: 650px;
   border-radius: 6px;
+  height: 297px;
 }
 
 .show-all-left {
   display: flex;
   justify-content:start;
+  p {
+    font-size: 13px;
+  }
+  li {
+    font-size: 12px;
+
+  }
 }
 
 .show-all-title {
   text-align: left;
-  width: 130px;
+  width: 100px;
 }
 
 .show-all-middle {
@@ -50,24 +77,11 @@
 
 .show-quality-canvas {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 6px;
 }
 
-
-.sample-show-historic-title {
-  margin-left: -20px;
-  font-style: bolder;
-}
-
-
-.sample-show-card {
-  box-shadow: 0px 0px 5px rgb(220, 220, 220);
-}
-
-.sample-show-main {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.show-historic .sample-show-historic-title {
+  padding-left: 40px;
 }
 

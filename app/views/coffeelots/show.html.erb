@@ -1,126 +1,160 @@
 <div class="wrapper">
   <div class="container">
-    <div class="show-container">
+      <div class="show-general-header">
 
-      <h3>Details of coffee lot #<%= @coffee_lot.iconumber %></h3>
-
-
-      <div class="show-all-information">
-        <h4 class="sample-show-historic-title text-left">
-          General information
-        </h4>
-        <div class="show-all-information-container">
-
-          <div class="show-all-left">
-            <div class="show-all-title">
-              <p>Exporter information:</p>
-            </div>
-            <div class="show-all-middle text-left">
-              <ul>
-                <li><strong>Name:</strong></li>
-                <li><strong>Company:</strong></li>
-                <li><strong>Mail:</strong></li>
-                <li><strong>Phone:</strong></li>
-              </ul>
-            </div>
-            <div class="show-all-right text-left">
-              <ul>
-                <li><%= @exporter.first_name.capitalize %> <%= @exporter.last_name.capitalize %></li>
-                <li><%= @exporter.company_name.capitalize %></li>
-                <li><%= @exporter.email %></li>
-                <li><%= @exporter.phone_number %></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="show-all-left">
-            <div class="show-all-title">
-              <p>Coffee information:</p>
-            </div>
-            <div class="show-all-middle text-left">
-              <ul>
-                <li><strong>ICO number:</strong></li>
-                <li><strong>Region:</strong></li>
-                <li><strong>Country:</strong></li>
-                <li><strong>Quantity:</strong></li>
-              </ul>
-            </div>
-            <div class="show-all-coffee-right text-left">
-              <ul>
-                <li><%= @coffee_lot.iconumber %></li>
-                <li><%= @coffee_lot.region %></li>
-                <li><%= @coffee_lot.provenance %></li>
-                <li><%= @coffee_lot.quantity %></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="show-all-left">
-            <div class="show-all-title">
-              <p>Coffee details:</p>
-            </div>
-            <div class="show-all-middle text-left">
-              <ul>
-                <li><strong>Tree:</strong></li>
-                <li><strong>Certifications:</strong></li>
-                <li><strong>Screen size:</strong></li>
-                <li><strong>Cup profile:</strong></li>
-                <li><strong>Quality description:</strong></li>
-              </ul>
-            </div>
-            <div class="show-all-right text-left">
-              <ul>
-                <li><%= @coffee_lot.tree %></li>
-                <li>
-                  <% count = 0 %>
-                  <% @coffee_lot.coffee_certifications.each do |coffee_certification| %>
-                    <% if count = 0 %>
-                      <span><%= coffee_certification.certification.name.capitalize %></span>
-                    <% else %>
-                      <span>, <%= coffee_certification.certification.name.capitalize %></span>
-                    <% end %>
-                    <% count += 1 %>
-                  <% end %>
-                </li>
-                <li><%= @coffee_lot.screen_size %></li>
-                <li><%= @coffee_lot.cup_profile %></li>
-                <li><%= @coffee_lot.quality_description %></li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
+        <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe, sent_index_samples_path, class: 'add_coffee_btn slick_btn'  %>
+        <h3>Details of coffee lot #<%= @coffee_lot.iconumber %></h3>
       </div>
 
-      <% if @coffee_lot.samples.count > 1 %>
-        <div class="show-quality-graph">
-          <h4 class="sample-show-historic-title text-left">
-            Samples quality evolution
-          </h4>
-          <div class="show-quality-canvas" style="width: 650px;">
-            <canvas id="show-sample-historic-chart" data-acidity="<%= @acidity %>" data-clean="<%= @clean %>" data-sweetness="<%= @sweetness %>" data-labels="<%= @labels %>"></canvas>
+      <div class="show-general-info-quality-graph">
+
+      <!-- showing general information for the coffeelot -->
+        <div class="show-all-information">
+          <div class="show-all-information-title">
+            <h4 class="sample-show-historic-title text-left">
+              General information
+            </h4>
+              <button type="button" data-toggle="modal" data-target="#coffee_lot-<%= @coffee_lot.id %>">
+                <i class='fas fa-edit'></i>
+              </button>
+          </div>
+
+          <div class="show-all-information-container">
+            <div class="show-all-left">
+              <div class="show-all-title">
+                <p>Exporter information:</p>
+              </div>
+              <div class="show-all-middle text-left">
+                <ul>
+                  <li><strong>Name:</strong></li>
+                  <li><strong>Company:</strong></li>
+                  <li><strong>Mail:</strong></li>
+                  <li><strong>Phone:</strong></li>
+                </ul>
+              </div>
+              <div class="show-all-right text-left">
+                <ul>
+                  <li><%= @exporter.first_name.capitalize %> <%= @exporter.last_name.capitalize %></li>
+                  <li><%= @exporter.company_name.capitalize %></li>
+                  <li><%= @exporter.email %></li>
+                  <li><%= @exporter.phone_number %></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="show-all-left">
+              <div class="show-all-title">
+                <p>Coffee information:</p>
+              </div>
+              <div class="show-all-middle text-left">
+                <ul>
+                  <li><strong>ICO number:</strong></li>
+                  <li><strong>Region:</strong></li>
+                  <li><strong>Country:</strong></li>
+                  <li><strong>Quantity:</strong></li>
+                </ul>
+              </div>
+              <div class="show-all-coffee-right text-left">
+                <ul>
+                  <li><%= @coffee_lot.iconumber %></li>
+                  <li><%= @coffee_lot.region %></li>
+                  <li><%= @coffee_lot.provenance %></li>
+                  <li><%= @coffee_lot.quantity %></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="show-all-left">
+              <div class="show-all-title">
+                <p>Coffee details:</p>
+              </div>
+              <div class="show-all-middle text-left">
+                <ul>
+                  <li><strong>Tree:</strong></li>
+                  <li><strong>Certifications:</strong></li>
+                  <li><strong>Screen size:</strong></li>
+                  <li><strong>Cup profile:</strong></li>
+                  <li><strong>Quality description:</strong></li>
+                </ul>
+              </div>
+              <div class="show-all-right text-left">
+                <ul>
+                  <li><%= @coffee_lot.tree %></li>
+                  <li>
+                    <% count = 0 %>
+                    <% @coffee_lot.coffee_certifications.each do |coffee_certification| %>
+                      <% if count = 0 %>
+                        <span><%= coffee_certification.certification.name.capitalize %></span>
+                      <% else %>
+                        <span>, <%= coffee_certification.certification.name.capitalize %></span>
+                      <% end %>
+                      <% count += 1 %>
+                    <% end %>
+                  </li>
+                  <li><%= @coffee_lot.screen_size %></li>
+                  <li><%= @coffee_lot.cup_profile %></li>
+                  <li><%= @coffee_lot.quality_description %></li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
-      <% end %>
 
-      <% if @coffee_lot.samples.count >= 1 %>
-        <div class="show-historic">
+        <!-- showing history of samples quality if more than 2 samples for the coffelot -->
+        <% if @coffee_lot.samples.select{|sample| sample.acidity if !sample.acidity.nil? }.count > 1 %>
+          <div class="show-quality-graph">
             <h4 class="sample-show-historic-title text-left">
+              Samples quality evolution
+            </h4>
+            <div class="show-quality-canvas" style="width: 575px;">
+              <canvas id="show-sample-historic-chart" data-acidity="<%= @acidity %>" data-clean="<%= @clean %>" data-sweetness="<%= @sweetness %>" data-labels="<%= @labels %>"></canvas>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+
+      <!-- showing associated samples if any -->
+      <% if @coffee_lot.samples.count > 0 %>
+        <div class="show-historic">
+            <h4 class="sample-show-historic-title">
               Samples received
             </h4>
             <ul class= "no-bullet">
-
-            <% @coffee_lot.samples.each do |sample| %>
-              <li>
-                <%= render "/shared/card_sample.html.erb", sample: sample %>
-              <li>
-            <% end %>
+              <% @coffee_lot.samples.each do |sample| %>
+                <li>
+                  <%= render "/shared/card_sample.html.erb", sample: sample %>
+                <li>
+              <% end %>
             </ul>
         </div>
       <% end %>
 
-      <%#= render "/shared/dashboard.html.erb" %>
+      <!-- Modal -->
+      <div class="modal fade" id="coffee_lot-<%= @coffee_lot.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Coffee lot #<%= @coffee_lot.iconumber %></h4>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for @coffee_lot, url: coffeelot_path(@coffee_lot), method: :patch do |f| %>
+                <%= f.input :provenance %>
+                <%= f.input :region %>
+                <%= f.input :quantity %>
+                <%= f.input :tree, collection: ["Arabica", "Robusta"] %>
+                <%= f.input :screen_size, collection: [8, 10, 12, 14, 16, 18, 20] %>
+                <%= f.input :cup_profile %>
+                <%= f.input :quality_description %>
+                <br>
+                <%= f.submit "Edit", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    </div>
   </div>
 </div>

@@ -38,6 +38,7 @@
     background-color: $main;
     color: white;
     border-radius: 0px 6px 0px 0px;
+    text-align: center;
   }
 }
 
@@ -133,6 +134,12 @@
 
 i {
   font-size: 20px;
+}
+
+.card-action button {
+  border: none;
+  background-color: $body-bg;
+  color: $main;
 }
 
 // .container-fluid {
