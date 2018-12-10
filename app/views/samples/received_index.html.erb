@@ -19,52 +19,18 @@
             <!-- Modal -->
             <div class="modal fade" id="modal-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
-                  <div class="col-md-12 no-padding " style="background-color: white; width: 70%;">
                 <div class="modal-content">
                   <div class="modal-header">
-                      <h4 class="modal-title" id="myModalLabel">Cupping Results <%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" id='<%= "modal-close-sample-#{sample.id}" %>'><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Cupping Results <%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %></h4>
                   </div>
-                    <div class="col-md-12">
-                    </div>
-                    <div class="modal-body no-padding">
-                      <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :post, remote:true do |f| %>
-
-                        <div class="col-md-12">
-                          <div class="input_element margin-top">
-                            <div class="text-left col-md-3">
-                              <%= f.label :acidity %>
-                            </div>
-                            <div class="col-md-9">
-                              <%= f.input_field :acidity %>
-                            </div>
-                            <div class="text-left col-md-3">
-                              <%= f.label :sweetness %>
-                            </div>
-                            <div class="col-md-9">
-                              <%= f.input_field :sweetness %>
-                            </div>
-                            <div class="text-left col-md-3">
-                              <%= f.label :clean %>
-                            </div>
-                            <div class="col-md-9">
-                              <%= f.input_field :clean %>
-                            </div>
-                            <div class="text-left col-md-3">
-                              <%= f.label :flavour %>
-                            </div>
-                            <div class="col-md-9">
-                              <%= f.input_field :flavour %>
-                            </div>
-                            <br>
-                            <div class="button-quality">
-                            <%= f.submit "save", class: "btn btn-primary modal_save" %>
-                            </div>
-                          </div>
-                          </div>
-                        </div>
-                      <% end %>
-                    </div>
+                  <div class="modal-body">
+                    <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :post, remote:true do |f| %>
+                      <%= f.input :acidity %>
+                      <%= f.input :sweetness %>
+                      <%= f.input :clean %>
+                      <%= f.submit "save", class: "btn btn-primary modal_save" %>
+                    <% end %>
                   </div>
                 </div>
               </div>
