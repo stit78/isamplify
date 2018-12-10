@@ -17,8 +17,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', '0.12.3.1'
 gem "letter_opener", group: :development
+gem 'postmark-rails'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

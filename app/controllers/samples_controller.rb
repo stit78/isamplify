@@ -52,10 +52,8 @@ class SamplesController < ApplicationController
   def update_after_reception
     if @sample.received!
       flash[:notice] = "The sample #{@sample.id} has been received"
-      redirect_to pending_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
-      redirect_to pending_index_samples_path
     end
   end
 
@@ -102,7 +100,6 @@ class SamplesController < ApplicationController
       redirect_to sent_index_samples_path
     end
   end
-
 
   def email
     @sample = Sample.find(params[:id])

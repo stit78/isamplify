@@ -17,7 +17,7 @@
     <% else %>
       <ul class= "no-bullet">
         <% @samples.each do |sample| %>
-            <li>
+            <li data-sample-id="<%= sample.id %>">
               <%= render "shared/card_sample", sample: sample %>
             </li>
         <% end %>
