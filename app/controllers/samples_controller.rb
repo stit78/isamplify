@@ -110,6 +110,10 @@ class SamplesController < ApplicationController
     flash[:notice] = "The sample #{@sample.id} has been sent"
   end
 
+  def status_count
+
+  end
+
   private
 
   def review_params
@@ -122,6 +126,14 @@ class SamplesController < ApplicationController
     @samples_count << Sample.count_with_status("received")
     @samples_count << Sample.count_with_status("tested")
     @samples_count << Sample.count_with_status("labelled")
+    @samples_count << Sample.count_with_status("sent")
+  end
+
+
+  def samples_count_nil
+    if @samples_count == 0
+
+    end
   end
 
   def set_find_sample
