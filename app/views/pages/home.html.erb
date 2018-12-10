@@ -1,7 +1,35 @@
 <% if user_signed_in? %>
   <div class="wrapper">
     <div class="container">
-      <h1 class="text-center">Hello <%= current_user.first_name %>! Ready to samplify?</h1>
+      <div class='title-main'><h1>Hello <%= current_user.first_name %>! Ready to samplify?</h1></div>
+
+      <div class='title-second'> You have currently <%= Sample.count %> under management</div>
+      <div class='sample-dashboard'>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.pending.count %> samples pending</div>
+          <div class='sample-action'>Go to reception <%= link_to "<i class='fas fa-inbox'></i>".html_safe, pending_index_samples_path, method: :post %></div>
+        </div>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.received.count %> samples received</div>
+          <div class='sample-action'>Go to testing <%= link_to "<i class='fas fa-inbox'></i>".html_safe, received_index_samples_path, method: :post %></div>
+        </div>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.tested.count %> samples tested</div>
+          <div class='sample-action'>Go to labelling <%= link_to "<i class='fas fa-inbox'></i>".html_safe, tested_index_samples_path, method: :post %></div>
+        </div>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.labelled.count %> samples labelled</div>
+          <div class='sample-action'>Go to sending <%= link_to "<i class='fas fa-inbox'></i>".html_safe, labelled_index_samples_path, method: :post %></div>
+          </%>
+        </div>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.sent.count %> samples sent</div>
+        </div>
+      </div>
+
+      <div class='title-second'> You have currently <%= CoffeeLot.count %> under management</div>
+
+
 
       <div class="card-shop">
         <div class="title">
@@ -51,9 +79,9 @@
         <%= image_tag "coffee.news.png" %>
       </div>
 
-      <div>
-        <%= render "/shared/dashboard.html.erb" %>
-      </div>
+      <!-- <div>
+        <%= #render "/shared/dashboard.html.erb" %>
+      </div> -->
     </div>
   </div>
 
@@ -69,9 +97,9 @@
       <br>
       <i class="fas fa-coffee"></i>
       <br>
-      <h4>Lorem Ipsum dolor sit</h4>
+      <h4>Samplify your daily samples management</h4>
       <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium deleniti labore nemo adipisci, omnis ducimus harum aperiam, natus quas temporibus rerum</p>
+      <p>With ISamplify you erase the pain of individual sample follow-up: reception, testing, labelling and  </p>
     </div>
 
     <div class="home-presentation-element"">
