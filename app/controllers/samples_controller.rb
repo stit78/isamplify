@@ -1,6 +1,6 @@
 class SamplesController < ApplicationController
   before_action :set_samples_count, only: [:pending_index, :received_index, :tested_index, :labelled_index, :sent_index]
-
+  before_action :set_find_sample, only: [:update_after_reception, :update_after_test, :update_after_labelling, :update_after_emailing, :update]
   def pending_index
     @samples = Sample.pending
     @coffee_lots = CoffeeLot.all
@@ -30,9 +30,9 @@ class SamplesController < ApplicationController
     # authorize @sample
   end
 
-  def edit
-    @sample = Sample.find(params[:id])
-  end
+  # def edit
+  #   @sample = Sample.find(params[:id])
+  # end
 
   def create
     exporter = User.find_by(role: "Exporter")
@@ -50,7 +50,6 @@ class SamplesController < ApplicationController
   end
 
   def update_after_reception
-    @sample = Sample.find(params[:id])
     if @sample.received!
       flash[:notice] = "The sample #{@sample.id} has been received"
     else
@@ -59,7 +58,6 @@ class SamplesController < ApplicationController
   end
 
   def update_after_test
-    @sample = Sample.find(params[:id])
     @sample.status = "tested"
     if @sample.update(review_params)
       flash[:notice] = "The sample #{@sample.id} has been tested"
@@ -71,7 +69,6 @@ class SamplesController < ApplicationController
   end
 
   def update_after_labelling
-    @sample = Sample.find(params[:id])
     @sample.status = "labelled"
     @sample.save
     @etiquette = Etiquette.new
@@ -87,12 +84,21 @@ class SamplesController < ApplicationController
   end
 
   def update_after_emailing
-    @sample = Sample.find(params[:id])
     ExporterMailer.reception_confirmation(@sample).deliver_now
     @sample.status = "sent"
     @sample.save
     flash[:notice] = "The sample #{@sample.id} has been sent"
     redirect_to labelled_index_samples_path
+  end
+
+  def update
+    if @sample.update(review_params)
+      flash[:notice] = "The sample #{@sample.id} has been tested"
+      redirect_to sent_index_samples_path
+    else
+      flash[:alert] = "Sorry, something went wrong."
+      redirect_to sent_index_samples_path
+    end
   end
 
   def email
@@ -116,5 +122,9 @@ class SamplesController < ApplicationController
     @samples_count << Sample.count_with_status("received")
     @samples_count << Sample.count_with_status("tested")
     @samples_count << Sample.count_with_status("labelled")
+  end
+
+  def set_find_sample
+    @sample = Sample.find(params[:id])
   end
 end
