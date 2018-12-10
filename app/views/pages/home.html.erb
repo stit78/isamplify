@@ -1,34 +1,47 @@
 <% if user_signed_in? %>
   <div class="wrapper">
     <div class="container">
-      <h1 class="text-center">Hello <%= current_user.first_name %>! Ready to samplify?</h1>
+      <div class='title-main'><h1>Hello <%= current_user.first_name %>! Ready to samplify?</h1></div>
 
-      <div class="card-shop">
-        <div class="title">
-          <p> Dashboard</p>
+      <div class='title-second'> <%= Sample.count %> coffee samples currently under management</div>
+      <div class='sample-dashboard'>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.pending.count %></div>
+          <div class='sample-count-status'> samples pending</div>
+          <div class='sample-action'>
+            <p>Go to reception</p>
+            <p><%= link_to "<i class='fas fa-inbox'></i>".html_safe, pending_index_samples_path, method: :get %></p>
+          </div>
         </div>
-
-        <div class="item">
-          <div class="information">
-            <div class="basket-coffee-information">
-              <div class= "text-left">
-                <p>Data validation:</p>
-              </div>
-              <div class= "text-right">
-                <p>number pending</p>
-              </div>
-            </div>
-            <div class="basket-coffee-information">
-              <p>Quality testing:</p>
-              <p class="in-stock"><strong> number </strong></p>
-            </div>
-            <div class="basket-coffee-information">
-              <p>Emailing:</p>
-              <p class="in-stock"><strong> number pending </strong></p>
-            </div>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.received.count %></div>
+          <div class='sample-count-status'> samples received</div>
+          <div class='sample-action'>
+            <p>Go to testing </p>
+            <p><%= link_to "<i class='fas fa-coffee'></i>".html_safe, received_index_samples_path, method: :get %></p>
+          </div>
+        </div>
+        <div class='sample-status'>
+            <div class='sample-count'><%= Sample.tested.count %></div>
+            <div class='sample-count-status'> samples tested</div>
+          <div class='sample-action'>
+            <p> Go to labelling</p>
+            <p><%= link_to "<i class='fas fa-tags'></i>".html_safe, tested_index_samples_path, method: :get %></p></div>
+        </div>
+        <div class='sample-status'>
+          <div class='sample-count'><%= Sample.labelled.count %></div>
+            <div class='sample-count-status'> samples labelled</div>
+          <div class='sample-action'>
+            <p>Go to sending</p>
+            <p><%= link_to "<i class='fas fa-share-square'></i>".html_safe, labelled_index_samples_path, method: :get %></p>
           </div>
         </div>
       </div>
+
+      <div class='title-second'> <%= CoffeeLot.count %> coffee lots  currently under management</div>
+
+
+
 
       <div class="world-map">
       <h3>Locate your coffee lots provenance</h3>
@@ -50,10 +63,6 @@
         <h3>Coffee news</h3>
         <%= image_tag "coffee.news.png" %>
       </div>
-
-      <div>
-        <%= render "/shared/dashboard.html.erb" %>
-      </div>
     </div>
   </div>
 
@@ -64,32 +73,28 @@
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "home-login" %>
   </div>
 
+  <div class="home-presentation-element"">
+    <br>
+    <h3>Samplify your coffee-lots monitoring</h3>
+    <br>
+    <p>You get notifications from all the stakeholders of the import chain and always know where your goods are.</p>
+  </div>
+
   <div class="home-presentation">
     <div class="home-presentation-element"">
+
       <br>
-      <i class="fas fa-coffee"></i>
+      <h3>Samplify your samples management</h3>
       <br>
-      <h4>Lorem Ipsum dolor sit</h4>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium deleniti labore nemo adipisci, omnis ducimus harum aperiam, natus quas temporibus rerum</p>
+      <p>Erase the pain of individual in-house samples follow-up: validate reception, test your sample and send it seamlessly.</p>
     </div>
 
-    <div class="home-presentation-element"">
-      <br>
-      <i class="fas fa-coffee"></i>
-      <br>
-      <h4>Lorem Ipsum dolor sit</h4>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium deleniti labore nemo adipisci, omnis ducimus harum aperiam, natus quas temporibus rerum</p>
-    </div>
 
     <div class="home-presentation-element">
       <br>
-      <i class="fas fa-coffee"></i>
+      <h3>Samplify your relatons with customers</h3>
       <br>
-      <h4>Lorem Ipsum dolor sit</h4>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium deleniti labore nemo adipisci, omnis ducimus harum aperiam, natus quas temporibus rerum</p>
+      <p>Assign your best coffees to your best customers according to your test to never miss a deal</p>
     </div>
   </div>
 <% end %>
