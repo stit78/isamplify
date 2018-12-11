@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :receptions
   resources :etiquettes, only: [:index]
+  resources :approved_samples
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
