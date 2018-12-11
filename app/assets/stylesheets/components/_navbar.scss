@@ -18,10 +18,10 @@
   border-radius: 50%;
   align-items: center;
   position:absolute
+  z-index: 3;
 }
 
 .ecom-logo {
-  box-shadow: 1px -2px 20px 20px white;
   margin-top: -10px;
   background-color: white;
 }
