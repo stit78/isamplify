@@ -20,6 +20,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', '0.12.3.1'
 gem "letter_opener", group: :development
 gem 'postmark-rails'
+gem 'pg_search'
 
 
 group :development do
