@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'amandine@gmail.com'
+  default from: 'admin@isamplify.com'
   layout 'mailer'
 end
