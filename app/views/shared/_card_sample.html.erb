@@ -135,7 +135,7 @@
         </div>
       <% elsif sample.status == "received" %>
         <div class="card-action-edit text-center">
-          <button type="button" data-toggle="modal" data-target="#sample-<%= sample.id %>">
+          <button type="button" data-toggle="modal" data-target="#modal-sample-<%= sample.id %>">
             <i class='fas fa-coffee'></i>
           </button>
         </div>
@@ -147,6 +147,10 @@
         <div class="card-action-edit text-center">
           <%= link_to "<i class='fas fa-share-square'></i>".html_safe, update_after_emailing_sample_path(sample), method: :post %>
         </div>
+        <% elsif sample.status == "sent" %>
+          <div class="card-action-edit text-center">
+            <%= link_to "<i class='fas fa-check-circle'></i>".html_safe, update_after_sent_sample_path(sample), method: :post %>
+          </div>
       <% end %>
     </div>
   </div>

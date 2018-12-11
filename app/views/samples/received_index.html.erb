@@ -10,38 +10,36 @@
     <% if @samples.count == 0 %>
       <p>No samples waiting for testing</p>
     <% else %>
-      <ul class= "no-bullet">
-        <% @samples.each do |sample| %>
-          <li>
-            <%= render "shared/card_sample", sample: sample %>
+      <% @samples.each do |sample| %>
+          <%= render "shared/card_sample", sample: sample %>
 
-    <div class="modal fade" id="modal-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" style="width: 30%" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" id="modal-close-sample-#{sample.id}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Cupping Results</h4>
-            <h5><%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %>, <%= sample.coffee_lot.quantity %> bags</h5>
-          </div>
-          <div class="modal-body">
-            <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :post, remote:true do |f| %>
+          <!-- modal to add quality Rating -->
+          <div class="modal fade" id="modal-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" style="width: 30%" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" id="modal-close-sample-#{sample.id}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Cupping Results</h4>
+                  <h5><%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %>, <%= sample.coffee_lot.quantity %> bags</h5>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :post, remote:true do |f| %>
 
-              <%= f.input :acidity %>
-              <%= f.input :sweetness %>
-              <%= f.input :clean %>
-              <%= f.input :flavour %>
-              <br>
-              <%= f.submit "save", class: "btn btn-primary modal_save" %>
-              <br>
-              <br>
-            <% end %>
+                    <%= f.input :acidity %>
+                    <%= f.input :sweetness %>
+                    <%= f.input :clean %>
+                    <%= f.input :flavour %>
+                    <br>
+                    <%= f.submit "save", class: "btn btn-primary modal_save" %>
+                    <br>
+                    <br>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+
       <% end %>
-        </li>
-      </ul>
    <% end %>
   </div>
 </div>
