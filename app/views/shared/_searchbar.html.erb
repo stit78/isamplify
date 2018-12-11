@@ -1,9 +1,11 @@
-<div class="searchbar_input">
-  <%= form_tag search_samples_samples_path, method: :post do %>
-    <%= text_field_tag "search",
-                       nil,
-                       class: "form-control text_searchbar",
-                       placeholder: "contract ID, sample ID"
-    %>
-  <% end %>
+<div class="searchbar-form">
+  <div class="searchbar_input">
+    <%= form_tag search_samples_samples_path, method: :post do %>
+      <%= text_field_tag "search",
+                         nil,
+                         class: "form-control text_searchbar",
+                         placeholder: "contract ID, sample ID"
+      %>
+    <% end %>
+  </div>
 </div>

@@ -27,6 +27,16 @@ class SamplesController < ApplicationController
 
   def approved_index
     @samples = Sample.approved
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "contract",
+               # orientation: 'Landscape',
+               layout: 'pdf',
+               template: "samples/approved_index.pdf.erb",
+               locals: { :samples => @samples }
+      end
+    end
   end
 
   def new
