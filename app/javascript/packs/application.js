@@ -18,6 +18,15 @@ if (document.getElementById("show-sample-historic-chart")) {
 //     sampleCreateForm(event);
 //   });
 // }
+if (document.querySelector('.card-box')) {
+  // document.querySelectorAll('.card-box').forEach((card) => {
+  //   document.querySelector('.card-index-link-top').addEventListener("click"), (event) => {
+  //     event.stopPropagation();
+  //   };
+  // });
+  console.log('coucou');
+  toggleCardMain();
+};
 
 if (document.querySelector(".removable a")) {
   document.querySelectorAll(".card-box").forEach((card) => {
@@ -43,8 +52,7 @@ if (document.querySelector(".modal_save")) {
   })
 }
 
-if (document.querySelector('.card-box')) {
-  toggleCardMain();
-}
+
+
 
 // document.querySelector("[data-sample-id='<%= @sample.id %>']").remove();

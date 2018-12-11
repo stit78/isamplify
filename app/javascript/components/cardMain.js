@@ -1,4 +1,5 @@
 const toggleCardMain = () => {
+  console.log('coucou');
   const myCards = document.querySelectorAll('.card-box');
   myCards.forEach((card) => {
     card.addEventListener('click', (event) => {
