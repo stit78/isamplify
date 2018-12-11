@@ -5,8 +5,8 @@
       <%= image_tag "ecom.png", height: 50, class: "ecom-logo" %>
     <% end %>
   </div>
+      <%= render 'shared/searchbar' %>
 
-  <%= render 'shared/searchbar' %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -16,7 +16,11 @@
 
 
       <!-- Avatar with dropdown menu -->
-      <%= link_to 'Samplify', pending_index_samples_path, class: "navbar-samplify" %>
+      <div class="navbar-samplify">
+        <%= link_to 'Samplify', pending_index_samples_path, class: "navbar-samplify" %>
+        <%= link_to 'Trade', approved_index_samples_path, class: "navbar-samplify" %>
+      </div>
+
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%=  image_tag("amandine.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown") %>

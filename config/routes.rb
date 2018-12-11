@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'labelled_index', to: 'samples#labelled_index'
       get 'sent_index', to: 'samples#sent_index'
       post 'search_samples', to: "samples#search_samples"
+      get 'approved_index', to: 'samples#approved_index'
     end
 
     member do
@@ -26,7 +27,6 @@ Rails.application.routes.draw do
 
   resources :receptions
   resources :etiquettes, only: [:index]
-  resources :approved_samples
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
