@@ -1,6 +1,7 @@
 class SamplesController < ApplicationController
   before_action :set_samples_count, only: [:pending_index, :received_index, :tested_index, :labelled_index, :sent_index]
   before_action :set_find_sample, only: [:update_after_reception, :update_after_test, :update_after_labelling, :update_after_emailing, :update]
+
   def pending_index
     @samples = Sample.pending
     @coffee_lots = CoffeeLot.all
@@ -24,6 +25,10 @@ class SamplesController < ApplicationController
     @samples = Sample.sent
   end
 
+  def approved_index
+    @samples = Sample.approved
+  end
+
   def new
     @sample = Sample.new
     # authorize @coffeelot
@@ -41,7 +46,7 @@ class SamplesController < ApplicationController
     @sample.exporter = exporter
     @sample.status = "pending"
     if @sample.save
-      flash[:notice] = "The sample #{@sample.id} from coffee lot ##{@sample.coffee_lot.iconumber} has been created"
+      flash[:notice] = "The sample #{@sample.id} from coffee lot #{@sample.coffee_lot.iconumber} has been created"
       redirect_to pending_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
@@ -134,8 +139,34 @@ class SamplesController < ApplicationController
     ExporterMailer.reception_confirmation(@sample).deliver_now
     @sample.status = "sent"
     @sample.save
-    flash[:notice] = "The sample #{@sample.id} has been sent"
-    redirect_to labelled_index_samples_path
+
+    respond_to do |format|
+      format.html do
+      flash[:notice] = "The sample #{@sample.id} has been sent"
+      redirect_to labelled_index_samples_path
+    end
+      format.js do
+        set_samples_count
+        render :update_navbar
+      end
+    end
+  end
+
+  def update_after_sent
+    @sample.status = "approved"
+    @sample.save
+
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "The sample #{@sample.id} has been approved"
+        redirect_to sent_index_samples_path
+      end
+
+      format.js do
+        set_samples_count
+        render :update_navbar
+      end
+    end
   end
 
   def update
@@ -157,6 +188,9 @@ class SamplesController < ApplicationController
     flash[:notice] = "The sample #{@sample.id} has been sent"
   end
 
+  def search_samples
+    @samples = Sample.search_sample(params[:search])
+  end
 
   private
 
