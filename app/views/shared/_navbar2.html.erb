@@ -3,15 +3,15 @@
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item">
         <i class="fas fa-inbox"></i>
-        <%= link_to "Reception", pending_index_samples_path%>
+        <%= link_to "Reception", pending_index_samples_path, class: "#{'active-tab' if action_name == 'pending_index'}"%>
         <div class="button">
-           <span class="<%= samples_count_css_class(@samples_count, 0) %>"><%= @samples_count[0] %></span>
-         </div>
+          <span class="<%= samples_count_css_class(@samples_count, 0) %>"><%= @samples_count[0] %></span>
+        </div>
       </li>
 
       <li class="nav-item">
         <i class="fas fa-coffee"></i>
-        <%= link_to "Test", received_index_samples_path%>
+        <%= link_to "Test", received_index_samples_path, class: "#{'active-tab' if action_name == 'received_index'}"  %>
         <div class="button">
           <span class="<%= samples_count_css_class(@samples_count, 1) %>"><%= @samples_count[1] %></span>
         </div>
@@ -19,7 +19,7 @@
 
       <li class="nav-item">
         <i class="fas fa-tags"></i>
-        <%= link_to "Labelling", tested_index_samples_path%>
+        <%= link_to "Labelling", tested_index_samples_path, class: "#{'active-tab' if action_name == 'tested_index'}" %>
         <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 2) %>"><%= @samples_count[2] %></span>
          </div>
@@ -27,7 +27,7 @@
 
        <li class="nav-item">
          <i class="fas fa-share-square"></i>
-         <%= link_to "Emailing", labelled_index_samples_path%>
+         <%= link_to "Emailing", labelled_index_samples_path, class: "#{'active-tab' if action_name == 'labelled_index'}" %>
          <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 3) %>"><%= @samples_count[3] %></span>
          </div>
@@ -35,7 +35,7 @@
 
        <li class="nav-item">
          <i class="fas fa-check-circle"></i>
-         <%= link_to "Sent", sent_index_samples_path%>
+         <%= link_to "Sent", sent_index_samples_path, class: "#{'active-tab' if action_name == 'emailed_index'}"%>
          <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 4) %>"><%= @samples_count[4] %></span>
          </div>
