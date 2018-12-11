@@ -41,7 +41,7 @@ class SamplesController < ApplicationController
     @sample.exporter = exporter
     @sample.status = "pending"
     if @sample.save
-      flash[:notice] = "The sample #{@sample.id} from coffee lot ##{@sample.coffee_lot.iconumber} has been created"
+      flash[:notice] = "The sample #{@sample.id} from coffee lot #{@sample.coffee_lot.iconumber} has been created"
       redirect_to pending_index_samples_path
     else
       flash[:alert] = "Sorry, something went wrong"
@@ -157,6 +157,9 @@ class SamplesController < ApplicationController
     flash[:notice] = "The sample #{@sample.id} has been sent"
   end
 
+  def search_samples
+    @samples = Sample.search_sample(params[:search])
+  end
 
   private
 

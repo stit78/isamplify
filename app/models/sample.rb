@@ -16,7 +16,12 @@ class Sample < ApplicationRecord
 
   include PgSearch
   pg_search_scope :search_sample,
-    against: [:coffee_lot, :exporter, :trader, :stage, :status],
+    against: [:stage, :status],
+    associated_against: {
+      exporter: [:first_name, :last_name],
+      trader: [:role],
+      coffee_lot: [:iconumber]
+    },
     using: {
       tsearch: { prefix: true }
     }
