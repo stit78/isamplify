@@ -1,0 +1,25 @@
+
+<div class="grid-element">
+  <br>
+  <%= wicked_pdf_image_tag "ecom coffee logo.jpg", height: 50, class: "etiquette-logo" %> <h4>Contract from ECOM Trading</h4>
+    <br>
+    <br>
+    <% @samples.each do |sample| %>
+    <strong><p>Buyer</p></strong><%= sample.coffee_lot.potential_clients.first.client.name %>
+    <strong><p>Seller</p></strong><%= Ecom Trading %>
+    <strong><p>Quality</p></strong> <%= sample.coffee_lot.quality_description %>
+    <strong><p>Quantity</p></strong>
+    <strong><p>Shipment</strong> Jan 1, 2019 - Jan 15, 2019</p>
+    <strong><p>Basis</strong> Delivered Duty Paid (DDP) at Durme Natie's Door; Antwerp
+    FR customs cleared</p>
+    <strong><p>Price</strong> 2.25 EUR / Kg.</p>
+    <strong><p>Payment</strong> Net cash against invoice, 15 days after removal/delivery</p>
+    <strong><p>Arbitration</strong> London, European Delivery Contract for Coffee, latest edition</p>
+    <strong><p>Additional></strong> Please return copy of the present contract, with your contract reference, duly signed in agreement.</p>
+    <br>
+    <br>
+    <strong><p>Seller Signature &#160;&#160;&#160; Buyer Signature</p></strong>
+    <br>
+    <br>
+    <strong><p>Buyer Signature___________________________</p></strong>
+    <% end %>
