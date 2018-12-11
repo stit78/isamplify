@@ -159,7 +159,7 @@
 <!-- Modal Edit PENDING Sample -->
 
 <div class="modal fade" id="edit-pending-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" style="width: 30%" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -168,6 +168,8 @@
       <div class="modal-body">
         <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :patch do |f| %>
           <%= f.input :stage, collection: ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"] %>
+
+
           <br>
           <%= f.submit "Edit", class: "btn btn-primary" %>
           <br>
@@ -182,7 +184,7 @@
 <!-- Modal Edit SENT Sample -->
 
 <div class="modal fade" id="edit-sent-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" style="width: 30%" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -194,6 +196,7 @@
           <%= f.input :acidity %>
           <%= f.input :sweetness %>
           <%= f.input :clean %>
+          <%= f.input :flavour %>
           <br>
           <%= f.submit "Edit", class: "btn btn-primary" %>
           <br>
