@@ -57,7 +57,7 @@ end
 
 puts "Creating user Carlos"
 carlos = User.new(
-  email: "carlos@gmail.com",
+  email: "carlos.sogimex@gmail.com",
   role: "Exporter",
   company_name: "Sogimex",
   first_name: "Carlos",
