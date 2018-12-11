@@ -1,7 +1,7 @@
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
-// import { sampleCreateForm } from 'components/samplecreate.js'
+import { toggleCardMain } from 'components/cardMain';
 
 if (document.getElementById("show-sample-historic-chart")) {
   const myId = document.getElementById("show-sample-historic-chart");
@@ -41,6 +41,10 @@ if (document.querySelector(".modal_save")) {
       setTimeout(() => { card.innerHTML = ""; }, 1000);
     })
   })
+}
+
+if (document.querySelector('.card-box')) {
+  toggleCardMain();
 }
 
 // document.querySelector("[data-sample-id='<%= @sample.id %>']").remove();

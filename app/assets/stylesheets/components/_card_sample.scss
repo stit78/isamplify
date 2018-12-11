@@ -18,148 +18,375 @@
 
 
 .card-box {
-  width: 850px;
-  border: solide;
-  border-color: rgb(0, 74, 102);
-  box-shadow: 1px 2px 3px 1px;
-  border-radius: 6px;
+  display: flex;
+  box-shadow: 0 0 2rem rgba(0,0,0,.1);
+  width:730px;
   margin-bottom: 30px;
 }
 
-
-.card-top {
-  display: flex;
-  border-radius: 6px;
-  .card-title {
-    padding-top: 3px;
-    border-radius: 6px 6px 0px 0px;
-    flex-grow: 1;
-    background-color: white;
-    border-color: $grey;
-    font-size: 16px;
-    padding-left: 10px;
-    text-align: left;
-  }
-  .card-status {
-    background-color: white;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 11px;
-    font-style: italic;
-    background-color: white;
-    width: 90px;
-  }
-  .card-score {
-    font-size: 11px;
-    width: 50px;
-    position: left;
-    background-color: $main;
-    color: white;
-    border-radius: 0px 6px 0px 0px;
-    text-align: center;
-  }
+.card-box-active {
+  width: 1060px;
 }
 
-.card-content {
-  border-top-color: $gray;
-  width: auto;
+.card-main {
   display: flex;
-}
-
-.card-import {
-  border-radius: 0px 0px 0px 6px;
   background-color: white;
-  text-align: left;
-  margin-top: auto;
-  margin-bottom: auto;
-  flex: 0 0 130px;
-  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  cursor: pointer;
 }
 
-.card-stage {
-  border-color: rgba (0, 0, 0, 0);
+.card-main-illustration {
+  background-color: #F2F2F2;
   text-align: center;
-  font-size: 11px;
-  font-style: italic;
-  color: $grey;
+  width: 250px;
 }
 
-.card-stage.active {
-  border-left: solid 10px;
-  color: $main;
-  border-left-color: $main;
-}
-
-.card-stage.active.current {
-  font-size: 20px;
-  font-style: bold;
-}
-
-.card-description-action {
-  flex-grow: 1;
-  display: flex;
-  width: auto;
-}
-
-.card-description {
-  flex-grow: 1;
+.card-main-country{
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
   padding-top: 10px;
-  background-color: white;
-  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
-  border-radius: 0px 0px 6px 0px;
-  font-size: 12px;
 }
 
-.card-field {
+.card-main-quality{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.card-main-picture-frame{
+  height: 64px;
+}
+
+.card-main-picture{
+  height:100%;
+  background-repeat: no-repeat;
+}
+
+.card-main-quantity{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: #828282;
+  padding-top: 3px;
+}
+
+.card-main-sample {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.card-main-journey {
+  width: 215px;
+  border-right: 1px solid #E0E0E0;
+  padding-left: 35px;
+}
+
+.card-main-journey-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  padding-top:10px;
+}
+
+.card-main-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.card-potential-clien {
+  padding-top: 3px;
+}
+.card-main-company {
+  padding-bottom: 2px;
+  padding-left: 16px;
+}
+
+.card-main-stages {
   display: flex;
+  align-items: flex-start;
 }
 
-.card-key {
-  width: 120px;
-  text-align: left;
-  margin-left: 7px;
+.card-main-stages-svg {
+  width: 5px;
+  height: 118px;
+  margin-top: -12px;
 }
 
-.card-value {
+.card-main-cursor {
+  margin-left: -3px;
+}
+
+.card-main-stage {
+  padding-left: 8px;
+}
+
+.card-stage-fill {
+  height: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.fillactive {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+.card-main-ratings {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 3px;
+}
+
+.card-main-score {
+  background-color: #E0E0E0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 2px 0px;
+  text-align: center;
+  border-radius: 3px;
+  width: 85px;
+}
+
+.card-main-result-clients {
+  padding-top: 10px;
 }
 
 .card-action {
-  margin-top: auto;
-  margin-bottom: auto;
   width: 50px;
-  font-size: 20px;
-  justify-content: space-around;
-  .card-action-show {
-    padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    border: none;
     color: $main;
-    .card-action-show:hover {
-      color: red;
-      background-color: $main;
-    }
-  }
-  .card-action-edit {
-    padding-top: 10px;
-        .card-action-edit:hover {
-       color: $main;
-    }
+    background-color: $body-bg;
   }
 }
 
-.card-expendable {
-  border-radius: 6px;
-  border-color: rgb(193, 193, 193);
+.card-action-show {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    a {
+    padding: 5px 15px;
+  }
 }
 
-i {
-  font-size: 20px;
+.card-action-edit {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    button {
+    padding: 5px 15px;
+  }
 }
 
-.card-action button {
-  border: none;
-  background-color: $body-bg;
-  color: $main;
+.card-action-next {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #6FCF97;
+  justify-content: center;
+  a {
+    padding: 22px 15px;
+  }
 }
+
+.card-main-details {
+  display:none;
+  width: 330px;
+  padding-left: 35px;
+}
+
+.card-details-active {
+  display: block;
+}
+
+.card-main-details-container {
+  display:flex;
+}
+
+.card-coffee-lot-info {
+  padding-bottom: 19px;
+}
+
+.card-main-iconumber {
+  padding-bottom: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .card-top {
+//   display: flex;
+//   border-radius: 6px;
+//   .card-title {
+//     padding-top: 3px;
+//     border-radius: 6px 6px 0px 0px;
+//     flex-grow: 1;
+//     background-color: white;
+//     border-color: $grey;
+//     font-size: 16px;
+//     padding-left: 10px;
+//     text-align: left;
+//   }
+//   .card-status {
+//     background-color: white;
+//     padding-top: 5px;
+//     padding-left: 5px;
+//     padding-right: 5px;
+//     font-size: 11px;
+//     font-style: italic;
+//     background-color: white;
+//     width: 90px;
+//   }
+//   .card-score {
+//     font-size: 11px;
+//     width: 50px;
+//     position: left;
+//     background-color: $main;
+//     color: white;
+//     border-radius: 0px 6px 0px 0px;
+//     text-align: center;
+//   }
+// }
+
+// .card-content {
+//   border-top-color: $gray;
+//   width: auto;
+//   display: flex;
+// }
+
+// .card-import {
+//   border-radius: 0px 0px 0px 6px;
+//   background-color: white;
+//   text-align: left;
+//   margin-top: auto;
+//   margin-bottom: auto;
+//   flex: 0 0 130px;
+//   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+// }
+
+// .card-stage {
+//   border-color: rgba (0, 0, 0, 0);
+//   text-align: center;
+//   font-size: 11px;
+//   font-style: italic;
+//   color: $grey;
+// }
+
+// .card-stage.active {
+//   border-left: solid 10px;
+//   color: $main;
+//   border-left-color: $main;
+// }
+
+// .card-stage.active.current {
+//   font-size: 20px;
+//   font-style: bold;
+// }
+
+// .card-description-action {
+//   flex-grow: 1;
+//   display: flex;
+//   width: auto;
+// }
+
+// .card-description {
+//   flex-grow: 1;
+//   padding-top: 10px;
+//   background-color: white;
+//   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+//   border-radius: 0px 0px 6px 0px;
+//   font-size: 12px;
+// }
+
+// .card-field {
+//   display: flex;
+// }
+
+// .card-key {
+//   width: 120px;
+//   text-align: left;
+//   margin-left: 7px;
+// }
+
+// .card-value {
+// }
+
+// .card-action {
+//   margin-top: auto;
+//   margin-bottom: auto;
+//   width: 50px;
+//   font-size: 20px;
+//   justify-content: space-around;
+//   .card-action-show {
+//     padding-bottom: 10px;
+//     color: $main;
+//     .card-action-show:hover {
+//       color: red;
+//       background-color: $main;
+//     }
+//   }
+//   .card-action-edit {
+//     padding-top: 10px;
+//         .card-action-edit:hover {
+//        color: $main;
+//     }
+//   }
+// }
+
+// .card-expendable {
+//   border-radius: 6px;
+//   border-color: rgb(193, 193, 193);
+// }
+
+// i {
+//   font-size: 20px;
+// }
+
+// .card-action button {
+//   border: none;
+//   background-color: $body-bg;
+//   color: $main;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // .container-fluid {
 //   padding-bottom: 5px;
