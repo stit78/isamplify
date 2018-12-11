@@ -1,3 +1,25 @@
+.white-background{
+  position: relative;
+  left: -30px;
+  width: 200px;
+  height: 70px;
+  background-color: white;
+}
+
+.left-element{ width:300px;
+  height:70px;
+  position: absolute;
+
+}
+
+.logo-company{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  align-items: center;
+  position:absolute
+}
+
 .ecom-logo {
   box-shadow: 1px -2px 20px 20px white;
   margin-top: -10px;
@@ -22,8 +44,8 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 

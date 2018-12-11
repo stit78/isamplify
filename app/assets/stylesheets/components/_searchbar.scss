@@ -1,5 +1,5 @@
-.searchbar {
-  position: absolute;
+.searchbar-form {
+  // position: absolute;
   // right: 5%;
   // top: 25%;
 
@@ -13,14 +13,14 @@
 
  .text_searchbar {
     color: #00A0FF;
-    font-size: 15px;
+    font-size: 20px;
     font-style: italic;
     text-align: left
 }
 
 .searchbar_input{
   padding-bottom: 5px;
-  width: 35%;
-  position: relative;
-  right: 230px;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
 }
