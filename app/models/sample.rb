@@ -14,6 +14,18 @@ class Sample < ApplicationRecord
 
   scope :count_with_status, ->(status) { where(status: status).count }
 
+  include PgSearch
+  pg_search_scope :search_sample,
+    against: [:stage, :status],
+    associated_against: {
+      exporter: [:first_name, :last_name],
+      trader: [:role],
+      coffee_lot: [:iconumber]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   private
 
   def send_reception_confirmation

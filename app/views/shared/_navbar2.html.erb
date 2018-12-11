@@ -35,7 +35,7 @@
 
        <li class="nav-item">
          <i class="fas fa-check-circle"></i>
-         <%= link_to "Sent", sent_index_samples_path, class: "#{'active-tab' if action_name == 'emailed_index'}"%>
+         <%= link_to "Sent", sent_index_samples_path, class: "#{'active-tab' if action_name == 'sent_index'}"%>
          <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 4) %>"><%= @samples_count[4] %></span>
          </div>
