@@ -1,5 +1,5 @@
 <%= render 'shared/navbar2' %>
-<div class="wrapper">
+<div class="wrapper" id="received-index">
   <div class="container">
     <div class="header-pending-show">
       <div class="text-header-pending">
@@ -18,7 +18,7 @@
             <div class="modal-dialog" style="width: 30%" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <button type="button" class="close" id="modal-close-sample-#{sample.id}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h4 class="modal-title">Cupping Results</h4>
                   <h5><%= sample.coffee_lot.provenance %>, <%= sample.coffee_lot.quality_description %>, <%= sample.coffee_lot.quantity %> bags</h5>
                 </div>
