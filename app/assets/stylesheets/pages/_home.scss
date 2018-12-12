@@ -54,22 +54,39 @@
 }
 
 .news {
-
+  display: flex;
+  box-shadow: 0 0 2rem rgba(0,0,0,.1);
+  width:1060px;
+  height: 150px;
+  margin-bottom: 30px;
+  padding: auto;
   .news-image {
+    padding: auto;
+    display: block;
+    height: 100px;
+    width: 100px;
   }
   .news-content {
+      padding: auto;
     .news-title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
     }
     .news-author {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      padding-bottom: 4px;
     }
     .news-text {
+      height: 18px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
     }
   }
 }
-
-
-
-
 
 // home-NOT-logged-in
 
