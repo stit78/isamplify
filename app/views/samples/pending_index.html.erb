@@ -8,19 +8,16 @@
         </div>
       </button>
       <div class="text-header-pending">
-        <h2 class="text-center">Samples reception</h2>
+          <h2 class="text-centered">Samples reception</h2>
       </div>
     </div>
 
     <% if @samples.count == 0 %>
       <p>No pending samples for the moment</p>
     <% else %>
-        <% @samples.each do |sample| %>
-            <div data-sample-id="<%= sample.id %>">
-              <%= render "shared/card_sample", sample: sample %>
-            </div>
-        <% end %>
-
+      <% @samples.each do |sample| %>
+        <%= render "shared/card_sample", sample: sample %>
+      <% end %>
     <% end %>
 
     <!-- Modal New Sample -->
@@ -44,7 +41,5 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
