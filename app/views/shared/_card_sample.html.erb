@@ -1,82 +1,85 @@
 <div class="card-box" id='<%= "sample-#{sample.id}" %>'>
-  <div class="card-main">
-    <div class="card-main-illustration">
-      <div class="card-main-country">
-        <%= sample.coffee_lot.provenance %>
+  <div class="card-main-first-skin">
+    <div class="card-main">
+      <div class="card-main-illustration">
+        <div class="card-main-country">
+          <%= sample.coffee_lot.provenance %>
+        </div>
+        <div class="card-main-quality">
+          <%= sample.coffee_lot.quality_description %>
+        </div>
+        <div class="card-main-picture-frame">
+          <%= image_tag "coffee-bag.png", class: "card-main-picture" %>
+        </div>
+
+        <div class="card-main-quantity">
+          <%= sample.coffee_lot.quantity %> bags
+        </div>
+        <div class="card-main-sample">
+          Sample: #<%= sample.id %>
+        </div>
       </div>
-      <div class="card-main-quality">
-        <%= sample.coffee_lot.quality_description %>
-      </div>
-      <div class="card-main-picture-frame">
-        <%= image_tag "coffee-bag.png", class: "card-main-picture" %>
+      <div class="card-main-journey">
+        <div class="card-main-journey-title">
+          Journey
+        </div>
+        <div class="card-main-company card-main-subtitle">
+          Sent by: <%= sample.exporter.company_name %>
+        </div>
+        <div class="card-main-stages">
+          <svg class="card-main-stages-svg" viewBox="0 0 5 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="2.5" y1="19.5" x2="2.5" y2="135.5" stroke="#828282" stroke-linecap="round"/>
+            <line x1="2.5" y1="3.5" x2="2.5" y2="19.5" stroke="#828282" stroke-linecap="round" stroke-dasharray="2 5"/>
+            <circle cx="2.5" cy="2.5" r="2.5" fill="#828282"/>
+          </svg>
+          <div class="card-main-cursor">
+            <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Offer Sample" %></div>
+            <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Purchase Sample" %></div>
+            <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Loading Sample" %></div>
+            <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Port Sample" %></div>
+            <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Warehouse Sample" %></div>
+            <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Sale Sample" %></div>
+          </div>
+          <div class="card-main-stage">
+            <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Offer Sample" %>">Offer</div>
+            <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Purchase Sample" %>">Purchase</div>
+            <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Loading Sample" %>">Loading</div>
+            <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Port Sample" %>">Port</div>
+            <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Warehouse Sample" %>">Warehouse</div>
+            <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Sale Sample" %>">Sale</div>
+          </div>
+        </div>
       </div>
 
-      <div class="card-main-quantity">
-        <%= sample.coffee_lot.quantity %> bags
-      </div>
-      <div class="card-main-sample">
-        Sample: #<%= sample.id %>
-      </div>
-    </div>
-    <div class="card-main-journey">
-      <div class="card-main-journey-title">
-        Journey
-      </div>
-      <div class="card-main-company card-main-subtitle">
-        Sent by: <%= sample.exporter.company_name %>
-      </div>
-      <div class="card-main-stages">
-        <svg class="card-main-stages-svg" viewBox="0 0 5 136" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="2.5" y1="19.5" x2="2.5" y2="135.5" stroke="#828282" stroke-linecap="round"/>
-          <line x1="2.5" y1="3.5" x2="2.5" y2="19.5" stroke="#828282" stroke-linecap="round" stroke-dasharray="2 5"/>
-          <circle cx="2.5" cy="2.5" r="2.5" fill="#828282"/>
-        </svg>
-        <div class="card-main-cursor">
-          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Offer Sample" %></div>
-          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Purchase Sample" %></div>
-          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Loading Sample" %></div>
-          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Port Sample" %></div>
-          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Warehouse Sample" %></div>
-          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Sale Sample" %></div>
+      <div class="card-main-journey">
+        <div class="card-main-journey-title">
+          Results
         </div>
-        <div class="card-main-stage">
-          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Offer Sample" %>">Offer</div>
-          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Purchase Sample" %>">Purchase</div>
-          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Loading Sample" %>">Loading</div>
-          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Port Sample" %>">Port</div>
-          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Warehouse Sample" %>">Warehouse</div>
-          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Sale Sample" %>">Sale</div>
+        <div class="card-main-subtitle">
+          <div class="card-main-result-rating-title">
+            Note:
+          </div>
+          <div class="card-main-score">
+            <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" %>
+              <% sum = sample.sweetness + sample.acidity + sample.clean %>
+              <%= sum %> / 30
+            <% else %>
+              - / 30
+            <% end %>
+          </div>
+        </div>
+        <div class="card-main-result-clients">
+          <div class="card-main-subtitle card-potential-client">
+            Potential clients
+          </div>
+          <div class="card-stage-fill">
+            <% sample.coffee_lot.potential_clients.each do |potential_client| %>
+              <div><%= potential_client.client.company_name %></div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card-main-journey">
-      <div class="card-main-journey-title">
-        Results
-      </div>
-      <div class="card-main-subtitle">
-        <div class="card-main-result-rating-title">
-          Note:
-        </div>
-        <div class="card-main-score">
-          <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" %>
-            <% sum = sample.sweetness + sample.acidity + sample.clean %>
-            <%= sum %> / 30
-          <% else %>
-            - / 30
-          <% end %>
-        </div>
-      </div>
-      <div class="card-main-result-clients">
-        <div class="card-main-subtitle card-potential-client">
-          Potential clients
-        </div>
-        <div class="card-stage-fill">
-          <% sample.coffee_lot.potential_clients.each do |potential_client| %>
-            <div><%= potential_client.client.company_name %></div>
-          <% end %>
-        </div>
-      </div>
     </div>
 
     <div class="card-main-details">

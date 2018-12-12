@@ -146,18 +146,18 @@
   justify-content: space-between;
 
   a{
-    color:white;
+    color:$font-main;
     justify-content: space-between;
     font-size: 24px;
   }
 
   a:hover{
-    color: $font-main;
+    color:$font-main;
      text-decoration: none;
   }
 
   .active-tab-navbar {
-    border-bottom: 4px solid $font-main;
+    border-bottom: 4px solid white;
   }
 }
 

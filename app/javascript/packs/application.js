@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
 import {closeModal} from 'components/closeModal';
+import {loadDynamicBannerText} from 'components/typed';
 
 if (document.getElementById("received-index")) {
   closeModal();
@@ -25,11 +29,14 @@ if (document.getElementById("show-sample-historic-chart")) {
 //   });
 // }
 if (document.querySelector('.card-box')) {
+<<<<<<< HEAD
   // document.querySelectorAll('.card-box').forEach((card) => {
   //   document.querySelector('.card-index-link-top').addEventListener("click"), (event) => {
   //     event.stopPropagation();
   //   };
   // });
+=======
+>>>>>>> master
   toggleCardMain();
 };
 
@@ -55,7 +62,6 @@ if (document.querySelector(".modal_save")) {
   })
 }
 
-
-
-
-// document.querySelector("[data-sample-id='<%= @sample.id %>']").remove();
+if (document.querySelector(".title-main")) {
+  loadDynamicBannerText();
+}
