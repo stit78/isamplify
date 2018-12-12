@@ -15,13 +15,12 @@
     <% if @samples.count == 0 %>
       <p>No pending samples for the moment</p>
     <% else %>
-      <ul class= "no-bullet">
         <% @samples.each do |sample| %>
-            <li data-sample-id="<%= sample.id %>">
+            <div data-sample-id="<%= sample.id %>">
               <%= render "shared/card_sample", sample: sample %>
-            </li>
+            </div>
         <% end %>
-      </ul>
+
     <% end %>
 
     <!-- Modal New Sample -->
