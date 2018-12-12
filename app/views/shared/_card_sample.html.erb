@@ -1,160 +1,160 @@
 <div class="card-box" id='<%= "sample-#{sample.id}" %>'>
   <div class="card-main">
+    <div class="card-main-illustration">
+      <div class="card-main-country">
+        <%= sample.coffee_lot.provenance %>
+      </div>
+      <div class="card-main-quality">
+        <%= sample.coffee_lot.quality_description %>
+      </div>
+      <div class="card-main-picture-frame">
+        <%= image_tag "coffee-bag.png", class: "card-main-picture" %>
+      </div>
 
-    <div class="card-top">
-      <div class="card-title">
-        <div style="display: flex; align-content: center;">
-          <strong style="color: $main">SAMPLE N°</strong><%= sample.id %>, &nbsp;<strong style="color: $main">FROM</strong> &nbsp; <%= sample.coffee_lot.provenance %>, &nbsp;<strong style="color: $main">QUALITY</strong> &nbsp;<%= sample.coffee_lot.quality_description %> &nbsp; <strong style="color: $main">SENT BY</strong>&nbsp; <%= sample.exporter.company_name %></strong>
+      <div class="card-main-quantity">
+        <%= sample.coffee_lot.quantity %> bags
+      </div>
+      <div class="card-main-sample">
+        Sample: #<%= sample.id %>
+      </div>
+    </div>
+    <div class="card-main-journey">
+      <div class="card-main-journey-title">
+        Journey
+      </div>
+      <div class="card-main-company card-main-subtitle">
+        Sent by: <%= sample.exporter.company_name %>
+      </div>
+      <div class="card-main-stages">
+        <svg class="card-main-stages-svg" viewBox="0 0 5 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="2.5" y1="19.5" x2="2.5" y2="135.5" stroke="#828282" stroke-linecap="round"/>
+          <line x1="2.5" y1="3.5" x2="2.5" y2="19.5" stroke="#828282" stroke-linecap="round" stroke-dasharray="2 5"/>
+          <circle cx="2.5" cy="2.5" r="2.5" fill="#828282"/>
+        </svg>
+        <div class="card-main-cursor">
+          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Offer Sample" %></div>
+          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Purchase Sample" %></div>
+          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Loading Sample" %></div>
+          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Port Sample" %></div>
+          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Warehouse Sample" %></div>
+          <div class="card-stage-fill"><%= '<i class="fas fa-caret-right"></i>'.html_safe if sample.stage == "Sale Sample" %></div>
         </div>
-      </div>
-      <div class=card-status> Status:&nbsp;<%= sample.status %>&nbsp;
-      </div>
-      <div class="card-score">
-        <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" %>
-          <% sum = sample.sweetness.to_i + sample.acidity.to_i + sample.clean.to_i %>
-          <span style="font-size: 20px;"><%= sum %></span><span> /30</span>
-        <% else %>
-          <span> &nbsp; </span>
-        <% end %>
+        <div class="card-main-stage">
+          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Offer Sample" %>">Offer</div>
+          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Purchase Sample" %>">Purchase</div>
+          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Loading Sample" %>">Loading</div>
+          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Port Sample" %>">Port</div>
+          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Warehouse Sample" %>">Warehouse</div>
+          <div class="card-stage-fill <%= 'fillactive' if sample.stage == "Sale Sample" %>">Sale</div>
+        </div>
       </div>
     </div>
 
-    <div class="card-content">
-
-      <div class="card-import">
-        <% if sample.stage == "Offer Sample" %>
-          <div class="card-stage active current">Offer</div>
-          <div class="card-stage">Purchase</div>
-          <div class="card-stage">Loading</div>
-          <div class="card-stage">Port</div>
-          <div class="card-stage">Warehouse</div>
-          <div class="card-stage">Sale</div>
-
-        <% elsif sample.stage == "Purchase Sample" %>
-          <div class="card-stage active">Offer</div>
-          <div class="card-stage active current">Purchase</div>
-          <div class="card-stage">Loading</div>
-          <div class="card-stage">Port</div>
-          <div class="card-stage">Warehouse</div>
-          <div class="card-stage">Sale</div>
-
-        <% elsif sample.stage == "Loading Sample" %>
-          <div class="card-stage active">Offer</div>
-          <div class="card-stage active">Purchase</div>
-          <div class="card-stage active current">Loading</div>
-          <div class="card-stage">Port</div>
-          <div class="card-stage">Warehouse</div>
-          <div class="card-stage">Sale</div>
-
-        <% elsif sample.stage == "Port Sample" %>
-          <div class="card-stage active">Offer</div>
-          <div class="card-stage active">Purchase</div>
-          <div class="card-stage active">Loading</div>
-          <div class="card-stage active current">Port</div>
-          <div class="card-stage">Warehouse</div>
-          <div class="card-stage">Sale</div>
-
-        <% elsif sample.stage == "Warehouse Sample" %>
-          <div class="card-stage active">Offer</div>
-          <div class="card-stage active">Purchase</div>
-          <div class="card-stage active">Loading</div>
-          <div class="card-stage active">Port</div>
-          <div class="card-stage active current">Warehouse</div>
-          <div class="card-stage">Sale</div>
-
-        <% elsif sample.stage == "Sale Sample" %>
-          <div class="card-stage active">Offer</div>
-          <div class="card-stage active">Purchase</div>
-          <div class="card-stage active">Loading</div>
-          <div class="card-stage active">Port</div>
-          <div class="card-stage active">Warehouse</div>
-          <div class="card-stage active current">Sale</div>
-
-        <% end %>
+    <div class="card-main-journey">
+      <div class="card-main-journey-title">
+        Results
       </div>
-
-      <div class="card-description-action">
-
-        <div class="card-description">
-          <div class="card-field">
-            <div class="card-key">
-              <p><strong>Quantity:</strong></p>
-            </div>
-            <div class="card-value">
-              <p><%= sample.coffee_lot.quantity %> bags</p>
-            </div>
-          </div>
-
-          <div class="card-field">
-            <div class="card-key">
-              <p><strong>Region:</strong></p>
-            </div>
-            <div class="card-value">
-              <p><%= sample.coffee_lot.region %></p>
-            </div>
-          </div>
-
-          <div class="card-field">
-            <div class="card-key">
-              <p><strong>Potential clients:</strong></p>
-            </div>
-            <div class="card-value">
-              <% count = 1 %>
-              <% sample.coffee_lot.potential_clients.each do |potential_client| %>
-                <% if count == 1 %>
-                  <span><%= potential_client.client.company_name %></span>
-                <% else %>
-                  <span>, <%= potential_client.client.company_name %></span>
-                <% end %>
-                <% count += 1 %>
-              <% end %>
-            </div>
-          </div>
+      <div class="card-main-subtitle">
+        <div class="card-main-result-rating-title">
+          Note:
         </div>
+        <div class="card-main-score">
+          <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" %>
+            <% sum = sample.sweetness + sample.acidity + sample.clean %>
+            <%= sum %> / 30
+          <% else %>
+            - / 30
+          <% end %>
+        </div>
+      </div>
+      <div class="card-main-result-clients">
+        <div class="card-main-subtitle card-potential-client">
+          Potential clients
+        </div>
+        <div class="card-stage-fill">
+          <% sample.coffee_lot.potential_clients.each do |potential_client| %>
+            <div><%= potential_client.client.company_name %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-          <div class="card-action">
-            <div class="card-action-show text-center">
-              <%= link_to "<i class='fas fa-eye'></i>".html_safe, coffeelot_path(sample.coffee_lot) %>
-            </div>
-            <% if sample.status == "pending" %>
-              <div class="card-action-edit text-center removable">
-                <button type="button" data-toggle="modal" data-target="#edit-pending-sample-<%= sample.id %>">
-                  <i class='fas fa-edit'></i>
-                </button>
-                <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post, remote: true %>
-              </div>
-            <% elsif sample.status == "received" %>
-              <div class="card-action-edit text-center">
-                <button type="button" data-toggle="modal" data-target="#modal-sample-<%= sample.id %>">
-                  <i class='fas fa-coffee'></i>
-                </button>
-              </div>
-            <% elsif sample.status == "tested" %>
-              <div class="card-action-edit text-center removable">
-                <%= link_to "<i class='fas fa-tags'></i>".html_safe, update_after_labelling_sample_path(sample), method: :post, remote:true %>
-              </div>
-            <% elsif sample.status == "labelled" %>
-              <div class="card-action-edit text-center">
-                <%= link_to "<i class='fas fa-share-square'></i>".html_safe, update_after_emailing_sample_path(sample), method: :post %>
-              </div>
-            <% else %>
-              <div class="card-action-edit text-center">
-                <button type="button" data-toggle="modal" data-target="#edit-sent-sample-<%= sample.id %>">
-                  <i class='fas fa-edit'></i>
-                </button>
-              </div>
+    <div class="card-main-details">
+      <div class="card-main-journey-title">Coffee Lot details</div>
+      <div class="card-main-result-rating-title card-main-iconumber"><%= sample.coffee_lot.iconumber %></div>
+      <div class="card-main-details-container">
+        <div class="card-main-cursor">
+          <div class="card-stage-fill card-coffee-lot-info">Tree</div>
+          <div class="card-stage-fill card-coffee-lot-info">Screen-size</div>
+          <div class="card-stage-fill card-coffee-lot-info">Cup-profile</div>
+          <div class="card-stage-fill card-coffee-lot-info">Certifications</div>
+        </div>
+        <div class="card-main-stage">
+          <div class= "card-main-subtitle"><%= sample.coffee_lot.tree %></div>
+          <div class= "card-main-subtitle"><%= sample.coffee_lot.screen_size %></div>
+          <div class= "card-main-subtitle"><%= sample.coffee_lot.cup_profile %></div>
+          <div class= "card-main-subtitle">
+            <% sum = 0 %>
+            <% sample.coffee_lot.coffee_certifications.each do |coffee_certification| %>
+              <% if sum == 0 %>
+                <%= coffee_certification.certification.name %>
+              <% else %>
+                <%= ", #{coffee_certification.certification.name}" %>
+              <% end %>
+              <% sum += 1 %>
             <% end %>
           </div>
+
+        </div>
       </div>
     </div>
 
   </div>
 
-<!--   <div class="card-expendable">
-    <p>More info will be displayed here using AJAX</p>
-  </div> -->
+  <div class="card-action">
+    <div class="card-action-show">
+      <%= link_to "<i class='fas fa-eye'></i>".html_safe, coffeelot_path(sample.coffee_lot), class: "card-index-link-top" %>
+    </div>
+    <div class="card-action-edit">
+      <% if sample.status == "pending" %>
+        <button type="button" data-toggle="modal" data-target="#edit-pending-sample-<%= sample.id %>" class="card-index-link-top">
+          <i class='fas fa-edit'></i>
+        </button>
+      <% else %>
+        <button type="button" data-toggle="modal" data-target="#edit-sent-sample-<%= sample.id %>" class="card-index-link-top">
+          <i class='fas fa-edit'></i>
+        </button>
+      <% end %>
+    </div>
+    <div class="card-action-next">
+      <% if sample.status == "pending" %>
+        <div class="card-action-edit text-center removable">
+            <%= link_to "<i class='fas fa-inbox'></i>".html_safe, update_after_reception_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        </div>
+      <% elsif sample.status == "received" %>
+        <div class="card-action-edit text-center">
+          <button type="button" data-toggle="modal" data-target="#modal-sample-<%= sample.id %>" class="card-index-link-top">
+            <i class='fas fa-coffee'></i>
+          </button>
+        </div>
+      <% elsif sample.status == "tested" %>
+        <div class="card-action-edit text-center">
+          <%= link_to "<i class='fas fa-tags'></i>".html_safe, update_after_labelling_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        </div>
+      <% elsif sample.status == "labelled" %>
+        <div class="card-action-edit text-center">
+          <%= link_to "<i class='fas fa-share-square'></i>".html_safe, update_after_emailing_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        </div>
+        <% elsif sample.status == "sent" %>
+          <div class="card-action-edit text-center">
+            <%= link_to "<i class='fas fa-check-circle'></i>".html_safe, update_after_sent_sample_path(sample), method: :post, class: "card-index-link-top" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
 
 </div>
+
 
 <!-- Modal Edit PENDING Sample -->
 

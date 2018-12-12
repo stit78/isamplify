@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="header-pending-show">
+      <%= link_to "Go back", pending_index_samples_path, class: "add_coffee_btn button-create slick_btn" %>
+      <div class="text-header-pending">
+        <h2 class="text-center">Samples Research</h2>
+      </div>
+    </div>
+    <ul class= "no-bullet">
+      <% @samples.each do |sample| %>
+        <li>
+          <%= render "shared/card_sample", sample: sample %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

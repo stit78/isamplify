@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+    <div class="header-labelling-approved">
+      <%= link_to "Get PDF", approved_index_samples_path(format: :pdf), class: "add_coffee_btn button-create slick_btn" %>
+      <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe,  sent_index_samples_path, class: "add_coffee_btn button-create slick_btn" %>
+    </div>
+    <div class="text-header-pending">
+      <h2 class="text-center">Samples approved</h2>
+    </div>
+  </div>
+
+  <% if @samples.count == 0 %>
+    <p>No approved samples for the moment</p>
+  <% else %>
+    <ul class= "no-bullet">
+      <% @samples.each do |sample| %>
+          <li data-sample-id="<%= sample.id %>">
+            <%= render "shared/card_sample", sample: sample %>
+          </li>
+      <% end %>
+    </ul>
+  <% end %>
+  </div>
+</div>
+

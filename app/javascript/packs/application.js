@@ -1,7 +1,7 @@
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
-// import { sampleCreateForm } from 'components/samplecreate.js'
+import { toggleCardMain } from 'components/cardMain';
 
 if (document.getElementById("show-sample-historic-chart")) {
   const myId = document.getElementById("show-sample-historic-chart");
@@ -18,6 +18,15 @@ if (document.getElementById("show-sample-historic-chart")) {
 //     sampleCreateForm(event);
 //   });
 // }
+if (document.querySelector('.card-box')) {
+  // document.querySelectorAll('.card-box').forEach((card) => {
+  //   document.querySelector('.card-index-link-top').addEventListener("click"), (event) => {
+  //     event.stopPropagation();
+  //   };
+  // });
+  console.log('coucou');
+  toggleCardMain();
+};
 
 if (document.querySelector(".removable a")) {
   document.querySelectorAll(".card-box").forEach((card) => {
@@ -30,8 +39,6 @@ if (document.querySelector(".removable a")) {
 
 if (document.querySelector(".modal_save")) {
   document.querySelectorAll(".card-box").forEach((card) => {
-    // console.log("id: " + card.id)
-    // console.log(modalId)
     document.getElementById('modal-' + card.id).querySelector('.modal_save').addEventListener("click", (event) => {
       console.log('#modal-close-' + card.id);
       $('#modal-close-' + card.id).click();
@@ -42,5 +49,8 @@ if (document.querySelector(".modal_save")) {
     })
   })
 }
+
+
+
 
 // document.querySelector("[data-sample-id='<%= @sample.id %>']").remove();
