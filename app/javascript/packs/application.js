@@ -39,8 +39,6 @@ if (document.querySelector(".removable a")) {
 
 if (document.querySelector(".modal_save")) {
   document.querySelectorAll(".card-box").forEach((card) => {
-    // console.log("id: " + card.id)
-    // console.log(modalId)
     document.getElementById('modal-' + card.id).querySelector('.modal_save').addEventListener("click", (event) => {
       console.log('#modal-close-' + card.id);
       $('#modal-close-' + card.id).click();

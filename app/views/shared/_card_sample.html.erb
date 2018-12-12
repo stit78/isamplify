@@ -120,12 +120,10 @@
         <button type="button" data-toggle="modal" data-target="#edit-pending-sample-<%= sample.id %>" class="card-index-link-top">
           <i class='fas fa-edit'></i>
         </button>
-      <% elsif %>
+      <% else %>
         <button type="button" data-toggle="modal" data-target="#edit-sent-sample-<%= sample.id %>" class="card-index-link-top">
           <i class='fas fa-edit'></i>
         </button>
-      <% else %>
-        <span> &nbsp;</span>
       <% end %>
     </div>
     <div class="card-action-next">
