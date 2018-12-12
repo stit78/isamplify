@@ -1,26 +1,22 @@
 .searchbar-form {
-  // position: absolute;
-  // right: 5%;
-  // top: 25%;
-
   border-right: 0;
   box-shadow: 0 0 0;
   border-color: #ccc;
   background-color: transparent;
-  width: 50%;
-  border-radius: 5px;
-}
-
- .text_searchbar {
-    color: #00A0FF;
-    font-size: 20px;
-    font-style: italic;
-    text-align: left
 }
 
 .searchbar_input{
   padding-bottom: 5px;
-  width: 60%;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  border-radius: 5px;
+
 }
+
+ .text_searchbar {
+    color: #00A0FF;
+    font-size: 16px;
+    font-style: italic;
+    text-align: left;
+}
+

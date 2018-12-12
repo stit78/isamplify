@@ -3,10 +3,10 @@
     <div class="header-pending-show">
       <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe, pending_index_samples_path, class: 'add_coffee_btn slick_btn'  %>
       <div class="text-header-pending">
-        <h2 class="text-center">Samples Research</h2>
+        <h2 class="text-centered-center">Samples Research</h2>
       </div>
     </div>
-    <div class="top-margin">
+    <div class="center-samples">
       <% @samples.each do |sample| %>
         <%= render "shared/card_sample", sample: sample %>
       <% end %>

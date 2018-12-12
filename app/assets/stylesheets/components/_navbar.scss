@@ -1,29 +1,42 @@
-.white-background{
-  position: relative;
-  left: -30px;
-  width: 200px;
+.whitebackground {
+  width: 70px;
   height: 70px;
+  position: absolute;
+  left: 0px;
   background-color: white;
 }
 
-.left-element{ width:300px;
+.left-element{
+  width: 185px;;
   height:70px;
   position: absolute;
+  left: 0px;
 
+}
+
+.logo-company-navbar {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  align-items: center;
+  z-index: 5;
+}
+
+.higher-logo-company {
+  position: absolute;
+  left: 35px;
+  top: 3px;
+  z-index: 1000;
 }
 
 .logo-company{
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  align-items: center;
   position:absolute;
-  z-index: 3;
+  left: 45px;
+  top: 50px;
 }
 
 .ecom-logo {
-  margin-top: -10px;
-  background-color: white;
+
 }
 
 .navbar-wagon {
@@ -39,7 +52,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 65px;
 }
 
 /* User Avatar */
@@ -122,12 +135,38 @@
   border-top: 1px solid #E6E6E6;
 }
 
+
 .navbar-samplify {
-  color:$font-main;
   font-size: 20px;
   margin: 10px;
+  position: relative;
+  left: 140px;
+  width: 200px;
+  display:flex;
+  justify-content: space-between;
+
+    a{
+      color:$font-main;
+      justify-content: space-between;
+      font-size: 24px;
+    }
+    a:hover{
+      color:#3a2318;
+      text-decoration: none;
+      border-bottom: 4px solid white;
+    }
+    .active-tab-navbar {
+      border-bottom: 4px solid white;
+    }
 }
 
-.navbar-samplify:hover {
-    color: $font-main;
-  }
+.navbar-wagon-right {
+  width: 400px;
+}
+
+
+
+
+
+
+

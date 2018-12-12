@@ -1,8 +1,10 @@
+
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
 import {closeModal} from 'components/closeModal';
+import {loadDynamicBannerText} from 'components/typed';
 
 if (document.getElementById("received-index")) {
   closeModal();
@@ -24,17 +26,12 @@ if (document.getElementById("show-sample-historic-chart")) {
 //   });
 // }
 if (document.querySelector('.card-box')) {
-  // document.querySelectorAll('.card-box').forEach((card) => {
-  //   document.querySelector('.card-index-link-top').addEventListener("click"), (event) => {
-  //     event.stopPropagation();
-  //   };
-  // });
-  console.log('coucou');
+
   toggleCardMain();
 };
 
 if (document.querySelector(".removable a")) {
-  document.querySelectorAll(".card-box").forEach((card) => {
+  document.querySelectorAll(".card-removable").forEach((card) => {
     card.querySelector(".removable a").addEventListener("click", (event) => {
       card.classList.add("removed-item");
       setTimeout(() => { card.innerHTML = ""; }, 1000);
@@ -55,7 +52,6 @@ if (document.querySelector(".modal_save")) {
   })
 }
 
-
-
-
-// document.querySelector("[data-sample-id='<%= @sample.id %>']").remove();
+if (document.querySelector(".title-main")) {
+  loadDynamicBannerText();
+}

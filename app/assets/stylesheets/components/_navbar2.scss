@@ -3,7 +3,7 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 40px 30px;
+  padding: 45px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,7 +19,7 @@
       text-transform: uppercase;
       color: #7d7d7d;
       display: block;
-      margin-top: 10px
+      margin-top: 15px;
   }
   .nav li:before {
       width: 30px;
@@ -62,14 +62,19 @@
     border-bottom: 5px solid;
   }
 
-a{
-  color:$main;
-  font-size: 16px;
+  a{
+    color: $font-main;
+    font-size: 16px;
+    opacity: 0.8;
 }
 
-a:hover {
-  list-style-type: none;
-  color: $main;
+li{
+  a:hover {
+    // list-style-type: none;
+    color: #3a2318;;
+    border-bottom: 4px solid $font-main;
+    background-color: transparent;
+  }
 }
 
 
@@ -77,6 +82,10 @@ a:hover {
   font-size: 30px;
 }
 
+.logo-progressbar-white {
+  font-size: 30px;
+  opacity: 0;
+}
 
 .samples-left-status {
   position: absolute;
@@ -144,8 +153,26 @@ a:hover {
 
 
 .active-tab {
-  opacity: 0.9;
-  background: lightgrey;
-
+  border-bottom: 4px solid $font-main;
 }
+
+.logo-testing{
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 465px;
+  top: 95px;
+}
+
+
+.nav-item{
+  height:74px;
+}
+
+
+
+
+
+
+
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Isamplify - The platform which simplify the import/export sample testing</title>
+    <title>isamplify - The platform which simplify the import/export sample testing</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Montserrat:300,400,700,900" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
@@ -35,9 +35,9 @@
     <%= render 'shared/navbar' if user_signed_in? %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <% unless controller_name == "pages" && !user_signed_in?  %>
+
       <%= render "shared/footer" %>
-    <% end %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

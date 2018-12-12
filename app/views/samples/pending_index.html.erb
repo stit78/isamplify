@@ -2,29 +2,31 @@
 <div class="wrapper">
   <div class="container">
     <div class="header-pending-show">
+      <div class="text-header-pending">
+          <h2 class="text-centered">Samples reception</h2>
+      </div>
       <button type="button" class="add_coffee_btn button-create" data-toggle="modal" data-target="#new_sample_modal">
         <div class="square-15 flex-centerer">
           <i class="fas fa-plus fa-2x"></i>
         </div>
       </button>
-      <div class="text-header-pending">
-          <h2 class="text-centered">Samples reception</h2>
-      </div>
     </div>
 
     <% if @samples.count == 0 %>
       <p>No pending samples for the moment</p>
     <% else %>
       <% @samples.each do |sample| %>
-        <%= render "shared/card_sample", sample: sample %>
+        <div class="card-removable">
+          <%= render "shared/card_sample", sample: sample %>
+        </div>
       <% end %>
     <% end %>
 
     <!-- Modal New Sample -->
 
     <div class="modal fade" id="new_sample_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
+      <div class="modal-dialog" style="width: 30%" role="document">
+        <div class="modal-content modal-color">
           <div class="modal-header">
             <button type="button" class="close" id="modal-close-sample-#{sample.id}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Create new sample</h4>
@@ -35,7 +37,7 @@
               <br>
               <%= f.input :stage, collection: ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"] %>
               <br>
-              <%= f.submit "Create", class: "btn btn-primary" %>
+              <%= f.submit "Create", class: "add_coffee_btn" %>
             <% end %>
           </div>
         </div>
@@ -43,3 +45,4 @@
     </div>
   </div>
 </div>
+

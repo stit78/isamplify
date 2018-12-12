@@ -21,12 +21,31 @@
   display: flex;
   box-shadow: 0 0 2rem rgba(0,0,0,.1);
   width:730px;
+  // height: 187px;
   margin-bottom: 30px;
+  transition: all 0.7s;
+  overflow: hidden;
+  margin-left: 40px;
 }
 
 .card-box-active {
   width: 1060px;
+  transition: all 0.7s;
 }
+
+.card-main-first-skin {
+  transition: all 0.7s;
+  width: 680px;
+  display:flex;
+  // background-color: white;
+}
+
+.card-first-skin-active {
+  transition: all 0.7s;
+  width: 1010px;
+}
+
+
 
 .card-main {
   display: flex;
@@ -210,13 +229,29 @@
 }
 
 .card-main-details {
-  display:none;
-  width: 330px;
+  // display:none;
+  // width: 0px;
+  // opacity: 0;
+  background-color: white;
+
   padding-left: 35px;
+  height: 187px;
+  transform: translate(-330px,0);
+  // transition: width 0.7s;
+  // z-index: 1;
+  transition: all 0.7s;
+  flex: 0 0 330px;
+  z-index:-1;
 }
 
 .card-details-active {
-  display: block;
+  // z-index:0;
+  // display: block;
+  transform: translate(0,0);
+  // opacity: 1;
+  // width: 330px;
+  // padding-left: 35px;
+  // transition-delay: 250ms;
 }
 
 .card-main-details-container {
