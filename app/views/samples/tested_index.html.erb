@@ -1,23 +1,20 @@
 <%= render 'shared/navbar2' %>
 <div class="wrapper">
   <div class="container">
-    <div class="header-tested">
-        <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn button-create slick_btn" %>
-      <div class="top-title">
-        <h2>Samples labelling</h2>
+    <div class="header-pending-show">
+      <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn button-create slick_btn" %>
+      <div class="text-header-pending">
+        <h2 class="text-center-tested">
+        Samples labelling </h2>
       </div>
     </div>
 
     <% if @samples.count == 0 %>
       <p>No samples waiting for labelling</p>
     <% else %>
-      <ul class= "no-bullet">
-        <% @samples.each do |sample| %>
-          <li>
-            <%= render "shared/card_sample", sample: sample %>
-          </li>
-        <% end %>
-      </ul>
+      <% @samples.each do |sample| %>
+        <%= render "shared/card_sample", sample: sample %>
+      <% end %>
     <% end %>
 
   </div>
