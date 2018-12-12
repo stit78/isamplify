@@ -2,8 +2,14 @@
   <!-- Logo -->
   <div class="whitebackground">
   </div>
-  <% if action_name == 'approved_index' || 'home' %>
-    <div class="higher-logo-company logo">
+  <% if action_name == 'approved_index' %>
+    <div class="higher-logo-company logo-company-navbar">
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
+        <%= image_tag "ecom.png", class: "ecom-logo" %>
+      <% end %>
+    </div>
+  <% elsif action_name == 'home' %>
+    <div class="higher-logo-company logo-company-navbar">
       <%= link_to root_path, class: "navbar-wagon-brand" do %>
         <%= image_tag "ecom.png", class: "ecom-logo" %>
       <% end %>
