@@ -90,6 +90,11 @@ ActiveRecord::Schema.define(version: 2018_12_12_150954) do
     t.integer "owner_id"
   end
 
+  create_table "receptions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sales", force: :cascade do |t|
     t.integer "price"
     t.integer "quantity"
