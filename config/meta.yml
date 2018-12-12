@@ -1,5 +1,5 @@
 meta_product_name: "Isamplify"
 meta_title: "Isamplify - The platform which simplify the import/export sample testing"
 meta_description: "The platform which simplify the import/export sample testing"
-meta_image: "logo.png"                       # should exist in `app/assets/images/`
+meta_image: "coffee.png"                       # should exist in `app/assets/images/`
 twitter_account: "@LouisMayaud"   # required for Twitter Cards
