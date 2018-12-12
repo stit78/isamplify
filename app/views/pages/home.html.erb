@@ -1,45 +1,59 @@
 <% if user_signed_in? %>
   <div class="wrapper">
     <div class="container">
+
       <div class='title-main'><h1>Hello <%= current_user.first_name %>! Ready to samplify?</h1></div>
 
       <div class='title-second'> <%= Sample.count %> coffee samples currently under management</div>
+
       <div class='sample-dashboard'>
+
         <div class='sample-status'>
           <div class='sample-count'><%= Sample.pending.count %></div>
           <div class='sample-count-status'> samples pending</div>
-          <div class='sample-action'>
-            <p>Go to reception</p>
-            <p><%= link_to "<i class='fas fa-inbox'></i>".html_safe, pending_index_samples_path, method: :get %></p>
-          </div>
+            <%= link_to pending_index_samples_path, method: :get do %>
+              <div class='sample-action'>
+                <p>Go to reception</p>
+                <p><i class='fas fa-inbox'></i></p>
+              </div>
+            <% end %>
         </div>
+
         <div class='sample-status'>
           <div class='sample-count'><%= Sample.received.count %></div>
           <div class='sample-count-status'> samples received</div>
-          <div class='sample-action'>
-            <p>Go to testing </p>
-            <p><%= link_to "<i class='fas fa-coffee'></i>".html_safe, received_index_samples_path, method: :get %></p>
-          </div>
+            <%= link_to received_index_samples_path, method: :get do  %>
+              <div class='sample-action'>
+                <p>Go to testing</p>
+                <p><i class='fas fa-coffee'></i></p>
+              </div>
+            <% end %>
         </div>
+
         <div class='sample-status'>
-            <div class='sample-count'><%= Sample.tested.count %></div>
-            <div class='sample-count-status'> samples tested</div>
-          <div class='sample-action'>
-            <p> Go to labelling</p>
-            <p><%= link_to "<i class='fas fa-tags'></i>".html_safe, tested_index_samples_path, method: :get %></p></div>
+          <div class='sample-count'><%= Sample.tested.count %></div>
+          <div class='sample-count-status'> samples tested</div>
+            <%= link_to tested_index_samples_path, method: :get do  %>
+              <div class='sample-action'>
+                <p>Go to labelling</p>
+                <p><i class='fas fa-tags'></i>
+              </div>
+            <% end %>
         </div>
+
         <div class='sample-status'>
           <div class='sample-count'><%= Sample.labelled.count %></div>
-            <div class='sample-count-status'> samples labelled</div>
-          <div class='sample-action'>
-            <p>Go to sending</p>
-            <p><%= link_to "<i class='fas fa-share-square'></i>".html_safe, labelled_index_samples_path, method: :get %></p>
-          </div>
+          <div class='sample-count-status'> samples labelled</div>
+            <%= link_to labelled_index_samples_path, method: :get do  %>
+              <div class='sample-action'>
+                <p>Go to sending</p>
+                <p><i class='fas fa-share-square'></i></p>
+              </div>
+            <% end %>
         </div>
       </div>
 
       <div class='title-second'> <%= CoffeeLot.count %> coffee lots  currently under management</div>
-
 
 
 
@@ -61,41 +75,61 @@
 
       <div class="coffee-news">
         <h3>Coffee news</h3>
-        <%= image_tag "coffee.news.png" %>
       </div>
     </div>
   </div>
 
 <% else %>
-  <div class="home-banner">
-    <h1 class="text-center">Welcome to ISamplify</h1>
-    <%= image_tag "ecom.png", height: 50, class: "home-logo" %>
-    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "home-login" %>
-  </div>
+    <div class="content">
+      <div class="left-side">
+        <div class='logo'>
+          <%= image_tag "logo_new.png"  %>
+        </div>
+        <div class="illustration-wrapper">
+          <%= image_tag 'home_pics.png', class: "illustration" %>
+        </div>
+      </div>
 
-  <div class="home-presentation">
-    <div class="home-presentation-element"">
-      <br>
-      <h3>Samplify your coffee-lots monitoring</h3>
-      <br>
-      <p>You get notifications from all the stakeholders of the import chain and always know where your goods are.</p>
+      <div class="right-side">
+        <div class="moto">
+          <h1>Coffee trade made simple</h1>
+        </div>
+        <div class="samplify-offer">
+          <div class="home-presentation-element"">
+            <br>
+            <h3>Coffee-lots monitoring</h3>
+            <br>
+            <p>Get notifications all along the import chain.</p>
+                                                 </div>
+
+          <div class="home-presentation-element">
+            <br>
+            <h3>Samples management</h3>
+            <br>
+            <p>Validate, test and send your samples seamlessly.</p>
+          </div>
+
+          <div class="home-presentation-element">
+            <br>
+            <h3>Customer relations</h3>
+            <br>
+            <p>Assign your best coffees to your best customers</p>
+          </div>
+        </div>
+
+        <div class='action'>
+          <%= link_to new_user_session_path do %>
+            <div class='home-button'>
+              <p>Discover</p>
+            </div>
+          <% end %>
+          <%= link_to new_user_session_path do %>
+            <div class='home-button'>
+              <p>Log in</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-    <div class="home-presentation-element"">
-
-      <br>
-      <h3>Samplify your samples management</h3>
-      <br>
-      <p>Erase the pain of individual in-house samples follow-up: validate reception, test your sample and send it seamlessly.</p>
-    </div>
-
-
-    <div class="home-presentation-element">
-      <br>
-      <h3>Samplify your relatons with customers</h3>
-      <br>
-      <p>Assign your best coffees to your best customers according to your test to never miss a deal</p>
-    </div>
-  </div>
 <% end %>
 
