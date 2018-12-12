@@ -1,8 +1,8 @@
 const toggleCardMain = () => {
   const myCards = document.querySelectorAll('.card-box');
   myCards.forEach((card) => {
-    card.addEventListener('click', (event) => {
-      console.log(event.currentTarget);
+    const cardMain = card.querySelector('.card-main');
+    cardMain.addEventListener('click', (event) => {
       event.currentTarget.classList.toggle('card-box-active');
       event.currentTarget.querySelector('.card-main-details').classList.toggle('card-details-active');
     });
