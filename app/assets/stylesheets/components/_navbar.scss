@@ -144,13 +144,14 @@
   width: 200px;
   display:flex;
   justify-content: space-between;
+
     a{
       color:$font-main;
       justify-content: space-between;
       font-size: 24px;
     }
     a:hover{
-      color:$font-main;
+      color:#3a2318;
       text-decoration: none;
       border-bottom: 4px solid white;
     }
