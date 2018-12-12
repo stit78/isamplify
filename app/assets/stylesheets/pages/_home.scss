@@ -1,5 +1,11 @@
 .title-main {
   text-align: center;
+  font-size: 35px;
+}
+
+.white-space {
+  height: 80px;
+  padding-top: 20px;
 }
 
 .title-second {
@@ -12,6 +18,7 @@
 
 .sample-dashboard {
   display: flex;
+  justify-content: center;
 }
 
 .sample-status {

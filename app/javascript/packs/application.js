@@ -1,3 +1,15 @@
+import Typed from 'typed.js';
+
+const loadDynamicBannerText = () => {
+  new Typed('#banner-typed-text', {
+    strings: ["Hello Amandine, Welcome to iSamplify!"],
+    typeSpeed: 50,
+    loop: false
+  });
+};
+loadDynamicBannerText()
+// export { loadDynamicBannerText };
+
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
