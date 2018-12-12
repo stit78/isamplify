@@ -145,22 +145,20 @@
   display:flex;
   justify-content: space-between;
 
-  a{
-    color:$font-main;
-    justify-content: space-between;
-    font-size: 24px;
-  }
-
-  a:hover{
-    color:#3a2318;
-     text-decoration: none;
-  }
-
-  .active-tab-navbar {
-    border-bottom: 4px solid white;
-  }
+    a{
+      color:$font-main;
+      justify-content: space-between;
+      font-size: 24px;
+    }
+    a:hover{
+      color:#3a2318;
+      text-decoration: none;
+      border-bottom: 4px solid white;
+    }
+    .active-tab-navbar {
+      border-bottom: 4px solid white;
+    }
 }
-
 
 .navbar-wagon-right {
   width: 400px;

@@ -115,25 +115,14 @@
   }
 }
 
-.action {
+.home-login {
   display: flex;
   justify-content: space-evenly;
   font-size: 26px;
-  .home-button {
-    width: 120px;
-    padding: 16px;
-    border-radius: 32px;
-    color: #004A66;
-    text-align: center;
-    border: 1px solid #0a49682e;
-    font-size: 18px;
-    background-color: white;
-    text-decoration: none;
-  }
-  .home-button:hover {
-    background-color: $main;
-    color: white;
-  }
+  padding-top: 120px;
+    a {
+      color: $font-main;
+    }
 }
 
 .mybanner {

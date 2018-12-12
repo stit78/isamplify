@@ -67,17 +67,17 @@ carlos = User.new(
   )
 carlos.save
 
-puts "Creating user Amandine"
-amandine = User.new(
-  email: "amandine@gmail.com",
+puts "Creating user louis"
+louis = User.new(
+  email: "louis@gmail.com",
   role: "Trader",
-  company_name: "LDC",
-  first_name: "Amandine",
+  company_name: "Ecom",
+  first_name: "louis",
   last_name: "Dubois",
   phone_number: PHONE.sample,
   password: "123456"
   )
-amandine.save
+louis.save
 
 puts "Creating 5 clients"
 CLIENTS.each do |client|
@@ -120,7 +120,7 @@ puts "Creating 5 coffee lots"
     sample = Sample.new(
       stage: STAGE.sample,
       exporter: carlos,
-      trader: amandine,
+      trader: louis,
       coffee_lot: coffeelot,
       status: "pending"
       )
@@ -130,7 +130,7 @@ puts "Creating 5 coffee lots"
     # sample = Sample.new(
     #   stage: STAGE.sample,
     #   exporter: carlos,
-    #   trader: amandine,
+    #   trader: louis,
     #   coffee_lot: coffeelot,
     #   status: "labelled"
     #   )
@@ -147,7 +147,7 @@ puts "Creating 5 coffee lots"
   #   example1 = Sample.new(
   #     stage: STAGE.sample,
   #     exporter: carlos,
-  #     trader: amandine,
+  #     trader: louis,
   #     coffee_lot: coffeelot,
   #     status: "received"
   #     )
@@ -157,7 +157,7 @@ puts "Creating 5 coffee lots"
   #   example2 = Sample.new(
   #     stage: STAGE.sample,
   #     exporter: carlos,
-  #     trader: amandine,
+  #     trader: louis,
   #     coffee_lot: coffeelot,
   #     status: "tested"
   #     )
@@ -197,10 +197,10 @@ puts "Creating 5 coffee lots"
 
     purchase = Purchase.new(
       exporter: carlos,
-      trader: amandine,
+      trader: louis,
       price: rand(1000..3000),
       quantity: rand(10..30),
-      owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : amandine)
+      owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : louis)
       )
     purchase.save
 
