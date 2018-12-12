@@ -24,7 +24,7 @@
 
     <div class="modal fade" id="new_sample_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content modal-color">
           <div class="modal-header">
             <button type="button" class="close" id="modal-close-sample-#{sample.id}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Create new sample</h4>
@@ -35,7 +35,7 @@
               <br>
               <%= f.input :stage, collection: ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"] %>
               <br>
-              <%= f.submit "Create", class: "btn btn-primary" %>
+              <%= f.submit "Create", class: "add_coffee_btn" %>
             <% end %>
           </div>
         </div>
