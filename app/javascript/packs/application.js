@@ -29,7 +29,7 @@ if (document.querySelector('.card-box')) {
 };
 
 if (document.querySelector(".removable a")) {
-  document.querySelectorAll(".card-box").forEach((card) => {
+  document.querySelectorAll(".card-removable").forEach((card) => {
     card.querySelector(".removable a").addEventListener("click", (event) => {
       card.classList.add("removed-item");
       setTimeout(() => { card.innerHTML = ""; }, 1000);
