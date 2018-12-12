@@ -16,7 +16,9 @@
       <p>No pending samples for the moment</p>
     <% else %>
       <% @samples.each do |sample| %>
-        <%= render "shared/card_sample", sample: sample %>
+        <div class="card-removable">
+          <%= render "shared/card_sample", sample: sample %>
+        </div>
       <% end %>
     <% end %>
 
