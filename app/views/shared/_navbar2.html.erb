@@ -2,7 +2,7 @@
   <div class="container">
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item">
-        <i class="fas fa-inbox"></i>
+        <%=image_tag("reception_icon.png", :class => "logo-progressbar")%>
         <%= link_to "Reception", pending_index_samples_path, class: "#{'active-tab' if action_name == 'pending_index'}"%>
         <div class="button">
           <span class="<%= samples_count_css_class(@samples_count, 0) %>"><%= @samples_count[0] %></span>
@@ -10,7 +10,7 @@
       </li>
 
       <li class="nav-item">
-        <i class="fas fa-coffee"></i>
+        <%=image_tag("coffee-cup-icon.png", :class => "logo-progressbar")%>
         <%= link_to "Test", received_index_samples_path, class: "#{'active-tab' if action_name == 'received_index'}"  %>
         <div class="button">
           <span class="<%= samples_count_css_class(@samples_count, 1) %>"><%= @samples_count[1] %></span>
@@ -18,7 +18,7 @@
       </li>
 
       <li class="nav-item">
-        <i class="fas fa-tags"></i>
+        <%=image_tag("price-tag.png", :class => "logo-progressbar")%>
         <%= link_to "Labelling", tested_index_samples_path, class: "#{'active-tab' if action_name == 'tested_index'}" %>
         <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 2) %>"><%= @samples_count[2] %></span>
@@ -26,7 +26,7 @@
       </li>
 
        <li class="nav-item">
-         <i class="fas fa-share-square"></i>
+         <%=image_tag("email.png", :class => "logo-progressbar")%>
          <%= link_to "Emailing", labelled_index_samples_path, class: "#{'active-tab' if action_name == 'labelled_index'}" %>
          <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 3) %>"><%= @samples_count[3] %></span>
@@ -34,7 +34,7 @@
        </li>
 
        <li class="nav-item">
-         <i class="fas fa-check-circle"></i>
+        <%=image_tag("list.png", :class => "logo-progressbar")%>
          <%= link_to "Sent", sent_index_samples_path, class: "#{'active-tab' if action_name == 'sent_index'}"%>
          <div class="button">
            <span class="<%= samples_count_css_class(@samples_count, 4) %>"><%= @samples_count[4] %></span>
