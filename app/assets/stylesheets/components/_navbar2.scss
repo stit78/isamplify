@@ -62,16 +62,18 @@
     border-bottom: 5px solid;
   }
 
-a{
-  color: $font-main;
-  font-size: 16px;
-  opacity: 0.8;
+  a{
+    color: $font-main;
+    font-size: 16px;
+    opacity: 0.8;
 }
 
-a:hover {
-  list-style-type: none;
-  color: $font-main;
-  opacity: 1;
+li{
+  a:hover {
+    // list-style-type: none;
+    color: $font-main;
+    border-bottom: 4px solid $font-main;
+  }
 }
 
 
@@ -150,8 +152,7 @@ a:hover {
 
 
 .active-tab {
-  opacity: 0.9;
-  background: lightgrey;
+  border-bottom: 4px solid $font-main;
 }
 
 .logo-testing{
