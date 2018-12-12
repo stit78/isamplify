@@ -1,20 +1,9 @@
-import Typed from 'typed.js';
-
-const loadDynamicBannerText = () => {
-  new Typed('#banner-typed-text', {
-    strings: ["Hello Amandine, Welcome to iSamplify!"],
-    typeSpeed: 50,
-    loop: false
-  });
-};
-loadDynamicBannerText()
-// export { loadDynamicBannerText };
-
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
 import {closeModal} from 'components/closeModal';
+import {loadDynamicBannerText} from 'components/typed';
 
 if (document.getElementById("received-index")) {
   closeModal();
@@ -61,7 +50,6 @@ if (document.querySelector(".modal_save")) {
   })
 }
 
-
-
-
-// document.querySelector("[data-sample-id='<%= @sample.id %>']").remove();
+if (document.querySelector(".title-main")) {
+  loadDynamicBannerText();
+}
