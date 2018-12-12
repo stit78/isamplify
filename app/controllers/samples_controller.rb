@@ -72,7 +72,6 @@ class SamplesController < ApplicationController
       respond_to do |format|
         format.html do
           flash[:notice] = "The sample #{@sample.id} has been received"
-          raise
         end
 
         format.js do
