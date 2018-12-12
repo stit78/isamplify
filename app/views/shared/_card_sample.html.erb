@@ -132,7 +132,7 @@
     <div class="card-action-next">
       <% if sample.status == "pending" %>
         <div class="card-action-edit text-center removable">
-            <%= link_to image_tag("card-reception.png"), update_after_reception_sample_path(sample), method: :post, class: "card-index-link-top" %>
+          <%= link_to image_tag("card-reception.png"), update_after_reception_sample_path(sample), method: :post, remote: true, class: "card-index-link-top" %>
         </div>
       <% elsif sample.status == "received" %>
         <div class="card-action-edit text-center">
@@ -154,7 +154,7 @@
           </div>
           <% elsif sample.status == "approved" %>
             <div class="card-action-edit text-center">
-              <%= link_to "<i class='fas fa-check-circle'></i>".html_safe, approved_show_sample_path(sample, format: :pdf) %>
+              <%= link_to "<i class='fas fa-dollar-sign'></i>".html_safe, approved_show_sample_path(sample, format: :pdf) %>
             </div>
       <% end %>
     </div>

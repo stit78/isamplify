@@ -2,76 +2,33 @@
   <div class="wrapper">
     <div class="container">
 
-      <div class='title-main'><h1>Hello <%= current_user.first_name %>! Ready to samplify?</h1></div>
-
-      <div class='title-second'> <%= Sample.count %> coffee samples currently under management</div>
+      <div class="white-space">
+        <div class='title-main' id="banner-typed-text"></div>
+      </div>
 
       <div class='sample-dashboard'>
 
         <div class='sample-status'>
           <div class='sample-count'><%= Sample.pending.count %></div>
-          <div class='sample-count-status'> samples pending</div>
-            <%= link_to pending_index_samples_path, method: :get do %>
-              <div class='sample-action'>
-                <p>Go to reception</p>
-                <p><i class='fas fa-inbox'></i></p>
-              </div>
-            <% end %>
+          <div class='sample-count-status'>samples received today</div>
         </div>
 
         <div class='sample-status'>
-          <div class='sample-count'><%= Sample.received.count %></div>
-          <div class='sample-count-status'> samples received</div>
-            <%= link_to received_index_samples_path, method: :get do  %>
-              <div class='sample-action'>
-                <p>Go to testing</p>
-                <p><i class='fas fa-coffee'></i></p>
-              </div>
-            <% end %>
+          <div class='sample-count'><%= Sample.sent.count %></div>
+          <div class='sample-count-status'>samples pending customer approval</div>
         </div>
 
-        <div class='sample-status'>
-          <div class='sample-count'><%= Sample.tested.count %></div>
-          <div class='sample-count-status'> samples tested</div>
-            <%= link_to tested_index_samples_path, method: :get do  %>
-              <div class='sample-action'>
-                <p>Go to labelling</p>
-                <p><i class='fas fa-tags'></i>
-              </div>
-            <% end %>
-        </div>
 
-        <div class='sample-status'>
-          <div class='sample-count'><%= Sample.labelled.count %></div>
-          <div class='sample-count-status'> samples labelled</div>
-            <%= link_to labelled_index_samples_path, method: :get do  %>
-              <div class='sample-action'>
-                <p>Go to sending</p>
-                <p><i class='fas fa-share-square'></i></p>
-              </div>
-            <% end %>
-        </div>
       </div>
 
-      <div class='title-second'> <%= CoffeeLot.count %> coffee lots  currently under management</div>
+      <div class='title-second'> <%= CoffeeLot.count %> Current Activity</div>
 
 
 
-      <div class="world-map">
+      <!-- <div class="world-map">
       <h3>Locate your coffee lots provenance</h3>
         <img style="width: 1000px;" src="https://upload.wikimedia.org/wikipedia/commons/5/56/Newworldmap_grayscale.svg" alt="locate your coffee lots provenance">
-      </div>
-
-      <br>
-      <div class="home-monitor-sample">
-        <h3>Current activity</h3>
-        <ul>
-          <li><strong>Number of samples under management:</strong> <%= @samples.count %></li>
-          <li><strong>Number of coffee lots under management:</strong> <%= @coffee_lot.count %></li>
-          <li><strong>Number of coffee lots under management:</strong> <%= @coffee_lot.count %></li>
-          <li><strong>Quantity of coffee under management:</strong> <%= @quantity.sum %> bags</li>
-        </ul>
-      </div>
+      </div> -->
 
       <div class="coffee-news">
         <h3>Coffee news</h3>
