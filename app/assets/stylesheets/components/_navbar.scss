@@ -7,7 +7,7 @@
 }
 
 .left-element{
-  width:200px;
+  width: 185px;;
   height:70px;
   position: absolute;
   left: 0px;
@@ -15,12 +15,13 @@
 }
 
 .logo-company{
-  height: 35px;
-  width: 35px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   align-items: center;
   position:absolute;
-  left: 90px;
+  left: 45px;
+  top: 50px;
   z-index: 3;
 }
 
@@ -42,7 +43,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 65px;
 }
 
 /* User Avatar */
