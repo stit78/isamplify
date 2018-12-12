@@ -14,20 +14,29 @@
 
 }
 
-.logo-company{
+.logo-company-navbar {
   height: 70px;
   width: 70px;
   border-radius: 50%;
   align-items: center;
+  z-index: 5;
+}
+
+.higher-logo-company {
+  position: absolute;
+  left: 35px;
+  top: 3px;
+  z-index: 1000;
+}
+
+.logo-company{
   position:absolute;
   left: 45px;
   top: 50px;
-  z-index: 3;
 }
 
 .ecom-logo {
-  margin-top: -10px;
-  background-color: white;
+
 }
 
 .navbar-wagon {
@@ -126,6 +135,7 @@
   border-top: 1px solid #E6E6E6;
 }
 
+
 .navbar-samplify {
   font-size: 20px;
   margin: 10px;
@@ -149,6 +159,11 @@
   .active-tab-navbar {
     border-bottom: 4px solid $font-main;
   }
+}
+
+
+.navbar-wagon-right {
+  width: 400px;
 }
 
 

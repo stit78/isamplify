@@ -3,18 +3,16 @@
   box-shadow: 0 0 0;
   border-color: #ccc;
   background-color: transparent;
-  width: 50%;
-  border-radius: 5px;
+  flex-grow: 2;
 }
 
 .searchbar_input{
   padding-bottom: 5px;
   width: 30%;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   border-radius: 5px;
-  position: relative;
-  left: 600px;
+
 }
 
  .text_searchbar {
@@ -22,7 +20,5 @@
     font-size: 16px;
     font-style: italic;
     text-align: left;
-    // position: absolute;
-    // right: 150px;
 }
 
