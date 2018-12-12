@@ -68,25 +68,27 @@ class SamplesController < ApplicationController
   end
 
   def update_after_reception
+
     if @sample.received!
+      set_samples_count
       respond_to do |format|
         format.html do
           flash[:notice] = "The sample #{@sample.id} has been received"
+          redirect_to pending_index_samples_path
         end
 
         format.js do
-          set_samples_count
           render :update_navbar
         end
       end
     else
+      set_samples_count
       respond_to do |format|
         format.html do
           flash[:alert] = "Sorry, something went wrong."
         end
 
         format.js do
-          set_samples_count
           render :update_navbar
         end
       end
