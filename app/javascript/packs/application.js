@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
@@ -29,14 +26,7 @@ if (document.getElementById("show-sample-historic-chart")) {
 //   });
 // }
 if (document.querySelector('.card-box')) {
-<<<<<<< HEAD
-  // document.querySelectorAll('.card-box').forEach((card) => {
-  //   document.querySelector('.card-index-link-top').addEventListener("click"), (event) => {
-  //     event.stopPropagation();
-  //   };
-  // });
-=======
->>>>>>> master
+
   toggleCardMain();
 };
 
