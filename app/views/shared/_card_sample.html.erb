@@ -141,20 +141,20 @@
           </button>
         </div>
       <% elsif sample.status == "tested" %>
-        <div class="card-action-edit text-center">
-          <%= link_to image_tag("card-price-tag.png"), update_after_labelling_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        <div class="card-action-edit text-center removable">
+          <%= link_to image_tag("card-price-tag.png"), update_after_labelling_sample_path(sample), method: :post, remote: true, class: "card-index-link-top" %>
         </div>
       <% elsif sample.status == "labelled" %>
-        <div class="card-action-edit text-center">
-          <%= link_to image_tag("card-email.png"), update_after_emailing_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        <div class="card-action-edit text-center removable">
+          <%= link_to image_tag("card-email.png"), update_after_emailing_sample_path(sample), method: :post, remote: true, class: "card-index-link-top" %>
         </div>
         <% elsif sample.status == "sent" %>
-          <div class="card-action-edit text-center">
-            <%= link_to image_tag("card-sent.png"), update_after_sent_sample_path(sample), method: :post, class: "card-index-link-top" %>
+          <div class="card-action-edit text-center removable">
+            <%= link_to image_tag("card-sent.png"), update_after_sent_sample_path(sample), method: :post, remote: true, class: "card-index-link-top" %>
           </div>
           <% elsif sample.status == "approved" %>
-            <div class="card-action-edit text-center">
-              <%= link_to "<i class='fas fa-dollar-sign'></i>".html_safe, approved_show_sample_path(sample, format: :pdf) %>
+            <div class="card-action-edit text-center removable">
+              <%= link_to "<i class='fas fa-dollar-sign'></i>".html_safe, approved_show_sample_path(sample, format: :pdf), remote: true, class: "card-index-link-top" %>
             </div>
       <% end %>
     </div>
@@ -175,8 +175,6 @@
       <div class="modal-body">
         <%= simple_form_for sample, url: update_after_test_sample_path(sample), method: :patch do |f| %>
           <%= f.input :stage, collection: ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"] %>
-
-
           <br>
           <%= f.submit "Edit", class: "btn btn-primary" %>
           <br>

@@ -28,14 +28,14 @@ if (document.querySelector('.card-box')) {
   toggleCardMain();
 };
 
-if (document.querySelector(".removable a")) {
+if (document.querySelector(".removable")) {
   document.querySelectorAll(".card-removable").forEach((card) => {
-    card.querySelector(".removable a").addEventListener("click", (event) => {
+    card.querySelector(".removable").addEventListener("click", (event) => {
       card.classList.add("removed-item");
       setTimeout(() => { card.innerHTML = ""; }, 1000);
     });
   })
-}
+};
 
 if (document.querySelector(".modal_save")) {
   document.querySelectorAll(".card-box").forEach((card) => {

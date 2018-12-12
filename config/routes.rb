@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     member do
       post 'update_after_reception', to: 'samples#update_after_reception'
-      post 'update_after_test', to: 'samples#update_after_test'
+      patch 'update_after_test', to: 'samples#update_after_test'
       post 'update_after_labelling', to: 'samples#update_after_labelling'
       post 'update_after_emailing', to: 'samples#update_after_emailing'
       post 'update_after_sent', to: 'samples#update_after_sent'

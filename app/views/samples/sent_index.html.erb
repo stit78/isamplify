@@ -12,7 +12,9 @@
       <p>No sent samples</p>
     <% else %>
       <% @samples.each do |sample| %>
-        <%= render "shared/card_sample", sample: sample %>
+        <div class="card-removable">
+          <%= render "shared/card_sample", sample: sample %>
+        </div>
       <% end %>
     <% end %>
 

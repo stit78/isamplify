@@ -14,7 +14,7 @@
   <% else %>
 
     <% @samples.each do |sample| %>
-      <div data-sample-id="<%= sample.id %>">
+      <div class="card-removable" data-sample-id="<%= sample.id %>">
         <%= render "shared/card_sample", sample: sample %>
       </div>
     <% end %>

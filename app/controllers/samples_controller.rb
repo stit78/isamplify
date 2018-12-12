@@ -143,11 +143,6 @@ class SamplesController < ApplicationController
         render :update_navbar
       end
     end
-
-    # else
-    #   flash[:alert] = "Sorry, something went wrong"
-    #   redirect_to tested_index_samples_path
-    # end
   end
 
   def update_after_emailing
@@ -157,9 +152,9 @@ class SamplesController < ApplicationController
 
     respond_to do |format|
       format.html do
-      flash[:notice] = "The sample #{@sample.id} has been sent"
-      redirect_to labelled_index_samples_path
-    end
+        flash[:notice] = "The sample #{@sample.id} has been sent"
+        redirect_to labelled_index_samples_path
+      end
       format.js do
         set_samples_count
         render :update_navbar

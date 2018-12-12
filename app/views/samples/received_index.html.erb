@@ -10,7 +10,9 @@
       <p>No samples waiting for testing</p>
     <% else %>
       <% @samples.each do |sample| %>
+        <div class="card-removable">
           <%= render "shared/card_sample", sample: sample %>
+        </div>
 
           <!-- modal to add quality Rating -->
           <div class="modal fade" id="modal-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

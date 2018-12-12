@@ -12,7 +12,9 @@
         <p>No samples waiting for emailing</p>
       <% else %>
           <% @samples.each do |sample| %>
+            <div class="card-removable">
               <%= render "shared/card_sample", sample: sample %>
+            </div>
           <% end %>
       <% end %>
   </div>
