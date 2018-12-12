@@ -1,23 +1,27 @@
-.white-background{
-  position: relative;
-  left: -30px;
-  width: 200px;
+.whitebackground {
+  width: 70px;
   height: 70px;
+  position: absolute;
+  left: 0px;
   background-color: white;
 }
 
-.left-element{ width:300px;
+.left-element{
+  width: 185px;;
   height:70px;
   position: absolute;
+  left: 0px;
 
 }
 
 .logo-company{
-  height: 35px;
-  width: 35px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   align-items: center;
   position:absolute;
+  left: 45px;
+  top: 50px;
   z-index: 3;
 }
 
@@ -39,7 +43,7 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 65px;
 }
 
 /* User Avatar */
@@ -123,11 +127,33 @@
 }
 
 .navbar-samplify {
-  color:$font-main;
   font-size: 20px;
   margin: 10px;
+  position: relative;
+  left: 140px;
+  width: 200px;
+  display:flex;
+  justify-content: space-between;
+
+  a{
+    color:white;
+    justify-content: space-between;
+    font-size: 24px;
+  }
+
+  a:hover{
+    color: $font-main;
+     text-decoration: none;
+  }
+
+  .active-tab-navbar {
+    border-bottom: 4px solid $font-main;
+  }
 }
 
-.navbar-samplify:hover {
-    color: $font-main;
-  }
+
+
+
+
+
+
