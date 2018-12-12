@@ -118,11 +118,11 @@
     <div class="card-action-edit">
       <% if sample.status == "pending" %>
         <button type="button" data-toggle="modal" data-target="#edit-pending-sample-<%= sample.id %>" class="card-index-link-top">
-          <%= image_tag("card-edit.png") %>
+          <%= image_tag("edit.png") %>
         </button>
       <% else %>
         <button type="button" data-toggle="modal" data-target="#edit-sent-sample-<%= sample.id %>" class="card-index-link-top">
-          <%= image_tag("card-edit.png") %>
+          <%= image_tag("edit.png") %>
         </button>
       <% end %>
     </div>
