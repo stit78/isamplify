@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       post 'update_after_emailing', to: 'samples#update_after_emailing'
       post 'update_after_sent', to: 'samples#update_after_sent'
       post 'email'
+      get 'approved_show', to: 'samples#approved_show'
     end
 
     resources :etiquettes, only: [:create]

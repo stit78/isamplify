@@ -38,85 +38,99 @@
     padding: 10px;
     text-align: center;
     height: 70px;
+    border-radius: 0px 0px 6px 6px;
+  }
+  .sample-action:hover {
+    text-decoration: none;
+    background-color: $main;
+    color: white;
+  }
+}
+
+
+.content {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-side {
+  background-color: white;
+  width: 45%;
+  height: 100%;
+}
+
+.illustration-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 120px);
+}
+
+.logo {
+  width: 100px;
+  height: 70px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.illustration {
+  height: 350px;
+  width: 350px;
+
+}
+
+.right-side {
+  width: 55%;
+  height: 100%;
+}
+
+.moto {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.samplify-offer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  .home-presentation-element {
+    text-align: center;
+    width: 27%;
+    height: 210px;
+    background-color: white;
     border-radius: 6px;
+    margin: 12px;
+    i {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.world-map {
-  width: 700px;
-}
-
-.home-banner {
-  background-size:cover;
-  background-image: url('https://images.unsplash.com/photo-1470087167738-6aa485ff65dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80');
-  height: calc(46vh);
-  display:flex;
-  justify-content:center;
-  align-items: start;
-  position:relative;
-  h1 {
-    position: absolute;
-    top: 50px;
-  }
-}
-
-.home-login {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  padding: 15px 30px;
-  border: red;
-  font-size: 20px;
-}
-
-.home-logo {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-}
-
-.home-presentation {
+.action {
+  margin-top: 100px;
   display: flex;
   justify-content: space-evenly;
-  flex-wrap:wrap;
-  margin-top: 22px;
-  margin-bottom: 22px;
+  font-size: 26px;
+  .home-button {
+    width: 120px;
+    padding: 16px;
+    border-radius: 32px;
+    color: #004A66;
+    text-align: center;
+    border: 1px solid #0a49682e;
+    font-size: 18px;
+    background-color: white;
+    text-decoration: none;
+  }
+  .home-button:hover {
+    background-color: $main;
+    color: white;
+  }
 }
 
-.home-presentation-element {
-  text-align: center;
-  width: 360px;
-  min-height: 310px;
-  background-color: white;
-  padding: 22px 20px;
-  i {
-    font-size:40px;
-  }
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom:10px;
-}
+
+
 
 
