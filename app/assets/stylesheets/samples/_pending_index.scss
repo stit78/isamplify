@@ -8,13 +8,22 @@
 
   align-items     : center;
   justify-content : start;
+  height: 100px;
+
 }
 
 .text-header-pending{
   padding-right : 40px;
-  flex          : 1;
+  flex: 1;
+  height: 100px;
 }
 
 .text-center {
   padding-bottom : 10px;
+}
+
+.text-centered {
+  align-content: center;
+  text-align: center;
+  padding-right: 85px;
 }

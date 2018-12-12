@@ -11,13 +11,9 @@
     <% if @samples.count == 0 %>
       <p>No sent samples</p>
     <% else %>
-      <ul class= "no-bullet">
-        <% @samples.each do |sample| %>
-            <li>
-              <%= render "shared/card_sample", sample: sample %>
-            </li>
-        <% end %>
-      </ul>
+      <% @samples.each do |sample| %>
+        <%= render "shared/card_sample", sample: sample %>
+      <% end %>
     <% end %>
 
   </div>
