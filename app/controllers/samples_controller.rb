@@ -1,6 +1,6 @@
 class SamplesController < ApplicationController
   before_action :set_samples_count, only: [:pending_index, :received_index, :tested_index, :labelled_index, :sent_index, :approved_index]
-  before_action :set_find_sample, only: [:update_after_reception, :update_after_test, :update_after_labelling, :update_after_emailing, :update, :update_after_sent]
+  before_action :set_find_sample, only: [:approved_show, :update_after_reception, :update_after_test, :update_after_labelling, :update_after_emailing, :update, :update_after_sent]
 
   def pending_index
     @samples = Sample.pending
@@ -27,14 +27,17 @@ class SamplesController < ApplicationController
 
   def approved_index
     @samples = Sample.approved
+  end
+
+  def approved_show
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: "contract",
                # orientation: 'Landscape',
                layout: 'pdf',
-               template: "samples/approved_index.pdf.erb",
-               locals: { :samples => @samples }
+               template: "samples/approved_show.pdf.erb",
+               locals: { :sample => @sample }
       end
     end
   end

@@ -2,6 +2,11 @@ import "bootstrap";
 
 import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
+import {closeModal} from 'components/closeModal';
+
+if (document.getElementById("received-index")) {
+  closeModal();
+};
 
 if (document.getElementById("show-sample-historic-chart")) {
   const myId = document.getElementById("show-sample-historic-chart");
