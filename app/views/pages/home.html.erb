@@ -80,13 +80,39 @@
   </div>
 
 <% else %>
-    <div class="content">
+  <div class="mybanner">
+    <div class='action'>
+      <%= link_to 'Log in', new_user_session_path, class: 'home-button' %>
+
+    </div>
+  </div>
+  <div class="home-element-container">
+    <div class="home-element">
+      <h3>Coffee-lots monitoring</h3>
+      <br>
+      <p>Get notifications all along the import chain.</p>
+    </div>
+    <div class="home-element">
+      <h3>Coffee-lots monitoring</h3>
+      <br>
+      <p>Get notifications all along the import chain.</p>
+    </div>
+    <div class="home-element">
+      <h3>Customer relations</h3>
+      <br>
+      <p>Assign your best coffees to your best customers</p>
+    </div>
+  </div>
+
+
+
+    <!-- <div class="content">
       <div class="left-side">
         <div class='logo'>
-          <%= image_tag "logo_new.png"  %>
+          <%#= image_tag "logo_new.png"  %>
         </div>
         <div class="illustration-wrapper">
-          <%= image_tag 'home_pics.png', class: "illustration" %>
+          <%#= image_tag 'home_pics.png', class: "illustration" %>
         </div>
       </div>
 
@@ -118,18 +144,19 @@
         </div>
 
         <div class='action'>
-          <%= link_to new_user_session_path do %>
+          <%#= link_to new_user_session_path do %>
             <div class='home-button'>
               <p>Discover</p>
             </div>
-          <% end %>
-          <%= link_to new_user_session_path do %>
+          <%# end %>
+          <%#= link_to new_user_session_path do %>
             <div class='home-button'>
               <p>Log in</p>
             </div>
-          <% end %>
+          <%# end %>
         </div>
       </div>
-    </div>
+    </div> -->
+
 <% end %>
 
