@@ -135,22 +135,22 @@
           <%= link_to image_tag("card-reception.png"), update_after_reception_sample_path(sample), method: :post, remote: true, class: "card-index-link-top" %>
         </div>
       <% elsif sample.status == "received" %>
-        <div class="card-action-edit text-center">
+        <div class="card-action-edit text-center removable">
           <button type="button" data-toggle="modal" data-target="#modal-sample-<%= sample.id %>" class="card-index-link-top">
             <%= image_tag("card-test.png") %>
           </button>
         </div>
       <% elsif sample.status == "tested" %>
-        <div class="card-action-edit text-center">
-          <%= link_to image_tag("card-price-tag.png"), update_after_labelling_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        <div class="card-action-edit text-center removable">
+          <%= link_to image_tag("card-price-tag.png"), update_after_labelling_sample_path(sample), method: :post, remote:true, class: "card-index-link-top" %>
         </div>
       <% elsif sample.status == "labelled" %>
-        <div class="card-action-edit text-center">
-          <%= link_to image_tag("card-email.png"), update_after_emailing_sample_path(sample), method: :post, class: "card-index-link-top" %>
+        <div class="card-action-edit text-center removable">
+          <%= link_to image_tag("card-email.png"), update_after_emailing_sample_path(sample), method: :post, remote:true, class: "card-index-link-top" %>
         </div>
         <% elsif sample.status == "sent" %>
-          <div class="card-action-edit text-center">
-            <%= link_to image_tag("card-sent.png"), update_after_sent_sample_path(sample), method: :post, class: "card-index-link-top" %>
+          <div class="card-action-edit text-center removable">
+            <%= link_to image_tag("card-sent.png"), update_after_sent_sample_path(sample), method: :post, remote:true, class: "card-index-link-top" %>
           </div>
           <% elsif sample.status == "approved" %>
             <div class="card-action-edit text-center">
