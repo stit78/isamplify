@@ -6,39 +6,41 @@
         <div class='title-main' id="banner-typed-text"></div>
       </div>
 
+      <h2>Current Activity</h2>
       <div class='sample-dashboard'>
+        <div class='sample-management'>
+          <div class='sample-status'>
+            <div class='sample-count'><%= Sample.pending.count %></div>
+            <div class='sample-count-status'>samples received today</div>
+          </div>
 
-        <div class='sample-status'>
-          <div class='sample-count'><%= Sample.pending.count %></div>
-          <div class='sample-count-status'>samples received today</div>
+          <div class='sample-status'>
+            <div class='sample-count'><%= Sample.sent.count %></div>
+            <div class='sample-count-status'>samples pending customer approval</div>
+          </div>
         </div>
 
-        <div class='sample-status'>
-          <div class='sample-count'><%= Sample.sent.count %></div>
-          <div class='sample-count-status'>samples pending customer approval</div>
+        <div class="trading-management">
+          <div class='sample-status'>
+            <div class='sample-count'>32</div>
+            <div class='sample-count-status'>Coffee lots under management</div>
+          </div>
+
+          <div class='sample-status'>
+            <div class='sample-count'>43 560</div>
+            <div class='sample-count-status'>Coffee bags under management</div>
+          </div>
         </div>
-
-
       </div>
 
-      <div class='title-second'> <%= CoffeeLot.count %> Current Activity</div>
-
-
-
-      <!-- <div class="world-map">
-      <h3>Locate your coffee lots provenance</h3>
-        <img style="width: 1000px;" src="https://upload.wikimedia.org/wikipedia/commons/5/56/Newworldmap_grayscale.svg" alt="locate your coffee lots provenance">
-      </div> -->
-
+      <h2>Coffee news</h2>
       <div class="coffee-news">
-        <h3>Coffee news</h3>
 
-          <% for i in 0..3 %>
-<!--           <%= link_to @scrapper_results[#:urls][i] #do %> -->
+        <% for i in 0..3 %>
+
             <div class="news">
               <div class="news-image">
-                <%= image_tag "https://cdn3.bigcommerce.com/s-2drwt2az/products/18200/images/42958/71a9ji1iuvl._sl1000___66408.1493247240.1280.1280.jpg?c=2", width: 100 %>
-                <!-- # @scrapper_results[:picture_urls][i] -->
+                <%= image_tag "https://cdn3.bigcommerce.com/s-2drwt2az/products/18200/images/42958/71a9ji1iuvl._sl1000___66408.1493247240.1280.1280.jpg?c=2", width: 120 %>
               </div>
               <div class="news-content">
                 <div class="news-title">
@@ -52,8 +54,8 @@
                 </div>
               </div>
             </div>
+
           <% end %>
-<!--         <% #end %> -->
         </div>
       </div>
     </div>

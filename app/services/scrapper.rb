@@ -9,19 +9,22 @@ class Scrapper
     html_doc = Nokogiri::HTML(html_file)
 
     # urls = []
-    # html_doc.search('.blog-post h1 a').each do |element|
-    # urls << element.attribute.('href').value
+    # html_doc.search('.blog-post .blog-featured-bg-image > a').each do |element|
+    # urls << element.attribute.('href')
     # end
+    # p urls
 
     titles = []
     html_doc.search('.blog-post h1 a').each do |element|
       titles << element.text.strip.capitalize
     end
+    p titles
 
     authors = []
     html_doc.search('.blog-post .byline-date > a').each do |element|
       authors << element.text.strip
     end
+    p authors
 
     pictures_scrap = []
     html_doc.search('.blog-post .blog-featured-bg-image').each do |element|
@@ -43,11 +46,15 @@ class Scrapper
       end
     end
 
+    p picture_urls
+
     texts = []
     html_doc.search('.home-excerpt').each do |element|
       texts << element.text.strip
       # puts element.attribute('href').value
     end
+
+    p texts
 
     return {
       # urls: urls,
