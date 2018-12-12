@@ -19,28 +19,23 @@ if (document.getElementById("show-sample-historic-chart")) {
 //   });
 // }
 if (document.querySelector('.card-box')) {
-  // document.querySelectorAll('.card-box').forEach((card) => {
-  //   document.querySelector('.card-index-link-top').addEventListener("click"), (event) => {
-  //     event.stopPropagation();
-  //   };
-  // });
-  console.log('coucou');
   toggleCardMain();
 };
 
 if (document.querySelector(".removable a")) {
   document.querySelectorAll(".card-box").forEach((card) => {
-    card.querySelector(".removable a").addEventListener("click", (event) => {
-      card.classList.add("removed-item");
-      setTimeout(() => { card.innerHTML = ""; }, 1000);
-    });
-  })
-}
+    if (card.querySelector(".removable a")) {
+      card.querySelector(".removable a").addEventListener("click", (event) => {
+        card.classList.add("removed-item");
+        setTimeout(() => { card.innerHTML = ""; }, 1000);
+      });
+    };
+  });
+};
 
 if (document.querySelector(".modal_save")) {
   document.querySelectorAll(".card-box").forEach((card) => {
     document.getElementById('modal-' + card.id).querySelector('.modal_save').addEventListener("click", (event) => {
-      console.log('#modal-close-' + card.id);
       $('#modal-close-' + card.id).click();
 
       // event.currentTarget.classList.add("hide")
