@@ -10,7 +10,7 @@
   </div>
 
   <% if @samples.count == 0 %>
-    <p>No approved samples for the moment</p>
+    <p class= no-samples>No approved samples for the moment</p>
   <% else %>
 
     <% @samples.each do |sample| %>

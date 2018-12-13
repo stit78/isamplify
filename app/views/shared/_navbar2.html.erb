@@ -5,45 +5,55 @@
     <div class="navbar2-wagon">
   <% end %>
   <div class="container">
-    <ul class="nav nav-pills nav-fill">
+    <ul class="shift nav nav-pills nav-fill">
       <li class="nav-item">
-        <%=image_tag("reception_icon.png", :class => "logo-progressbar")%>
+        <%=image_tag("reception_icon.png", height: '28px')%>
         <%= link_to "Reception", pending_index_samples_path, class: "#{'active-tab' if action_name == 'pending_index'}"%>
-        <div class="button">
-          <span class="<%= samples_count_css_class(@samples_count, 0) %>"><%= @samples_count[0] %></span>
-        </div>
+        <% if @samples_count[0] != 0 %>
+          <div class="button">
+            <span class="<%= samples_count_css_class(@samples_count, 0) %>"><%= @samples_count[0] %></span>
+          </div>
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%=image_tag("card-coffeebean.png", :class => "logo-progressbar")%>
+        <%=image_tag("card-coffeebean.png", height: '28px')%>
         <%= link_to "Test", received_index_samples_path, class: "#{'active-tab' if action_name == 'received_index'}"  %>
-        <div class="button">
-          <span class="<%= samples_count_css_class(@samples_count, 1) %>"><%= @samples_count[1] %></span>
-        </div>
+        <% if @samples_count[1] != 0 %>
+          <div class="button">
+            <span class="<%= samples_count_css_class(@samples_count, 1) %>"><%= @samples_count[1] %></span>
+          </div>
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%=image_tag("price-tag.png", :class => "logo-progressbar")%>
+        <%=image_tag("price-tag.png", height: '28px')%>
         <%= link_to "Labelling", tested_index_samples_path, class: "#{'active-tab' if action_name == 'tested_index'}" %>
-        <div class="button">
-           <span class="<%= samples_count_css_class(@samples_count, 2) %>"><%= @samples_count[2] %></span>
-         </div>
+        <% if @samples_count[2] != 0 %>
+          <div class="button">
+             <span class="<%= samples_count_css_class(@samples_count, 2) %>"><%= @samples_count[2] %></span>
+           </div>
+          <% end %>
       </li>
 
        <li class="nav-item">
-         <%=image_tag("email.png", :class => "logo-progressbar")%>
+         <%=image_tag("email.png", height: '28px')%>
          <%= link_to "Emailing", labelled_index_samples_path, class: "#{'active-tab' if action_name == 'labelled_index'}" %>
-         <div class="button">
-           <span class="<%= samples_count_css_class(@samples_count, 3) %>"><%= @samples_count[3] %></span>
-         </div>
+         <% if @samples_count[3] != 0 %>
+           <div class="button">
+             <span class="<%= samples_count_css_class(@samples_count, 3) %>"><%= @samples_count[3] %></span>
+           </div>
+         <% end %>
        </li>
 
        <li class="nav-item">
-        <%=image_tag("check-mark.png", :class => "logo-progressbar")%>
-         <%= link_to "Sent", sent_index_samples_path, class: "#{'active-tab' if action_name == 'sent_index'}"%>
-         <div class="button">
-           <span class="<%= samples_count_css_class(@samples_count, 4) %>"><%= @samples_count[4] %></span>
-         </div>
+        <%=image_tag("check-mark.png", height: '28px') %>
+         <%= link_to "Pending", sent_index_samples_path, class: "#{'active-tab' if action_name == 'sent_index'}"%>
+         <% if @samples_count[4] != 0 %>
+           <div class="button">
+             <span class="<%= samples_count_css_class(@samples_count, 4) %>"><%= @samples_count[4] %></span>
+           </div>
+          <% end %>
        </li>
 
      </ul>
