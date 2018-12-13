@@ -11,6 +11,26 @@ document.querySelectorAll(".close").forEach((button) => {
   button.click()
 })
 
+<% if @after_reception %>
+  function gracefullyHide(id){
+    const sampleCard = document.getElementById(`sample-${id}`)
+    sampleCard.classList.add("removed-item")
+    setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
+  }
+
+  gracefullyHide(<%= @sample.id %>)
+<% end %>
+
+<% if @after_test %>
+  function gracefullyHide(id){
+    const sampleCard = document.getElementById(`sample-${id}`)
+    sampleCard.classList.add("removed-item")
+    setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
+  }
+
+  gracefullyHide(<%= @sample.id %>)
+<% end %>
+
 <% if @after_labelling %>
   function gracefullyHide(id){
     const sampleCard = document.getElementById(`sample-${id}`)

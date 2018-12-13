@@ -58,6 +58,7 @@ class SamplesController < ApplicationController
     @sample.trader = current_user
     @sample.exporter = exporter
     @sample.status = "pending"
+    @after_creation = true
     if @sample.save
       flash[:notice] = "The sample #{@sample.id} from coffee lot #{@sample.coffee_lot.iconumber} has been created"
       redirect_to pending_index_samples_path
@@ -68,7 +69,7 @@ class SamplesController < ApplicationController
   end
 
   def update_after_reception
-
+    @after_reception = true
     if @sample.received!
       set_samples_count
       respond_to do |format|
@@ -97,6 +98,7 @@ class SamplesController < ApplicationController
 
   def update_after_test
     @sample.status = "tested"
+    @after_test = true
 
     if @sample.update(review_params)
       respond_to do |format|
