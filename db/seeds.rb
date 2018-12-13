@@ -163,7 +163,9 @@ puts "Creating 5 coffee lots"
   #     )
   #   example2.save
 
-
+ # <%#= f.fields_for :potential_clients, @potential_client*4 do |potential_client| %>
+ #                    <%#= potential_client.association :client, collection: @clients, label_method: :company_name, value_method: :id %>
+ #                  <%# end %>
 
   puts "            Adding historic to sample status:pending"
   if sample.stage == "Purchase Sample"
@@ -188,24 +190,24 @@ puts "Creating 5 coffee lots"
     creating_sample(coffeelot, "Offer Sample")
   end
 
-  if sample.stage == "Purchase Sample"|| sample.stage = "Loading Sample" || sample.stage == "Port Sample" || sample.stage == "Warehouse Sample" || sample.stage == "Sale Sample"
-    puts "                Creating potential client list for this coffeelot"
-    rand(1..3).times do
-      potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
-      potclient.save
-    end
+  # if sample.stage == "Purchase Sample"|| sample.stage = "Loading Sample" || sample.stage == "Port Sample" || sample.stage == "Warehouse Sample" || sample.stage == "Sale Sample"
+  #   puts "                Creating potential client list for this coffeelot"
+  #   rand(1..3).times do
+  #     potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+  #     potclient.save
+  #   end
 
-    purchase = Purchase.new(
-      exporter: carlos,
-      trader: louis,
-      price: rand(1000..3000),
-      quantity: rand(10..30),
-      owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : louis)
-      )
-    purchase.save
+  #   purchase = Purchase.new(
+  #     exporter: carlos,
+  #     trader: louis,
+  #     price: rand(1000..3000),
+  #     quantity: rand(10..30),
+  #     owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : louis)
+  #     )
+  #   purchase.save
 
-    coffeelot.save
-  end
+  #   coffeelot.save
+  # end
 
 end
 

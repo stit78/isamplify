@@ -3,7 +3,7 @@ class Sample < ApplicationRecord
   belongs_to :exporter, class_name: 'User'
   belongs_to :trader, class_name: 'User'
 
-  STATUSES = ["pending", "received", "tested", "labelled", "sent", "approved"]
+  STATUSES = ["pending", "received", "tested", "labelled", "sent", "approved", "archived"]
 
   validates :stage, presence: true, inclusion: { in: ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"] }
   validates :sweetness, inclusion: { in: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }, allow_blank: true

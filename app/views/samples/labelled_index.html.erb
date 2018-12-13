@@ -8,12 +8,12 @@
         </div>
       </div>
 
-      <% if @samples.count == 0 %>
-        <p>No samples waiting for emailing</p>
-      <% else %>
-          <% @samples.each do |sample| %>
-              <%= render "shared/card_sample", sample: sample %>
-          <% end %>
+    <% if @samples.count == 0 %>
+      <p>No samples waiting for emailing</p>
+    <% else %>
+      <% @samples.each do |sample| %>
+        <%= render "shared/card_sample", sample: sample %>
       <% end %>
+    <% end %>
   </div>
 </div>
