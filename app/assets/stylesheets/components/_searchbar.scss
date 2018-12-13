@@ -3,6 +3,8 @@
   box-shadow: 0 0 0;
   border-color: #ccc;
   background-color: transparent;
+  border-radius: 5px;
+  border: none;
 }
 
 .searchbar_input{
@@ -10,13 +12,16 @@
   justify-content: flex-end;
   align-items: center;
   border-radius: 5px;
+  border: none;
 
 }
 
  .text_searchbar {
-    color: #00A0FF;
+    color: $font-main;
     font-size: 16px;
-    font-style: italic;
     text-align: left;
+    border: none;
+    height: 50px;
+
 }
 

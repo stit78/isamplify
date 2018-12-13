@@ -9,7 +9,7 @@ COUNTRY = ["Colombia", "Peru", "Ecuador", "Brazil", "Honduras", "Burundi", "Keny
 TREE = ["Arabica", "Robusta"]
 SIZE = [8, 10, 12, 14, 16, 18, 20]
 PROFILE = ["good cup", "clean cup", "Fine Cup", "Specialty", "Stocklot", "Defectuous"]
-QUALITY = ["Supremo UGQ", "NY 2/3 sc18 fc", "Agasimbo", "Cherry AB"]
+QUALITY = ["Supremo UGQ", "AB FAQ fly crop", "Fully Washed A", "NY 2/3 sc18 fc", "Agasimbo", "Cherry AB"]
 certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Practice"]
 STAGE = ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"]
 CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]
@@ -111,7 +111,7 @@ puts "Creating 5 coffee lots"
     quality_description: QUALITY.sample
     )
   puts "      Creating certifications for this coffeelot"
-  rand(1..5).times do
+  rand(1..3).times do
     coffeecertif = CoffeeCertification.new(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
     coffeecertif.save
   end
