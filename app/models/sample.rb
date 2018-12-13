@@ -26,6 +26,18 @@ class Sample < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  def safe_sweetness
+    sweetness || 0
+  end
+
+  def safe_acidity
+    acidity || 0
+  end
+
+  def safe_clean
+    clean || 0
+  end
+
   private
 
   def send_reception_confirmation
