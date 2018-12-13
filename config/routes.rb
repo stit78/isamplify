@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post 'update_after_labelling', to: 'samples#update_after_labelling'
       post 'update_after_emailing', to: 'samples#update_after_emailing'
       post 'update_after_sent', to: 'samples#update_after_sent'
+      post 'update_archived', to: 'samples#update_archived'
       post 'email'
       get 'approved_show', to: 'samples#approved_show'
     end

@@ -17,7 +17,6 @@ document.querySelectorAll(".close").forEach((button) => {
     sampleCard.classList.add("removed-item")
     setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
   }
-
   gracefullyHide(<%= @sample.id %>)
 <% end %>
 
@@ -27,7 +26,6 @@ document.querySelectorAll(".close").forEach((button) => {
     sampleCard.classList.add("removed-item")
     setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
   }
-
   gracefullyHide(<%= @sample.id %>)
 <% end %>
 
@@ -37,6 +35,16 @@ document.querySelectorAll(".close").forEach((button) => {
     sampleCard.classList.add("removed-item")
     setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
   }
+  gracefullyHide(<%= @sample.id %>)
+<% end %>
 
+<% if @after_archived %>
+  function gracefullyHide(id){
+    const sampleCard = document.getElementById(`sample-${id}`)
+    console.log(sampleCard);
+    sampleCard.classList.add("removed-lefty-item");
+    console.log(sampleCard);
+    setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
+  }
   gracefullyHide(<%= @sample.id %>)
 <% end %>

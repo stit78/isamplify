@@ -142,7 +142,7 @@
         </div>
       <% elsif sample.status == "tested" %>
         <div class="card-action-edit text-center removable">
-          <button type="button" data-toggle="modal" data-target="#client-sample-<%= sample.id %>" class="card-index-link-top">
+          <button type="button" data-toggle="modal" data-target="#modal-client-sample-<%= sample.id %>" class="card-index-link-top">
             <%= image_tag("card-price-tag.png") %>
           </button>
           <%#= link_to image_tag("card-price-tag.png"), update_after_labelling_sample_path(sample), method: :post, remote:true, class: "card-index-link-top" %>
