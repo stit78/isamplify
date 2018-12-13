@@ -26,7 +26,6 @@ if (document.getElementById("show-sample-historic-chart")) {
 //   });
 // }
 if (document.querySelector('.card-box')) {
-
   toggleCardMain();
 };
 
