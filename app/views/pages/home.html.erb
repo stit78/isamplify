@@ -37,24 +37,24 @@
       <div class="coffee-news">
 
         <% for i in 0..3 %>
-
-            <div class="news">
-              <div class="news-image">
-                <%= image_tag "https://cdn3.bigcommerce.com/s-2drwt2az/products/18200/images/42958/71a9ji1iuvl._sl1000___66408.1493247240.1280.1280.jpg?c=2", width: 120 %>
+          <%= link_to @scrapper_results[:urls][i], target: "_blank" do %>
+              <div class="news">
+                <div class="news-image">
+                  <%= image_tag @scrapper_results[:picture_urls][i], width: 200, height: 150, crop: 'fill' %>
+                </div>
+                <div class="news-content">
+                  <div class="news-title" style="text-decoration: none">
+                    <span><%= @scrapper_results[:titles][i] %></span>
+                  </div>
+                  <div class="news-author">
+                    <span>By <%= @scrapper_results[:authors][i]%></span>
+                  </div>
+                  <div class="news-text">
+                    <span><%= @scrapper_results[:texts][i]%></span>
+                  </div>
+                </div>
               </div>
-              <div class="news-content">
-                <div class="news-title">
-                  <span><%= @scrapper_results[:titles][i] %></span>
-                </div>
-                <div class="news-author">
-                  <span>By <%= @scrapper_results[:authors][i]%></span>
-                </div>
-                <div class="news-text">
-                  <span><%= @scrapper_results[:texts][i]%></span>
-                </div>
-              </div>
-            </div>
-
+            <% end %>
           <% end %>
         </div>
       </div>
