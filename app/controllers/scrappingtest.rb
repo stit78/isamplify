@@ -1,12 +1,12 @@
 # require 'open-uri'
 # require 'nokogiri'
 
-# url = "https://dailycoffeenews.com"
+# url = "http://futures.tradingcharts.com/marketquotes/KC.html"
 
 # html_file = open(url).read
 # html_doc = Nokogiri::HTML(html_file)
 
-# title = []
+# month1 = []
 # html_doc.search('.blog-post h1 a').each do |element|
 #   title << element.text.strip
 #   # puts element.attribute('href').value

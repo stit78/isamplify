@@ -1,5 +1,6 @@
 // home logged-in
 
+
 .title-main {
   text-align: center;
   font-size: 35px;
@@ -17,6 +18,8 @@
   border-radius: 6px;
   padding: 10px;
 }
+
+// part 1 - Current activity
 
 .sample-dashboard {
   display: flex;
@@ -56,6 +59,8 @@
   }
 }
 
+// part 1 - Coffee news
+
 .coffee-news {
 }
 
@@ -67,14 +72,14 @@
   height: 150px;
   margin-top: 30px;
   margin-bottom: 30px;
-  padding-top: 12px;
+  .news:hover {
+    filter: grayscale(1);
+    text-decoration: none !important;
+    color: #3a2318;;
+    background-color: transparent;
+  }
   .news-image {
-    padding-top: 14px;
-    padding-left: 16px;
-    padding-right: 16px;
     display: inline-block;
-    height: 100px;
-    width: 200px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 16px;
@@ -82,22 +87,26 @@
   .news-content {
       padding-top: 8px;
       padding-top: 8px;
+      padding-left: 8px;
       align-items: space-between;
     .news-title {
       font-family: 'Lato', sans-serif;
       font-weight: 900;
       font-size: 24px;
+      text-decoration: none !important;
     }
     .news-author {
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
       font-size: 16px;
       padding-bottom: 4px;
+      text-decoration: none !important;
     }
     .news-text {
       font-family: 'Lato', sans-serif;
       font-weight: 300;
       font-size: 14px;
+      text-decoration: none !important;
     }
   }
 }
