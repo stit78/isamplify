@@ -5,7 +5,7 @@
   color: $font-main;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-around;
   padding: 0px 30px;
   h4 {
     font-size: 15px;
@@ -22,6 +22,14 @@
 .social-network {
   color:$font-main;
   display:inline-block;
+  position: absolute;
+  left: 20px;
+}
+
+.poweredby {
+  color:$font-main;
+  position: absolute;
+  padding: auto;
 }
 
 .contact{
