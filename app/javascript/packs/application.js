@@ -5,6 +5,8 @@ import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
 import {closeModal} from 'components/closeModal';
 import {loadDynamicBannerText} from 'components/typed';
+import {sweetAlertCustom} from 'components/sweetAlert';
+
 
 if (document.getElementById("received-index")) {
   closeModal();
@@ -53,4 +55,12 @@ if (document.querySelector(".modal_save")) {
 
 if (document.querySelector(".title-main")) {
   loadDynamicBannerText();
+}
+
+if (document.getElementById("sweet-alert-sent")) {
+  document.querySelectorAll(".card-box").forEach((card) => {
+    card.addEventListener("click", (event) => {
+      setTimeout(() => {sweetAlertCustom() }, 1500);
+    });
+  })
 }
