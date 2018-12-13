@@ -16,6 +16,20 @@
     }
 }
 
+.certification-logo {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 8px;
+  border-radius: 30%;
+}
+
+.certification-container {
+  display: flex;
+  padding-top: 10px;
+  flex-direction: column;
+  position: absolute;
+  right: 10px;
+}
 
 .card-box {
   display: flex;
@@ -57,6 +71,7 @@
   background-color: #F2F2F2;
   text-align: center;
   width: 250px;
+  position: relative;
 }
 
 .card-main-country{
