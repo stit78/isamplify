@@ -5,7 +5,7 @@ import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
 import {closeModal} from 'components/closeModal';
 import {loadDynamicBannerText} from 'components/typed';
-import {sweetAlert} from 'components/sweetAlert';
+import {sweetAlertCustom} from 'components/sweetAlert';
 
 
 if (document.getElementById("received-index")) {
@@ -57,6 +57,10 @@ if (document.querySelector(".title-main")) {
   loadDynamicBannerText();
 }
 
-
-
-sweetAlert();
+if (document.getElementById("sweet-alert-sent")) {
+  document.querySelectorAll(".card-box").forEach((card) => {
+    card.addEventListener("click", (event) => {
+      setTimeout(() => {sweetAlertCustom() }, 1500);
+    });
+  })
+}
