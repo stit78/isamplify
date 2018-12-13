@@ -5,6 +5,8 @@ import { chartQuality } from 'charts/chartQuality';
 import { toggleCardMain } from 'components/cardMain';
 import {closeModal} from 'components/closeModal';
 import {loadDynamicBannerText} from 'components/typed';
+import {sweetAlert} from 'components/sweetAlert';
+
 
 if (document.getElementById("received-index")) {
   closeModal();
@@ -55,3 +57,7 @@ if (document.querySelector(".modal_save")) {
 if (document.querySelector(".title-main")) {
   loadDynamicBannerText();
 }
+
+
+
+sweetAlert();
