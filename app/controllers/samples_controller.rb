@@ -19,6 +19,8 @@ class SamplesController < ApplicationController
 
   def labelled_index
     @samples = Sample.labelled
+    @potential_client = PotentialClient.new
+    @clients = User.where(role: 'Client')
   end
 
   def sent_index
@@ -96,6 +98,8 @@ class SamplesController < ApplicationController
   end
 
   def update_after_test
+    raise
+
     @sample.status = "tested"
 
     if @sample.update(review_params)
