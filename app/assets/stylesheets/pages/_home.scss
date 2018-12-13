@@ -1,3 +1,5 @@
+// home logged-in
+
 .title-main {
   text-align: center;
   font-size: 35px;
@@ -54,6 +56,53 @@
   }
 }
 
+.coffee-news {
+}
+
+.news {
+  display: flex;
+  box-shadow: 0 0 2rem rgba(0,0,0,.1);
+  background-color: white;
+  width:1060px;
+  height: 150px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 12px;
+  .news-image {
+    padding-top: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: inline-block;
+    height: 100px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+  }
+  .news-content {
+      padding-top: 8px;
+      padding-top: 8px;
+      align-items: space-between;
+    .news-title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+    }
+    .news-author {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      padding-bottom: 4px;
+    }
+    .news-text {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+    }
+  }
+}
+
+// home-NOT-logged-in
 
 .content {
   display: flex;
