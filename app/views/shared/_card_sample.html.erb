@@ -5,31 +5,6 @@
         <div class="card-main-country">
           <%= sample.coffee_lot.provenance %>
         </div>
-        <div class="certification-container">
-          <% sample.coffee_lot.coffee_certifications.each do |coffee_certification| %>
-              <% if coffee_certification.certification.name == 'RFA' %>
-                <%= image_tag 'rfa.png', class: 'certification-logo' %>
-              <% end %>
-              <% if coffee_certification.certification.name == 'Fairtrade' %>
-                <%= image_tag 'fairtrade.png', class: 'certification-logo' %>
-              <% end %>
-              <% if coffee_certification.certification.name == 'UTZ' %>
-                <%= image_tag 'utz.png', class: 'certification-logo' %>
-              <% end %>
-              <% if coffee_certification.certification.name == 'Organic' %>
-                <%= image_tag 'organic.png', class: 'certification-logo' %>
-              <% end %>
-              <% if coffee_certification.certification.name == 'AAA' %>
-                <%= image_tag 'aaa.png', class: 'certification-logo' %>
-              <% end %>
-              <% if coffee_certification.certification.name == '4C' %>
-                <%= image_tag '4c.png', class: 'certification-logo' %>
-              <% end %>
-              <% if coffee_certification.certification.name == 'Cafe Practice' %>
-                <%= image_tag 'cp.png', class: 'certification-logo' %>
-              <% end %>
-          <% end %>
-        </div>
         <div class="card-main-quality">
           <%= sample.coffee_lot.quality_description %>
         </div>
