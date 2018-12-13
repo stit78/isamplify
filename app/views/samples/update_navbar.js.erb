@@ -4,3 +4,39 @@ function updateNavbar(){
 }
 
 updateNavbar();
+
+//close modal auto after submit
+
+document.querySelectorAll(".close").forEach((button) => {
+  button.click()
+})
+
+<% if @after_labelling %>
+  function gracefullyHide(id){
+    const sampleCard = document.getElementById(`sample-${id}`)
+    sampleCard.classList.add("removed-item")
+    setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
+  }
+
+  gracefullyHide(<%= @sample.id %>)
+<% end %>
+
+<% if @after_emailing %>
+  function gracefullyHide(id){
+    const sampleCard = document.getElementById(`sample-${id}`)
+    sampleCard.classList.add("removed-item")
+    setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
+  }
+
+  gracefullyHide(<%= @sample.id %>)
+<% end %>
+
+<% if @after_sent %>
+  function gracefullyHide(id){
+    const sampleCard = document.getElementById(`sample-${id}`)
+    sampleCard.classList.add("removed-item")
+    setTimeout(() => { sampleCard.classList.add("hide"); }, 1000);
+  }
+
+  gracefullyHide(<%= @sample.id %>)
+<% end %>

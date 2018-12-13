@@ -131,6 +131,7 @@ class SamplesController < ApplicationController
     @etiquette = Etiquette.new
     @etiquette.sample = @sample
     @etiquette.save
+    @after_labelling = true
 
     respond_to do |format|
       format.html do
@@ -154,6 +155,7 @@ class SamplesController < ApplicationController
     ExporterMailer.reception_confirmation(@sample).deliver_now
     @sample.status = "sent"
     @sample.save
+    @after_emailing = true
 
     respond_to do |format|
       format.html do
@@ -170,6 +172,7 @@ class SamplesController < ApplicationController
   def update_after_sent
     @sample.status = "approved"
     @sample.save
+    @after_sent = true
 
     respond_to do |format|
       format.html do
