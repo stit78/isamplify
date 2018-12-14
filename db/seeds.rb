@@ -118,7 +118,7 @@ puts " client café Richard"
       quantity: 1280,
       tree: "Arabica",
       iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
-      screen_size: 15,
+      screen_size: 18,
       cup_profile: "good cup",
       region: "Huila",
       quality_description: "Supremo UGQ"
@@ -217,7 +217,7 @@ coffeelot3 = CoffeeLot.new(
           stage: "Offer Sample",
           exporter: User.where(role: "Exporter").first,
           trader: User.where(role: "Trader").first,
-          coffee_lot: coffeelot2,
+          coffee_lot: coffeelot3,
           status: "history",
           acidity: 6,
           sweetness: 5,
@@ -230,7 +230,7 @@ coffeelot3 = CoffeeLot.new(
             stage: "Purchase Sample",
             exporter: User.where(role: "Exporter").first,
             trader: User.where(role: "Trader").first,
-            coffee_lot: coffeelot2,
+            coffee_lot: coffeelot3,
             status: "history",
             acidity: 7,
             sweetness: 6,
@@ -243,7 +243,7 @@ coffeelot3 = CoffeeLot.new(
             stage: "Loading Sample",
             exporter: User.where(role: "Exporter").first,
             trader: User.where(role: "Trader").first,
-            coffee_lot: coffeelot2,
+            coffee_lot: coffeelot3,
             status: "history",
             acidity: 6,
             sweetness: 5,
@@ -256,7 +256,7 @@ coffeelot3 = CoffeeLot.new(
               stage: "Port Sample",
               exporter: User.where(role: "Exporter").first,
               trader: User.where(role: "Trader").first,
-              coffee_lot: coffeelot2,
+              coffee_lot: coffeelot3,
               status: "history",
               acidity: 4,
               sweetness: 4,
@@ -265,9 +265,9 @@ coffeelot3 = CoffeeLot.new(
           sample.save
 
 
-    puts "                Creating potential client list for this coffeelot"
-      potclient = PotentialClient.new(coffee_lot: coffeelot3, client: seconduser)
-      potclient.save
+  #  puts "                Creating potential client list for this coffeelot"
+     # potclient = PotentialClient.new(coffee_lot: coffeelot3, client: seconduser)
+    #  potclient.save
 
   puts "...."
   puts "FINIHSHED"
