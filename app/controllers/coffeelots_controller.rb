@@ -14,7 +14,7 @@ class CoffeelotsController < ApplicationController
     end
 
     if @coffee_lot.samples.count > 1
-      @coffee_lot.samples.order(created_at: :asc).each do |sample|
+      @coffee_lot.samples.order(created_at: :desc).each do |sample|
         if @acidity == "" && @clean == "" && @sweetness == ""
           @acidity = sample.acidity.to_s
           @clean = sample.clean.to_s

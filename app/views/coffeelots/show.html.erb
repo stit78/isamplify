@@ -2,7 +2,7 @@
   <div class="container">
       <div class="show-general-header">
 
-        <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe, pending_index_samples_path, class: 'add_coffee_btn slick_btn'  %>
+        <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe, tested_index_samples_path, class: 'add_coffee_btn slick_btn'  %>
         <h3>Details of coffee lot #<%= @coffee_lot.iconumber %></h3>
       </div>
 
@@ -121,7 +121,7 @@
             <h4 class="sample-show-historic-title">
               Samples received
             </h4>
-              <% @coffee_lot.samples.each do |sample| %>
+              <% @coffee_lot.samples.order(created_at: :asc).each do |sample| %>
                 <%= render "/shared/card_sample.html.erb", sample: sample %>
               <% end %>
         </div>
