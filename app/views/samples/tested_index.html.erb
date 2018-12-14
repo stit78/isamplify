@@ -2,15 +2,15 @@
 <div class="wrapper">
   <div class="container">
     <div class="header-pending-show">
-      <div class="text-header-pending">
-        <h2 class="text-center-tested">
+      <div class="header-pending-show">
+        <h2 class="text-center">
         Samples labelling </h2>
+      <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn_labbelled button-create slick_btn" %>
       </div>
-      <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn button-create slick_btn" %>
     </div>
 
     <% if @samples.count == 0 %>
-      <p>No samples waiting for labelling</p>
+      <p class= "no-samples" >No samples waiting for labelling</p>
     <% else %>
       <% @samples.each do |sample| %>
         <%= render "shared/card_sample", sample: sample %>

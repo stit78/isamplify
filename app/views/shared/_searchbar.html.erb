@@ -1,11 +1,12 @@
 <div class="searchbar-form">
-  <div class="searchbar_input">
+  <div class="searchbar_input" style="position: relative">
     <%= form_tag search_samples_samples_path, method: :post do %>
-      <%= text_field_tag "search",
-                         nil,
-                         class: "form-control text_searchbar",
-                         placeholder: "contract ID, sample ID"
-      %>
+        <%= text_field_tag "search",
+                           nil,
+                           class: "form-control text_searchbar",
+                           placeholder: "Search"
+        %>
+      <i class="fas fa-search" style="position: absolute !important; top: 9px; right: 7px; opacity: 0.5"></i>
     <% end %>
   </div>
 </div>

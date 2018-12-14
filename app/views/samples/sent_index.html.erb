@@ -9,7 +9,7 @@
     </div>
 
     <% if @samples.count == 0 %>
-      <p>No sent samples</p>
+      <p class= "no-samples">No sent samples</p>
     <% else %>
       <% @samples.each do |sample| %>
         <%= render "shared/card_sample", sample: sample %>
