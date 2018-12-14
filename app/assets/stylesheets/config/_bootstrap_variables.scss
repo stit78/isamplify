@@ -6,8 +6,10 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 #edf1eef2;
+$body-bg: $light-gray;
 $font-size-base: 15px;
+
+// $body-bg:                 #edf1eef2; actual greenish
 
 // Colors
 $gray-base:       $gray;

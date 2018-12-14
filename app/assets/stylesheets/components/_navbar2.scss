@@ -80,17 +80,12 @@
     border-bottom: 5px solid;
   }
 
-  a{
-    color: $font-main;
-    font-size: 16px;
-    opacity: 0.8;
-}
 
 li{
   a:hover {
     // list-style-type: none;
-    color: #3a2318;;
-    border-bottom: 4px solid $font-main;
+    color: $main;
+    border-bottom: 4px solid $main;
     background-color: transparent;
   }
 }
@@ -171,7 +166,7 @@ li{
 
 
 .active-tab {
-  border-bottom: 4px solid $font-main;
+  border-bottom: 4px solid $main;
 }
 
 .logo-testing{
