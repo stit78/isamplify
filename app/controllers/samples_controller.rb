@@ -1,6 +1,6 @@
 class SamplesController < ApplicationController
   before_action :set_samples_count, only: [:pending_index, :received_index, :tested_index, :labelled_index, :sent_index, :approved_index]
-  before_action :set_find_sample, only: [:approved_show, :update_after_reception, :update_after_test, :update_after_labelling, :update_after_emailing, :update, :update_after_sent]
+  before_action :set_find_sample, only: [:approved_show, :update_after_reception, :update_after_test, :update_after_labelling, :update_after_emailing, :update, :update_after_sent, :update_archived]
 
   def pending_index
     @samples = Sample.pending
@@ -15,6 +15,8 @@ class SamplesController < ApplicationController
 
   def tested_index
     @samples = Sample.tested
+    @potential_client = PotentialClient.new
+    @clients = User.where(role: 'Client')
   end
 
   def labelled_index
@@ -69,9 +71,11 @@ class SamplesController < ApplicationController
   end
 
   def update_after_reception
+
     @after_reception = true
+
     if @sample.received!
-      set_samples_count
+      # set_samples_count
       respond_to do |format|
         format.html do
           flash[:notice] = "The sample #{@sample.id} has been received"
@@ -79,6 +83,7 @@ class SamplesController < ApplicationController
         end
 
         format.js do
+          set_samples_count
           render :update_navbar
         end
       end
@@ -90,6 +95,7 @@ class SamplesController < ApplicationController
         end
 
         format.js do
+          set_samples_count
           render :update_navbar
         end
       end
@@ -134,6 +140,9 @@ class SamplesController < ApplicationController
     @etiquette.sample = @sample
     @etiquette.save
     @after_labelling = true
+    @potential_client = PotentialClient.new(client_params)
+    @potential_client.coffee_lot = @sample.coffee_lot
+    @potential_client.save
 
     respond_to do |format|
       format.html do
@@ -199,6 +208,25 @@ class SamplesController < ApplicationController
     end
   end
 
+  def update_archived
+    @sample.status = "archived"
+    @sample.save
+    # binding.pry
+    @after_archived = true
+
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "The sample #{@sample.id} has been archived"
+        redirect_to tested_index_samples_path
+      end
+
+      format.js do
+        set_samples_count
+        render :update_navbar
+      end
+    end
+  end
+
   def email
     @sample = Sample.find(params[:id])
     ExporterMailer.reception_confirmation(@sample).deliver_now
@@ -216,6 +244,10 @@ class SamplesController < ApplicationController
 
   def review_params
     params.require(:sample).permit(:stage, :coffee_lot_id, :sweetness, :acidity, :clean, :status, :trader)
+  end
+
+  def client_params
+    params.require(:potential_client).permit(:client_id)
   end
 
   def set_samples_count

@@ -2,18 +2,40 @@
 <div class="wrapper">
   <div class="container">
     <div class="header-pending-show">
-      <div class="text-header-pending">
-        <h2 class="text-center-tested">
+      <div class="header-pending-show">
+        <h2 class="text-center">
         Samples labelling </h2>
+      <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn_labbelled button-create slick_btn" %>
       </div>
-      <%= link_to "See all labels", etiquettes_path, class: "add_coffee_btn button-create slick_btn" %>
     </div>
 
     <% if @samples.count == 0 %>
-      <p>No samples waiting for labelling</p>
+      <p class= "no-samples" >No samples waiting for labelling</p>
     <% else %>
       <% @samples.each do |sample| %>
         <%= render "shared/card_sample", sample: sample %>
+
+        <!-- modal to add potential client -->
+        <div class="modal fade" id="modal-client-sample-<%= sample.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" style="width: 30%" role="document">
+            <div class="modal-content modal-color">
+              <div class="modal-header">
+                <button type="button" class="close" id="modal-close-client-sample-#{sample.id}" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Select a potential client</h4>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for @potential_client, url: update_after_labelling_sample_path(sample), method: :post, remote: true do |f| %>
+                  <%= f.association :client, collection: @clients, label_method: :company_name, value_method: :id %>
+                  <br>
+                  <%= f.submit "Save", class: "add_coffee_btn modal_save" %>
+                  <br>
+                  <br>
+                  <p>Click on <%= link_to " <i class='fas fa-eye'></i> ".html_safe, update_archived_sample_path(sample), method: :post, remote: true, class: "archiving-sample" %> to archive sample.</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     <% end %>
 

@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :purchases
   has_many :potential_clients
+  accepts_nested_attributes_for :potential_clients
+
   has_many :samples
   has_many :sales
 

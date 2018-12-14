@@ -36,28 +36,76 @@
       <h2>Coffee news</h2>
       <div class="coffee-news">
 
-        <% for i in 0..3 %>
-          <%= link_to @scrapper_results[:urls][i], target: "_blank" do %>
-              <div class="news">
-                <div class="news-image">
-                  <%= image_tag @scrapper_results[:picture_urls][i], width: 200, height: 150, crop: 'fill' %>
-                </div>
-                <div class="news-content">
-                  <div class="news-title" style="text-decoration: none">
-                    <span><%= @scrapper_results[:titles][i] %></span>
-                  </div>
-                  <div class="news-author">
-                    <span>By <%= @scrapper_results[:authors][i]%></span>
-                  </div>
-                  <div class="news-text">
-                    <span><%= @scrapper_results[:texts][i]%></span>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+          <div class="news">
+          <div class="news-image">
+            <%= image_tag "https://media-cdn.tripadvisor.com/media/photo-s/06/8d/77/e4/trump-soho-new-york.jpg", width: 200, height: 150, crop: 'fill' %>
+          </div>
+          <div class="news-content">
+            <div class="news-title" style="text-decoration: none">
+              <span>East One Coffee Roasters Opens Shop Two in New York</span>
+            </div>
+            <div class="news-author">
+              <span>By Nick Brown | 13 December </span>
+            </div>
+            <div class="news-text">
+              <span>Brooklyn, New York-based East One Coffee Roasters has opened its second coffee shop, this time in collaboration with the arts-focused nonprofit Baxter St. at the Camera Club in Lower Manhattan’s Chinatown…</span>
+            </div>
+          </div>
         </div>
-      </div>
+
+         <div class="news">
+          <div class="news-image">
+            <%= image_tag "https://www.comunicaffe.com/wp-content/uploads/2016/06/Coffee_farmer_Colombia.jpg", width: 200, height: 150, crop: 'fill' %>
+          </div>
+          <div class="news-content">
+            <div class="news-title" style="text-decoration: none">
+              <span>La receta ganadora de Carolina Ibarra Garay del World Aeropress Championship</span>
+            </div>
+            <div class="news-author">
+              <span>By Daily Coffee News Staff | 10 December ></span>
+            </div>
+            <div class="news-text">
+              <span>Traducida por: Revista Roast. Read in English.) Oriunda de Los Ángeles y de ascendencia colombiana, Carolina Ibarra Garay derrotó a los otros 55 competidores del National Champion Aeropress el fin de…</span>
+            </div>
+          </div>
+        </div>
+
+         <div class="news">
+          <div class="news-image">
+            <%= image_tag "http://aziende.freecomm.it/390826/images/home_box1.jpg", width: 200, height: 150, crop: 'fill' %>
+          </div>
+          <div class="news-content">
+            <div class="news-title" style="text-decoration: none">
+              <span>European Coffee Shop Market Grew 6 Percent in 2018, Allegra Says</span>
+            </div>
+            <div class="news-author">
+              <span>By Thibault Salle | 8 December</span>
+            </div>
+            <div class="news-text">
+              <span>The retail coffee shop market in Europe grew by 6 percent in 2018 to 33,745 total outlets throughout 24 national markets, according to the latest market report from Allegra’s World…</span>
+            </div>
+          </div>
+        </div>
+
+         <div class="news">
+          <div class="news-image">
+            <%= image_tag "https://www.aquaspresso.co.za/wp-content/uploads/2011/10/Differences-Between-Arabica-and-Robusta-Coffee-Beans.jpg", width: 200, height: 150, crop: 'fill' %>
+          </div>
+            <div class="news-content">
+              <div class="news-title" style="text-decoration: none">
+                <span>Roaster’s Guide to Understanding Coffee Plant Types</span>
+              </div>
+              <div class="news-author">
+                <span>By Sacha Korsec | 5 December</span>
+              </div>
+              <div class="news-text">
+                <span>Coffea arabica has evolved dramatically over the course of history, rising from humble under-canopy trees growing wild in the forests of Keffa in western Ethiopia and South Sudan’s Boma Plateau…</span>
+              </div>
+            </div>
+          </div>
+
+         </div>
+       </div>
     </div>
   </div>
 
@@ -65,9 +113,11 @@
   <div class="mybanner">
     <div class='home-login'>
       <%= link_to 'Log in', new_user_session_path, class: 'add_coffee_btn' %>
-
     </div>
   </div>
+<!--   <div class="logo_new">
+    <%#= image_tag "logo_new.png"  %>
+  </div> -->
   <div class="home-element-container">
     <div class="home-element">
       <h3>Coffee-lots monitoring</h3>
@@ -75,14 +125,14 @@
       <p>Get notifications all along the import chain.</p>
     </div>
     <div class="home-element">
-      <h3>Coffee-lots monitoring</h3>
+      <h3>Samples management</h3>
       <br>
-      <p>Get notifications all along the import chain.</p>
+      <p>Receive, test, validate and send your samples seamlessly.</p>
     </div>
     <div class="home-element">
       <h3>Customer relations</h3>
-      <br>
-      <p>Assign your best coffees to your best customers</p>
+       <br>
+       <p>Assign your best coffees to your best customers</p>
     </div>
   </div>
 
@@ -95,50 +145,74 @@
         </div>
         <div class="illustration-wrapper">
           <%#= image_tag 'home_pics.png', class: "illustration" %>
-        </div>
-      </div>
+         </div>
+       </div>
 
-      <div class="right-side">
-        <div class="moto">
-          <h1>Coffee trade made simple</h1>
-        </div>
-        <div class="samplify-offer">
-          <div class="home-presentation-element"">
-            <br>
-            <h3>Coffee-lots monitoring</h3>
-            <br>
-            <p>Get notifications all along the import chain.</p>
-                                                 </div>
+       <div class="right-side">
+         <div class="moto">
+           <h1>Coffee trade made simple</h1>
+         </div>
+         <div class="samplify-offer">
+           <div class="home-presentation-element"">
+             <br>
+             <h3>Coffee-lots monitoring</h3>
+             <br>
+             <p>Get notifications all along the import chain.</p>
+                                                  </div>
 
-          <div class="home-presentation-element">
-            <br>
-            <h3>Samples management</h3>
-            <br>
-            <p>Validate, test and send your samples seamlessly.</p>
-          </div>
+           <div class="home-presentation-element">
+             <br>
+             <h3>Samples management</h3>
+             <br>
+             <p>Validate, test and send your samples seamlessly.</p>
+           </div>
 
-          <div class="home-presentation-element">
-            <br>
-            <h3>Customer relations</h3>
-            <br>
-            <p>Assign your best coffees to your best customers</p>
-          </div>
-        </div>
+           <div class="home-presentation-element">
+             <br>
+             <h3>Customer relations</h3>
+             <br>
+             <p>Assign your best coffees to your best customers</p>
+           </div>
+         </div>
 
-        <div class='action'>
-          <%#= link_to new_user_session_path do %>
-            <div class='home-button'>
-              <p>Discover</p>
-            </div>
-          <%# end %>
-          <%#= link_to new_user_session_path do %>
-            <div class='home-button'>
-              <p>Log in</p>
-            </div>
-          <%# end %>
-        </div>
-      </div>
-    </div> -->
-
+         <div class='action'>
+           <%#= link_to new_user_session_path do %>
+             <div class='home-button'>
+               <p>Discover</p>
+             </div>
+           <%# end %>
+           <%#= link_to new_user_session_path do %>
+             <div class='home-button'>
+               <p>Log in</p>
+             </div>
+           <%# end %>
+         </div>
+       </div>
+     </div> -->
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

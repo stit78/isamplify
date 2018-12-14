@@ -16,6 +16,24 @@
     }
 }
 
+.removed-lefty-item {
+    animation: removed-lefty-item-animation 1s cubic-bezier(1, 1, 1, 1) forwards;
+    /*transform origin is moved to the bottom left corner*/
+    transform-origin: 100% 0%;
+}
+
+@keyframes removed-lefty-item-animation {
+    0% {
+        opacity: 1;
+        transform: rotateZ(100);
+}
+
+    100% {
+        opacity: 0;
+        transform: translateX(-1000px) rotateZ(0deg);
+    }
+}
+
 .certification-logo {
   height: 30px;
   width: 30px;

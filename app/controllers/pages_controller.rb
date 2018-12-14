@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @samples = Sample.all.order(stage: :desc)
     @coffee_lot = CoffeeLot.all
     @quantity = @coffee_lot.map { |lot| lot.quantity }
-    @scrapper_results = Scrapper.new.call
+    # @scrapper_results = Scrapper.new.call
   end
 
   def set_samples_count
