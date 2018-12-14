@@ -1,11 +1,17 @@
 h2 {
-  color: $font-main;
+  color: black;
   font: $font-main;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 p {
-  color: $font-main;
+  color: black;
   font: $font-main;
+}
+
+ a{
+    color: black;
+    font-size: 16px;
+    opacity: 0.8;
 }
