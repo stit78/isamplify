@@ -79,53 +79,164 @@ louis = User.new(
   )
 louis.save
 
-puts "Creating 5 clients"
-CLIENTS.each do |client|
-
+puts "Creating 3 clients"
+puts " client Starbucks"
   firstuser = User.new(
-    email: "#{client}@gmail.com",
+    email: "thibaut.starbucks@gmail.com",
     role: "Client",
-    company_name: client.to_s,
-    first_name: client[0..2].to_s,
-    last_name: client[3..-1].to_s,
-    phone_number: PHONE.sample,
+    company_name: "Starbucks",
+    first_name: "Thibaut",
+    last_name: "Salle",
+    phone_number: "2401 Utah Avenue South, Seattle, WA, USA",
     password: "123456"
     )
   firstuser.save
-end
 
-
-
-puts "Creating 5 coffee lots"
-3.times do
-  puts "   creating one coffeelot"
-
-  coffeelot = CoffeeLot.new(
-    provenance: COUNTRY.sample,
-    quantity: [320, 640, 960, 1280, 1600].sample,
-    tree: TREE.sample,
-    iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
-    screen_size: SIZE.sample,
-    cup_profile: PROFILE.sample,
-    region: "South America",
-    quality_description: QUALITY.sample
+puts " client Nestlé"
+  seconduser = User.new(
+    email: "rodrigue.nestle@gmail.com",
+    role: "Client",
+    company_name: "Nestlé",
+    first_name: "Rodrigue",
+    last_name: "de Poix",
+    phone_number: "Avenue Nestlé 55, 1800 Vevey, Switzerland, CH",
+    password: "123456"
     )
+  seconduser.save
+
+puts " client café Richard"
+  thirduser = User.new(
+    email: "sasha.cafe.richard@gmail.com",
+    role: "Client",
+    company_name: "Café Richard",
+    first_name: "Sacha",
+    last_name: "Koverk",
+    phone_number: "5 Boulevard du Pré Biollat, 74200 Anthy-sur-Léman, FR",
+    password: "123456"
+    )
+  thirduser.save
+
+
+  puts " creation of 3 coffeelots"
+  puts "   creating coffeelot 1"
+  coffeelot1 = CoffeeLot.new(
+      provenance: "Colombia",
+      quantity: 1280,
+      tree: "Arabica",
+      iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
+      screen_size: 18,
+      cup_profile: "good cup",
+      region: "South America",
+      quality_description: "Agasimbo"
+      )
+
   puts "      Creating certifications for this coffeelot"
-  rand(1..3).times do
-    coffeecertif = CoffeeCertification.new(coffee_lot: coffeelot, certification: Certification.all.first(Certification.count).sample)
-    coffeecertif.save
-  end
+      rand(1..3).times do
+      coffeecertif1 = CoffeeCertification.new(coffee_lot: coffeelot1, certification: Certification.all.first(Certification.count).sample)
+      coffeecertif1.save
+    end
 
   puts "         Creating samples pending for this coffeelot"
     sample = Sample.new(
-      stage: STAGE.sample,
+      stage: "Offer Sample",
       exporter: carlos,
       trader: louis,
-      coffee_lot: coffeelot,
+      coffee_lot: coffeelot1,
+      status: "pending"
+      )
+
+   puts "                Creating potential client list for this coffeelot"
+    rand(1..3).times do
+      potclient = PotentialClient.new(coffee_lot: coffeelot1, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+      potclient.save
+    sample.save
+    end
+
+
+
+
+    puts "   creating  coffeelot 2"
+coffeelot2 = CoffeeLot.new(
+    provenance: "Burundi",
+    quantity: 640,
+    tree: "Robusta",
+    iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
+    screen_size: 12,
+    cup_profile: "Fine Cup",
+    region: "Africa",
+    quality_description: "Supremo UGQ"
+    )
+
+  puts "      Creating certifications for this coffeelot"
+    rand(1..3).times do
+      coffeecertif2 = CoffeeCertification.new(coffee_lot: coffeelot2, certification: Certification.all.first(Certification.count).sample)
+      coffeecertif2.save
+    end
+
+
+  puts "         Creating samples pending for this coffeelot"
+    sample = Sample.new(
+      stage: "Purchase Sample",
+      exporter: carlos,
+      trader: louis,
+      coffee_lot: coffeelot2,
       status: "pending"
       )
     sample.save
 
+puts "            Adding historic to sample status:pending"
+  sample = Sample.new(
+      stage: "Offer Sample",
+      exporter: User.where(role: "Exporter").first,
+      trader: User.where(role: "Trader").first,
+      coffee_lot: coffeelot2,
+      status: "sent",
+      acidity: 6,
+      sweetness: 5,
+      clean: 7
+      )
+  puts "                Creating potential client list for this coffeelot"
+    rand(1..3).times do
+      potclient = PotentialClient.new(coffee_lot: coffeelot2, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+      potclient.save
+    sample.save
+  end
+
+
+
+ puts "   creating coffeelot 3"
+coffeelot3 = CoffeeLot.new(
+    provenance: "Brazil",
+    quantity: 960,
+    tree: "Robusta",
+    iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
+    screen_size: 14,
+    cup_profile: "Fine Cup",
+    region: "South America",
+    quality_description: "NY 2/3 sc18 fc"
+    )
+
+puts "      Creating certifications for this coffeelot"
+    rand(1..3).times do
+      coffeecertif3 = CoffeeCertification.new(coffee_lot: coffeelot3, certification: Certification.all.first(Certification.count).sample)
+      coffeecertif3.save
+    end
+
+
+  puts "         Creating samples pending for this coffeelot"
+    sample = Sample.new(
+      stage: "Warehouse Sample",
+      exporter: carlos,
+      trader: louis,
+      coffee_lot: coffeelot3,
+      status: "pending"
+      )
+    puts "                Creating potential client list for this coffeelot"
+    rand(1..3).times do
+      potclient = PotentialClient.new(coffee_lot: coffeelot3, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+      potclient.save
+    sample.save
+    end
     # puts "Creating samples pending for this coffeelot"
     # sample = Sample.new(
     #   stage: STAGE.sample,
@@ -211,6 +322,7 @@ puts "Creating 5 coffee lots"
 
 end
 
-puts "...."
-puts "FINIHSHED"
 
+
+  puts "...."
+  puts "FINIHSHED"
