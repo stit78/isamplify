@@ -1,9 +1,12 @@
 <div class="grid-container">
   <div class="row">
-    <div class="header-labelling">
-      <%= link_to "Get PDF", etiquettes_path(format: :pdf), class: "add_coffee_btn button-create slick_btn" %>
-      <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe,  tested_index_samples_path, class: "add_coffee_btn button-create slick_btn" %>
+      <div class="button-etiquettes">
+    <div class="header-pending-show">
+        <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> Back'.html_safe,  tested_index_samples_path, class: "add_coffee_btn button-create slick_btn" %>
+        <%= link_to "Get PDF", etiquettes_path(format: :pdf), class: "add_coffee_btn button-create slick_btn" %>
+      </div>
     </div>
+    <div class="etiquettes-index">
       <% @etiquettes.each do |etiquette| %>
         <% etiquette.sample.coffee_lot.potential_clients.each do |potential_client|%>
       <div class="grid-element col-xs-12 col-sm-6">
@@ -20,10 +23,10 @@
           <p><strong>Quantity: </strong> <%= etiquette.sample.coffee_lot.quantity %> bags</p>
           <p><strong>Quality: </strong> <%= etiquette.sample.coffee_lot.quality_description %></p>
           <p><strong>id: </strong> <%= etiquette.sample.id %></p>
-
       </div>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>
   <!-- </div> -->

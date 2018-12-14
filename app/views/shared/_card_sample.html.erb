@@ -149,7 +149,7 @@
         </div>
       <% elsif sample.status == "labelled" %>
         <div class="card-action-edit removable">
-          <%= link_to image_tag("card-email.png"), update_after_emailing_sample_path(sample), method: :post, remote:true, class: "card-index-link-top" %>
+          <%= link_to image_tag("sent-mail copy.png"), update_after_emailing_sample_path(sample), method: :post, remote:true, class: "card-index-link-top" %>
         </div>
         <% elsif sample.status == "sent" %>
           <div class="card-action-edit removable">
