@@ -48,7 +48,7 @@ certifications.each do |certification|
   certif.save!
 end
 
-puts "Creating user Carlos"
+puts "Creating exporter Carlos"
 carlos = User.new(
   email: "carlos.sogimex@gmail.com",
   role: "Exporter",
@@ -59,6 +59,30 @@ carlos = User.new(
   password: "123456"
   )
 carlos.save
+
+puts "Creating exporter Carlos"
+paula = User.new(
+  email: "paula.coffeeexpress@gmail.com",
+  role: "Exporter",
+  company_name: "Coffee Express",
+  first_name: "Paula",
+  last_name: "Petita",
+  phone_number: PHONE.sample,
+  password: "123456"
+  )
+paula.save
+
+puts "Creating exporter Juan"
+juan = User.new(
+  email: "juan.coffeelombia@gmail.com",
+  role: "Exporter",
+  company_name: "COffeeLOMBIA",
+  first_name: "Juan",
+  last_name: "Philippos",
+  phone_number: PHONE.sample,
+  password: "123456"
+  )
+juan.save
 
 puts "Creating user louis"
 louis = User.new(
@@ -136,7 +160,7 @@ puts " client café Richard"
   puts "         Creating samples pending for this coffeelot"
     sample1 = Sample.new(
       stage: "Offer Sample",
-      exporter: carlos,
+      exporter: juan,
       trader: louis,
       coffee_lot: coffeelot1,
       status: "pending"
@@ -168,7 +192,7 @@ coffeelot2.save
   puts "         Creating samples pending for this coffeelot"
     sample2 = Sample.new(
       stage: "Offer Sample",
-      exporter: carlos,
+      exporter: paula,
       trader: louis,
       coffee_lot: coffeelot2,
       status: "pending"
@@ -269,8 +293,8 @@ coffeelot3 = CoffeeLot.new(
               trader: User.where(role: "Trader").first,
               coffee_lot: coffeelot3,
               status: "history",
-              acidity: 4,
-              sweetness: 4,
+              acidity: 5,
+              sweetness: 5,
               clean: 6
               )
           sample1.save
@@ -321,7 +345,7 @@ coffeelot3 = CoffeeLot.new(
 
         sample2 = Sample.new(
           stage: STAGE.sample,
-          exporter: carlos,
+          exporter: juan,
           trader: louis,
           coffee_lot: coffeelot4,
           status: "sent",
@@ -331,9 +355,13 @@ coffeelot3 = CoffeeLot.new(
           )
         sample2.save
 
+         puts "                Creating potential client list for coffeelot -----4------"
+           potclient = PotentialClient.new(coffee_lot: coffeelot4, client: thirduser)
+           potclient.save
+
         sample2 = Sample.new(
           stage: STAGE.sample,
-          exporter: carlos,
+          exporter: juan,
           trader: louis,
           coffee_lot: coffeelot5,
           status: "sent",
@@ -343,9 +371,13 @@ coffeelot3 = CoffeeLot.new(
           )
         sample2.save
 
+        puts "                Creating potential client list for coffeelot -----5------"
+          potclient = PotentialClient.new(coffee_lot: coffeelot5, client: firstuser)
+          potclient.save
+
         sample2 = Sample.new(
           stage: STAGE.sample,
-          exporter: carlos,
+          exporter: paula,
           trader: louis,
           coffee_lot: coffeelot6,
           status: "sent",
@@ -354,6 +386,10 @@ coffeelot3 = CoffeeLot.new(
           clean: rand(1..10)
           )
         sample2.save
+
+         puts "                Creating potential client list for coffeelot -----6------"
+          potclient = PotentialClient.new(coffee_lot: coffeelot6, client: firstuser)
+          potclient.save
 
   puts "...."
   puts "FINIHSHED"

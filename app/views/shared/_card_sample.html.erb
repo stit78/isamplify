@@ -60,7 +60,7 @@
             Note:
           </div>
           <div class="card-main-score">
-            <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" %>
+            <% if sample.status == "tested" || sample.status == "labelled" || sample.status == "sent" || sample.status == "history" %>
               <% sum = sample.safe_sweetness + sample.safe_acidity + sample.safe_clean %>
               <%= sum %> / 30
             <% else %>
