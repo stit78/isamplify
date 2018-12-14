@@ -9,7 +9,7 @@ CLIENTS = ["Starbucks", "Nestlé", "McDonald", "Auchan", "TimHortons"]
 PHONE = ["1 rue de la Centrale, Villeneuve d'Ascq, France", "1 place de Seattle, Lausanne, Suisse", "131 rue du café, 75011 Paris", "1145 5th Avenue, New York, USA"]
 
 def creating_sample(coffeelot, stage)
-  sample = Sample.new(
+  sample1 = Sample.new(
     stage: stage,
     exporter: User.where(role: "Exporter").first,
     trader: User.where(role: "Trader").first,
@@ -19,7 +19,7 @@ def creating_sample(coffeelot, stage)
     sweetness: rand(1..10),
     clean: rand(1..10)
     )
-  sample.save
+  sample1.save
 end
 
 puts "destroying etiquettes"
@@ -134,14 +134,14 @@ puts " client café Richard"
       coffeecertif2.save
 
   puts "         Creating samples pending for this coffeelot"
-    sample = Sample.new(
+    sample1 = Sample.new(
       stage: "Offer Sample",
       exporter: carlos,
       trader: louis,
       coffee_lot: coffeelot1,
       status: "pending"
       )
-    sample.save
+    sample1.save
 
 
     puts "   creating  coffeelot 2"
@@ -213,7 +213,7 @@ coffeelot3 = CoffeeLot.new(
   #     )
 
     puts "            Adding historic to sample status:pending"
-      sample = Sample.new(
+      sample1 = Sample.new(
           stage: "Offer Sample",
           exporter: User.where(role: "Exporter").first,
           trader: User.where(role: "Trader").first,
@@ -223,10 +223,10 @@ coffeelot3 = CoffeeLot.new(
           sweetness: 5,
           clean: 6
           )
-      sample.save
+      sample1.save
 
       puts "            Adding historic to sample status:pending"
-        sample = Sample.new(
+        sample1 = Sample.new(
             stage: "Purchase Sample",
             exporter: User.where(role: "Exporter").first,
             trader: User.where(role: "Trader").first,
@@ -236,10 +236,10 @@ coffeelot3 = CoffeeLot.new(
             sweetness: 6,
             clean: 6
             )
-        sample.save
+        sample1.save
 
       puts "            Adding historic to sample status:pending"
-        sample = Sample.new(
+        sample1 = Sample.new(
             stage: "Loading Sample",
             exporter: User.where(role: "Exporter").first,
             trader: User.where(role: "Trader").first,
@@ -249,10 +249,10 @@ coffeelot3 = CoffeeLot.new(
             sweetness: 5,
             clean: 6
             )
-        sample.save
+        sample1.save
 
         puts "            Adding historic to sample status:pending"
-          sample = Sample.new(
+          sample1 = Sample.new(
               stage: "Port Sample",
               exporter: User.where(role: "Exporter").first,
               trader: User.where(role: "Trader").first,
@@ -262,12 +262,87 @@ coffeelot3 = CoffeeLot.new(
               sweetness: 4,
               clean: 6
               )
-          sample.save
+          sample1.save
 
 
   #  puts "                Creating potential client list for this coffeelot"
      # potclient = PotentialClient.new(coffee_lot: coffeelot3, client: seconduser)
     #  potclient.save
+
+    puts "                         creating sent status samples"
+
+    puts "   creating coffeelot 4"
+    coffeelot4 = CoffeeLot.new(
+        provenance: "Costa Rica",
+        quantity: 1280,
+        tree: "Arabica",
+        iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
+        screen_size: 18,
+        cup_profile: "good cup",
+        region: "Tarrazu",
+        quality_description: "Specialty Estate Coffee"
+        )
+      coffeelot4.save
+
+      coffeelot5 = CoffeeLot.new(
+          provenance: "Peru",
+          quantity: 1280,
+          tree: "Arabica",
+          iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
+          screen_size: 18,
+          cup_profile: "Stocklot",
+          region: "Macana",
+          quality_description: "AB FAQ Flycrop"
+          )
+        coffeelot5.save
+
+        coffeelot6 = CoffeeLot.new(
+            provenance: "Kenya",
+            quantity: 320,
+            tree: "Arabica",
+            iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
+            screen_size: 18,
+            cup_profile: "SHG High Grown",
+            region: "Tiger",
+            quality_description: "Cherry AB"
+            )
+          coffeelot6.save
+
+        sample2 = Sample.new(
+          stage: STAGE.sample,
+          exporter: carlos,
+          trader: louis,
+          coffee_lot: coffeelot4,
+          status: "sent",
+          acidity: rand(1..10),
+          sweetness: rand(1..10),
+          clean: rand(1..10)
+          )
+        sample2.save
+
+        sample2 = Sample.new(
+          stage: STAGE.sample,
+          exporter: carlos,
+          trader: louis,
+          coffee_lot: coffeelot5,
+          status: "sent",
+          acidity: rand(1..10),
+          sweetness: rand(1..10),
+          clean: rand(1..10)
+          )
+        sample2.save
+
+        sample2 = Sample.new(
+          stage: STAGE.sample,
+          exporter: carlos,
+          trader: louis,
+          coffee_lot: coffeelot6,
+          status: "sent",
+          acidity: rand(1..10),
+          sweetness: rand(1..10),
+          clean: rand(1..10)
+          )
+        sample2.save
 
   puts "...."
   puts "FINIHSHED"
