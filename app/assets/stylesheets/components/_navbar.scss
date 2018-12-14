@@ -153,8 +153,9 @@
     }
     a:hover{
       color:white;
-      text-decoration: none;
-      border-bottom: 4px solid white;
+      text-decoration:none;
+      opacity: 0.5;
+
     }
     .active-tab-navbar {
       border-bottom: 4px solid white;

@@ -7,7 +7,7 @@
   <div class="container">
     <ul class="shift nav nav-pills nav-fill">
       <li class="nav-item">
-        <%=image_tag("reception_icon.png", height: '28px')%>
+        <%=image_tag("box.png", height: '28px')%>
         <%= link_to "Reception", pending_index_samples_path, class: "#{'active-tab' if action_name == 'pending_index'}"%>
         <% if @samples_count[0] != 0 %>
           <div class="button">
@@ -37,7 +37,7 @@
       </li>
 
        <li class="nav-item">
-         <%=image_tag("email.png", height: '28px')%>
+         <%=image_tag("sent-mail.png", height: '28px')%>
          <%= link_to "Emailing", labelled_index_samples_path, class: "#{'active-tab' if action_name == 'labelled_index'}" %>
          <% if @samples_count[3] != 0 %>
            <div class="button">

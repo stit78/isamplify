@@ -86,8 +86,9 @@
 li{
   a:hover {
     // list-style-type: none;
-    color: $main;
-    border-bottom: 4px solid $main;
+    color: #3a2318;
+    border-bottom: 4px solid $font-main;
+
     background-color: transparent;
   }
 }
