@@ -8,7 +8,7 @@
     <ul class="shift nav nav-pills nav-fill">
       <li class="nav-item">
         <%=image_tag("box.png", height: '28px')%>
-        <%= link_to "Reception", pending_index_samples_path, class: "#{'active-tab' if action_name == 'pending_index'}"%>
+        <%= link_to "Receiving", pending_index_samples_path, class: "#{'active-tab' if action_name == 'pending_index'}"%>
         <% if @samples_count[0] != 0 %>
           <div class="button">
             <span class="<%= samples_count_css_class(@samples_count, 0) %>"><%= @samples_count[0] %></span>
@@ -18,7 +18,7 @@
 
       <li class="nav-item">
         <%=image_tag("card-coffeebean.png", height: '28px')%>
-        <%= link_to "Test", received_index_samples_path, class: "#{'active-tab' if action_name == 'received_index'}"  %>
+        <%= link_to "Testing", received_index_samples_path, class: "#{'active-tab' if action_name == 'received_index'}"  %>
         <% if @samples_count[1] != 0 %>
           <div class="button">
             <span class="<%= samples_count_css_class(@samples_count, 1) %>"><%= @samples_count[1] %></span>

@@ -14,14 +14,14 @@
   height: 70px;
   position: absolute;
   left: 0px;
-  background-color: white;
+  background-color: #f2f9fe;
 }
 
 .left-element{
   width: 185px;;
   height:70px;
   position: absolute;
-  left: 0px;
+  left: 20px;
 }
 
 .logo-company-navbar {
@@ -53,6 +53,7 @@
 .navbar-wagon-brand img {
   height: 34px;
   margin-top: 10px;
+  margin-left: 5px;
 
 }
 
@@ -141,7 +142,7 @@
   font-size: 20px;
   margin: 5px;
   position: relative;
-  left: 140px;
+  left: 170px;
   width: 200px;
   display:flex;
   justify-content: space-between;
