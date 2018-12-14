@@ -5,7 +5,7 @@ PROFILE = ["good cup", "clean cup", "Fine Cup", "Specialty", "Stocklot", "Defect
 QUALITY = ["Supremo UGQ", "AB FAQ fly crop", "Fully Washed A", "NY 2/3 sc18 fc", "Agasimbo", "Cherry AB"]
 certifications = ["Fairtrade", "RFA", "Organic", "UTZ", "4C", "AAA", "Cafe Practice"]
 STAGE = ["Offer Sample", "Purchase Sample", "Loading Sample", "Port Sample", "Warehouse Sample", "Sale Sample"]
-CLIENTS = ["Starbucks", "Nestle", "McDonald", "Auchan", "TimHortons"]
+CLIENTS = ["Starbucks", "Nestlé", "McDonald", "Auchan", "TimHortons"]
 PHONE = ["1 rue de la Centrale, Villeneuve d'Ascq, France", "1 place de Seattle, Lausanne, Suisse", "131 rue du café, 75011 Paris", "1145 5th Avenue, New York, USA"]
 
 def creating_sample(coffeelot, stage)
@@ -97,6 +97,7 @@ puts " client Nestlé"
     )
   seconduser.save
 
+
 puts " client café Richard"
   thirduser = User.new(
     email: "sasha.cafe.richard@gmail.com",
@@ -109,8 +110,8 @@ puts " client café Richard"
     )
   thirduser.save
 
-
   puts " creation of 3 coffeelots"
+
   puts "   creating coffeelot 1"
   coffeelot1 = CoffeeLot.new(
       provenance: "Colombia",
@@ -122,12 +123,15 @@ puts " client café Richard"
       region: "South America",
       quality_description: "Agasimbo"
       )
+    coffeelot1.save
 
   puts "      Creating certifications for this coffeelot"
-      rand(1..3).times do
-      coffeecertif1 = CoffeeCertification.new(coffee_lot: coffeelot1, certification: Certification.all.first(Certification.count).sample)
+
+      coffeecertif1 = CoffeeCertification.new(coffee_lot: coffeelot1, certification: Certification.find_by(name: 'RFA'))
       coffeecertif1.save
-    end
+
+      coffeecertif2 = CoffeeCertification.new(coffee_lot: coffeelot1, certification: Certification.find_by(name: 'Organic'))
+      coffeecertif2.save
 
   puts "         Creating samples pending for this coffeelot"
     sample = Sample.new(
@@ -137,13 +141,7 @@ puts " client café Richard"
       coffee_lot: coffeelot1,
       status: "pending"
       )
-
-   puts "                Creating potential client list for this coffeelot"
-    rand(1..3).times do
-      potclient = PotentialClient.new(coffee_lot: coffeelot1, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
-      potclient.save
     sample.save
-    end
 
   puts " creation of 3 coffeelots"
   puts "   creating coffeelot 1"
@@ -192,30 +190,32 @@ coffeelot2 = CoffeeLot.new(
     region: "Kayanza",
     quality_description: "Fully Washed A"
     )
+coffeelot2.save
 
   puts "      Creating certifications for this coffeelot"
-    rand(1..3).times do
-      coffeecertif2 = CoffeeCertification.new(coffee_lot: coffeelot2, certification: Certification.all.first(Certification.count).sample)
+      coffeecertif1 = CoffeeCertification.new(coffee_lot: coffeelot2, certification: Certification.find_by(name: 'UTZ'))
+      coffeecertif1.save
+
+      coffeecertif2 = CoffeeCertification.new(coffee_lot: coffeelot2, certification: Certification.find_by(name: 'Organic'))
       coffeecertif2.save
-    end
 
 
   puts "         Creating samples pending for this coffeelot"
-    sample = Sample.new(
+    sample2 = Sample.new(
       stage: "Offer Sample",
       exporter: carlos,
       trader: louis,
       coffee_lot: coffeelot2,
       status: "pending"
       )
-    sample.save
+    sample2.save
 
-  puts "                Creating potential client list for this coffeelot"
-    rand(1..3).times do
-      potclient = PotentialClient.new(coffee_lot: coffeelot2, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
-      potclient.save
-    sample.save
-  end
+  #puts "                Creating potential client list for this coffeelot"
+    #rand(1..3).times do
+     # potclient = PotentialClient.new(coffee_lot: coffeelot2, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+    #  potclient.save
+   # sample.save
+  #end
 
  puts "   creating coffeelot 3"
 coffeelot3 = CoffeeLot.new(
@@ -228,12 +228,14 @@ coffeelot3 = CoffeeLot.new(
     region: "Espiritu Santo",
     quality_description: "NY 2/3 sc18 fc"
     )
+  coffeelot3.save
 
   puts "      Creating certifications for this coffeelot"
-      rand(1..3).times do
-        coffeecertif3 = CoffeeCertification.new(coffee_lot: coffeelot3, certification: Certification.all.first(Certification.count).sample)
-        coffeecertif3.save
-      end
+      coffeecertif1 = CoffeeCertification.new(coffee_lot: coffeelot3, certification: Certification.find_by(name: 'Fairtrade'))
+      coffeecertif1.save
+
+      coffeecertif2 = CoffeeCertification.new(coffee_lot: coffeelot3, certification: Certification.find_by(name: 'Organic'))
+      coffeecertif2.save
 
 
   # puts "         Creating samples pending for this coffeelot"
@@ -256,7 +258,20 @@ coffeelot3 = CoffeeLot.new(
           sweetness: 5,
           clean: 6
           )
+      sample.save
 
+      puts "            Adding historic to sample status:pending"
+        sample = Sample.new(
+            stage: "Purchase Sample",
+            exporter: User.where(role: "Exporter").first,
+            trader: User.where(role: "Trader").first,
+            coffee_lot: coffeelot2,
+            status: "history",
+            acidity: 7,
+            sweetness: 6,
+            clean: 6
+            )
+        sample.save
 
       puts "            Adding historic to sample status:pending"
         sample = Sample.new(
@@ -269,6 +284,7 @@ coffeelot3 = CoffeeLot.new(
             sweetness: 5,
             clean: 6
             )
+        sample.save
 
         puts "            Adding historic to sample status:pending"
           sample = Sample.new(
@@ -281,26 +297,12 @@ coffeelot3 = CoffeeLot.new(
               sweetness: 4,
               clean: 6
               )
+          sample.save
 
-
-          puts "            Adding historic to sample status:pending"
-            sample = Sample.new(
-                stage: "Warehouse Sample",
-                exporter: User.where(role: "Exporter").first,
-                trader: User.where(role: "Trader").first,
-                coffee_lot: coffeelot2,
-                status: "history",
-                acidity: 4,
-                sweetness: 4,
-                clean: 6
-                )
 
     puts "                Creating potential client list for this coffeelot"
-    rand(1..3).times do
-      potclient = PotentialClient.new(coffee_lot: coffeelot3, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+      potclient = PotentialClient.new(coffee_lot: coffeelot3, client: seconduser)
       potclient.save
-    sample.save
-    end
 
   puts "...."
   puts "FINIHSHED"
