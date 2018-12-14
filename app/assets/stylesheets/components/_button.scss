@@ -32,6 +32,29 @@
   opacity: 1;
 }
 
+
+.log_in_btn {
+  padding: 16px;
+  background-color: white;
+  border-radius: 32px;
+  border: solid 2px;
+  border-color: $font-main;
+  color: $font-main;
+  text-align: center;
+  opacity: 10;
+  font-size: xx-large;
+}
+
+.log_in_btn:hover {
+  text-decoration: none;
+  color: $font-main;
+  color: white;
+  background-color: $main;;
+  opacity: 1;
+  border: solid 2px;
+  border-color: transparent;
+}
+
 .photo_btn {
   background-color: #d5c9bd;
   border: 1px solid #0a49682e;

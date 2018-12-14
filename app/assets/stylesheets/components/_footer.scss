@@ -2,7 +2,7 @@
   background-size: cover;
   height: 70px;
   background-color: $main;
-  color: $font-main;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -12,7 +12,7 @@
     padding: 0px;
   }
   a {
-    color:$font-main;
+    color: white;
   }
   margin: 0px;
   font-size: 20px;
@@ -20,14 +20,14 @@
 }
 
 .social-network {
-  color:$font-main;
+  color: white;
   display:inline-block;
   position: absolute;
   left: 20px;
 }
 
 .poweredby {
-  color:$font-main;
+  color: white;
   position: absolute;
   padding: auto;
 }
