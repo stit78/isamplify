@@ -129,7 +129,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 140px);
 }
 
 // .logo {
@@ -159,7 +159,8 @@
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
-  height: calc(30vh - 70px);
+  height: calc(30vh - 140px);
+
   .home-presentation-element {
     text-align: center;
     width: 27%;
@@ -187,7 +188,7 @@
 .mybanner {
   background-image: url('https://images.unsplash.com/photo-1470087167738-6aa485ff65dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80');
   background-size: cover;
-  height: calc(70vh - 70px);
+  height: calc(100vh - 140px);
 }
 
 .home-element-container {
@@ -200,11 +201,14 @@
 .home-element {
   width: 20%;
   height: 200px;
-  margin: 20px 10px;
+  margin: 150px 30px;
   padding: 0px 10px 5px 10px;
   text-align: center;
   box-shadow: 0 0 2rem rgba(0,0,0,.1);
   background-color: white;
+  border-radius: 32px;
+
+  color: $font-main;
 }
 
 
