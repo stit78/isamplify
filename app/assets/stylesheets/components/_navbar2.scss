@@ -27,7 +27,9 @@
   100% {opacity: 1;}
 }
 
-
+.shift{
+  padding-left: 45px;
+}
   .nav li {
       list-style-type: none;
       width: 19%;
@@ -90,11 +92,6 @@ li{
   }
 }
 
-
-.logo-progressbar {
-  font-size: 30px;
-}
-
 .logo-progressbar-white {
   font-size: 30px;
   opacity: 0;
@@ -145,11 +142,10 @@ li{
   font-size: 12px;
   position: absolute;
   top: -7px;
-  right: 70px;
+  right: 50px;
   height: 20px;
   width: 20px;
 }
-
 
 .button__badge_active {
   background-color: green;
@@ -159,11 +155,10 @@ li{
   font-size: 12px;
   position: absolute;
   top: -7px;
-  right: 70px;
+  right: 50px;
   height: 20px;
   width: 20px;
 }
-
 
 .active-tab {
   border-bottom: 4px solid $main;

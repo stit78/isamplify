@@ -7,7 +7,7 @@
       </div>
     </div>
     <% if @samples.count == 0 %>
-      <p>No samples waiting for testing</p>
+      <p class= "no-samples">No samples waiting for testing</p>
     <% else %>
       <% @samples.each do |sample| %>
           <%= render "shared/card_sample", sample: sample %>
@@ -29,7 +29,7 @@
                     <%= f.input :clean, label: 'Body' %>
                     <%= f.input :flavour %>
                     <br>
-                    <%= f.submit "save", class: "add_coffee_btn modal_save" %>
+                    <%= f.submit "save", class: "add_coffee_btn modal_save received" %>
                     <br>
                     <br>
                   <% end %>

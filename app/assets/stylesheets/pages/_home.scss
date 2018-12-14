@@ -159,6 +159,7 @@
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+  height: calc(30vh - 70px);
   .home-presentation-element {
     text-align: center;
     width: 27%;
@@ -186,7 +187,7 @@
 .mybanner {
   background-image: url('https://images.unsplash.com/photo-1470087167738-6aa485ff65dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80');
   background-size: cover;
-  height: 70vh;
+  height: calc(70vh - 70px);
 }
 
 .home-element-container {

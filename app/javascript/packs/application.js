@@ -8,9 +8,21 @@ import {loadDynamicBannerText} from 'components/typed';
 import {sweetAlertCustom} from 'components/sweetAlert';
 
 
-if (document.getElementById("received-index")) {
-  closeModal();
-};
+// if (document.getElementById("received-index")) {
+//   closeModal();
+// };
+
+// if (document.querySelector(".archiving-sample")) {
+//   const modalArchive = document.querySelector(".archiving-sample");
+//   console.log('ccoucou');
+//   console.log(modalArchive);
+//   modalArchive.addEventListener('click', (event) => {
+//     let modalContainer = document.querySelector(".modal");
+//     console.log(modalContainer);
+//     modalContainer.modal('toggle');
+
+//   });
+// };
 
 if (document.getElementById("show-sample-historic-chart")) {
   const myId = document.getElementById("show-sample-historic-chart");
@@ -40,7 +52,7 @@ if (document.querySelector(".removable a")) {
   })
 }
 
-if (document.querySelector(".modal_save")) {
+if (document.querySelector(".received")) {
   document.querySelectorAll(".card-box").forEach((card) => {
     document.getElementById('modal-' + card.id).querySelector('.modal_save').addEventListener("click", (event) => {
       console.log('#modal-close-' + card.id);
@@ -64,3 +76,4 @@ if (document.getElementById("sweet-alert-sent")) {
     });
   })
 }
+

@@ -5,7 +5,7 @@
 
   <div class="higher-logo-company logo-company-navbar">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "ecom.png", class: "ecom-logo" %>
+      <%= image_tag "logo_new2.png", class: "ecom-logo" %>
     <% end %>
   </div>
 
@@ -19,17 +19,17 @@
   <div class="white-space-navbar">
     <% if params[:controller]== "coffeelots" %>
       <div class="navbar-samplify">
-        <%= link_to 'Samplify', pending_index_samples_path %>
+        <%= link_to 'Quality', pending_index_samples_path %>
         <%= link_to 'Trade', approved_index_samples_path%>
       </div>
     <% elsif action_name != 'home' %>
       <div class="navbar-samplify">
-        <%= link_to 'Samplify', pending_index_samples_path, class: "navbar-samplify", class: "#{'active-tab-navbar' if action_name != 'approved_index'}" %>
+        <%= link_to 'Quality', pending_index_samples_path, class: "navbar-samplify", class: "#{'active-tab-navbar' if action_name != 'approved_index'}" %>
         <%= link_to 'Trade', approved_index_samples_path, class: "#{'active-tab-navbar' if action_name == 'approved_index'}"%>
       </div>
     <% else %>
       <div class="navbar-samplify">
-        <%= link_to 'Samplify', pending_index_samples_path %>
+        <%= link_to 'Quality', pending_index_samples_path %>
         <%= link_to 'Trade', approved_index_samples_path%>
       </div>
     <% end %>
