@@ -118,10 +118,10 @@ puts " client café Richard"
       quantity: 1280,
       tree: "Arabica",
       iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
-      screen_size: 18,
+      screen_size: 15,
       cup_profile: "good cup",
-      region: "South America",
-      quality_description: "Agasimbo"
+      region: "Huila",
+      quality_description: "Supremo UGQ"
       )
     coffeelot1.save
 
@@ -143,41 +143,6 @@ puts " client café Richard"
       )
     sample.save
 
-  puts " creation of 3 coffeelots"
-  puts "   creating coffeelot 1"
-  coffeelot1 = CoffeeLot.new(
-      provenance: "Colombia",
-      quantity: 1280,
-      tree: "Arabica",
-      iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
-      screen_size: 18,
-      cup_profile: "good cup",
-      region: "Huila",
-      quality_description: "Supremo UGQ"
-      )
-
-  puts "      Creating certifications for this coffeelot"
-      rand(1..3).times do
-      coffeecertif1 = CoffeeCertification.new(coffee_lot: coffeelot1, certification: Certification.all.first(Certification.count).sample)
-      coffeecertif1.save
-    end
-
-  puts "         Creating samples pending for this coffeelot"
-    sample = Sample.new(
-      stage: "Offer Sample",
-      exporter: carlos,
-      trader: louis,
-      coffee_lot: coffeelot1,
-
-      status: "pending"
-      )
-
-   puts "                Creating potential client list for this coffeelot"
-    rand(1..3).times do
-      potclient = PotentialClient.new(coffee_lot: coffeelot1, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
-      potclient.save
-    sample.save
-    end
 
     puts "   creating  coffeelot 2"
 coffeelot2 = CoffeeLot.new(
