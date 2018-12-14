@@ -97,6 +97,8 @@ puts " client Nestlé"
     )
   seconduser.save
 
+
+
 puts " client café Richard"
   thirduser = User.new(
     email: "sasha.cafe.richard@gmail.com",
