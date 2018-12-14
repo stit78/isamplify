@@ -27,11 +27,15 @@
                 <%= simple_form_for @potential_client, url: update_after_labelling_sample_path(sample), method: :post, remote: true do |f| %>
                   <%= f.association :client, collection: @clients, label_method: :company_name, value_method: :id %>
                   <br>
-                  <%= f.submit "Save", class: "add_coffee_btn modal_save" %>
+                  <div class="modal-button-label">
+                    <%= f.submit "Save", class: "add_coffee_btn modal_save" %>
+                    <br>
+                  <% end %>
+                  <h4>OR</h4>
                   <br>
-                  <br>
-                  <p>Click on <%= link_to " <i class='fas fa-eye'></i> ".html_safe, update_archived_sample_path(sample), method: :post, remote: true, class: "archiving-sample" %> to archive sample.</p>
-                <% end %>
+                    <p><%= link_to  "Archive sample", update_archived_sample_path(sample), method: :post, remote: true, class: "archiving-sample add_coffee_btn" %></p>
+                    <br>
+                    </div>
               </div>
             </div>
           </div>
