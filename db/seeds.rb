@@ -184,14 +184,14 @@ coffeelot2.save
 
  puts "   creating coffeelot 3"
 coffeelot3 = CoffeeLot.new(
-    provenance: "Brazil",
+    provenance: "Honduras",
     quantity: 960,
-    tree: "Robusta",
+    tree: "Arabica",
     iconumber: "#{rand(100..999)}-#{rand(1000..9999)}-#{rand(1000..9999)}",
     screen_size: 14,
     cup_profile: "Fine Cup",
-    region: "Espiritu Santo",
-    quality_description: "NY 2/3 sc18 fc"
+    region: "Marcala",
+    quality_description: "Strictly High Grown"
     )
   coffeelot3.save
 
@@ -201,6 +201,17 @@ coffeelot3 = CoffeeLot.new(
 
       coffeecertif2 = CoffeeCertification.new(coffee_lot: coffeelot3, certification: Certification.find_by(name: 'Organic'))
       coffeecertif2.save
+
+
+      puts "         Creating samples pending for this coffeelot"
+        sample3 = Sample.new(
+          stage: "Warehouse Sample",
+          exporter: carlos,
+          trader: louis,
+          coffee_lot: coffeelot3,
+          status: "pending"
+          )
+        sample3.save
 
 
   # puts "         Creating samples pending for this coffeelot"
