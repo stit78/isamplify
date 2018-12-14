@@ -237,6 +237,91 @@ puts "      Creating certifications for this coffeelot"
       potclient.save
     sample.save
     end
+    # puts "Creating samples pending for this coffeelot"
+    # sample = Sample.new(
+    #   stage: STAGE.sample,
+    #   exporter: carlos,
+    #   trader: louis,
+    #   coffee_lot: coffeelot,
+    #   status: "labelled"
+    #   )
+    # sample.save
+
+  # puts "Creating 5 etiquettes"
+  # 1.times do
+  #   puts "creating one etiquette"
+
+  #   etiquette = Etiquette.new(sample: sample)
+  #   etiquette.save
+  # end
+  # puts "creating samples for this coffeelot"
+  #   example1 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: louis,
+  #     coffee_lot: coffeelot,
+  #     status: "received"
+  #     )
+  #   example1.save
+
+  # puts "creating samples for this coffeelot"
+  #   example2 = Sample.new(
+  #     stage: STAGE.sample,
+  #     exporter: carlos,
+  #     trader: louis,
+  #     coffee_lot: coffeelot,
+  #     status: "tested"
+  #     )
+  #   example2.save
+
+ # <%#= f.fields_for :potential_clients, @potential_client*4 do |potential_client| %>
+ #                    <%#= potential_client.association :client, collection: @clients, label_method: :company_name, value_method: :id %>
+ #                  <%# end %>
+
+  puts "            Adding historic to sample status:pending"
+  if sample.stage == "Purchase Sample"
+    creating_sample(coffeelot, "Offer Sample")
+  elsif sample.stage == "Loading Sample"
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Offer Sample")
+  elsif sample.stage == "Port Sample"
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+    creating_sample(coffeelot, "Offer Sample")
+  elsif sample.stage == "Warehouse Sample"
+    creating_sample(coffeelot, "Port Sample")
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+    creating_sample(coffeelot, "Offer Sample")
+  elsif sample.stage == "Sale Sample"
+    creating_sample(coffeelot, "Warehouse Sample")
+    creating_sample(coffeelot, "Port Sample")
+    creating_sample(coffeelot, "Loading Sample")
+    creating_sample(coffeelot, "Purchase Sample")
+    creating_sample(coffeelot, "Offer Sample")
+  end
+
+  # if sample.stage == "Purchase Sample"|| sample.stage = "Loading Sample" || sample.stage == "Port Sample" || sample.stage == "Warehouse Sample" || sample.stage == "Sale Sample"
+  #   puts "                Creating potential client list for this coffeelot"
+  #   rand(1..3).times do
+  #     potclient = PotentialClient.new(coffee_lot: coffeelot, client: User.where(role: "Client").first(User.where(role: "Client").count).sample)
+  #     potclient.save
+  #   end
+
+  #   purchase = Purchase.new(
+  #     exporter: carlos,
+  #     trader: louis,
+  #     price: rand(1000..3000),
+  #     quantity: rand(10..30),
+  #     owner: (coffeelot.samples.last.stage == "Purchase Sample" ? carlos : louis)
+  #     )
+  #   purchase.save
+
+  #   coffeelot.save
+  # end
+
+end
+
 
 
   puts "...."
